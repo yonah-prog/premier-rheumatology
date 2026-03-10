@@ -959,9 +959,54 @@
 
     footer p { font-size: 0.8rem; }
 
-    footer nav ul { gap: 20px; }
-    footer nav ul a { font-size: 0.8rem; color: rgba(255,255,255,.7); }
-    footer nav ul a:hover { color: #fff; }
+    .footer-links ul { list-style: none; display: flex; gap: 20px; }
+    .footer-links ul a { font-size: 0.8rem; color: rgba(255,255,255,.7); text-decoration: none; transition: color .2s; }
+    .footer-links ul a:hover { color: #fff; }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+    .reveal.delay-4 { transition-delay: 0.4s; }
+
+    .method-card, .team-card, .review-card, .option-card, .step-card, .faq-item {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .method-card:hover, .team-card:hover, .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(107,63,160,.14);
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.12);
+    }
+    .faq-item:hover { transform: translateY(-2px); }
+
+    @keyframes heroIn {
+      from { opacity: 0; transform: scale(1.03); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .hero-image .site-img {
+      animation: heroIn 0.9s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content h1  { animation: fadeUp 0.7s 0.1s ease both; }
+    .hero-content p   { animation: fadeUp 0.7s 0.25s ease both; }
+    .hero-actions     { animation: fadeUp 0.7s 0.4s ease both; }
+    .hero-content .eyebrow { animation: fadeUp 0.6s ease both; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -1041,7 +1086,7 @@
   </section>
 
   <!-- TRUST BAR -->
-  <div class="trust-bar">
+  <div class="trust-bar reveal">
     <div class="container">
       <span class="label">Recognized &amp; Trusted</span>
       <div class="trust-badges">
@@ -1159,21 +1204,21 @@
       <h2>Rheumatology Care Built Around the Whole Person</h2>
       <p>At Premier Rheumatology, we've built a practice around one belief: exceptional medicine and genuine human connection aren't separate things — they're the same thing.</p>
       <div class="method-cards">
-        <div class="method-card">
+        <div class="method-card reveal delay-1">
           <div class="method-card-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
           </div>
           <h3>Individualized Treatment Plans</h3>
           <p>No two patients are the same — and no two plans should be either. We build every care plan around your specific diagnosis, lifestyle, goals, and tolerance for treatment.</p>
         </div>
-        <div class="method-card">
+        <div class="method-card reveal delay-2">
           <div class="method-card-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
           </div>
           <h3>Continuity of Care</h3>
           <p>You see the same providers at every visit. Your care team knows your history without having to re-read your chart — because they already know you.</p>
         </div>
-        <div class="method-card">
+        <div class="method-card reveal delay-3">
           <div class="method-card-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11H6v-2h12v2zm0-4H6V8h12v2z"/></svg>
           </div>
@@ -1362,7 +1407,7 @@
       <h2>The People Behind Your Care</h2>
       <p>Our team brings together board-certified specialists deeply committed to compassionate, evidence-based rheumatology care. We believe that every movement matters — and we're with you every step of the way.</p>
       <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card reveal delay-1">
           <div class="team-photo"><img src="Dr-Muriel-Boucher-1.png" alt="Dr. Mouriel Boucher, DO" class="site-img" style="aspect-ratio:4/3;" /></div>
           <div class="team-body">
             <div class="team-name">Dr. Mouriel Boucher, DO</div>
@@ -1376,7 +1421,7 @@
             </div>
           </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal delay-2">
           <div class="team-photo"><img src="natalie-1.png" alt="Natalie Akerman, NP" class="site-img" style="aspect-ratio:4/3;" /></div>
           <div class="team-body">
             <div class="team-name">Natalie Akerman, NP</div>
@@ -1400,7 +1445,7 @@
       <span class="label" style="display:block; text-align:center;">What Real Patients Say</span>
       <h2>Stories From Patients Who Finally Feel Heard</h2>
       <div class="reviews-grid">
-        <div class="review-card">
+        <div class="review-card reveal delay-1">
           <div class="stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1741,50 +1786,55 @@
       <div>
         <div class="form-card">
           <h3>Request an Appointment</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" placeholder="Jane" />
+          <form action="https://formsubmit.co/yonah@premierhealthalliance.com" method="POST">
+            <input type="hidden" name="_subject" value="New Appointment Request — Premier Rheumatology" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="First Name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="Last Name" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="Email" placeholder="jane@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="Phone" placeholder="(555) 000-0000" />
+              </div>
             </div>
             <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" placeholder="Smith" />
+              <label for="condition">Primary Condition or Concern</label>
+              <select id="condition" name="Condition">
+                <option value="">Select your condition...</option>
+                <option>Rheumatoid Arthritis</option>
+                <option>Lupus (SLE)</option>
+                <option>Osteoporosis</option>
+                <option>Psoriatic Arthritis</option>
+                <option>Ankylosing Spondylitis</option>
+                <option>Gout</option>
+                <option>Joint Pain (Undiagnosed)</option>
+                <option>Other / Not Sure</option>
+              </select>
             </div>
-          </div>
-          <div class="form-row">
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="jane@example.com" />
+              <label for="insurance">Insurance Provider</label>
+              <input type="text" id="insurance" name="Insurance" placeholder="e.g. Aetna, BlueCross, Medicare" />
             </div>
             <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="(555) 000-0000" />
+              <label for="message">Anything else you'd like us to know?</label>
+              <textarea id="message" name="Message" placeholder="Optional — share any questions, concerns, or context about your symptoms…"></textarea>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="condition">Primary Condition or Concern</label>
-            <select id="condition">
-              <option value="">Select your condition...</option>
-              <option>Rheumatoid Arthritis</option>
-              <option>Lupus (SLE)</option>
-              <option>Osteoporosis</option>
-              <option>Psoriatic Arthritis</option>
-              <option>Ankylosing Spondylitis</option>
-              <option>Gout</option>
-              <option>Joint Pain (Undiagnosed)</option>
-              <option>Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="insurance">Insurance Provider</label>
-            <input type="text" id="insurance" placeholder="e.g. Aetna, BlueCross, Medicare" />
-          </div>
-          <div class="form-group">
-            <label for="message">Anything else you'd like us to know?</label>
-            <textarea id="message" placeholder="Optional — share any questions, concerns, or context about your symptoms…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit Request →</button>
-          <p class="form-note">We typically respond within 1 business hour. Your information is kept strictly confidential.</p>
+            <button type="submit" class="btn btn-primary">Submit Request →</button>
+            <p class="form-note">We typically respond within 1 business hour. Your information is kept strictly confidential.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -1797,16 +1847,61 @@
         <img src="logo.png" alt="Premier Rheumatology" class="logo-img-footer" />
       </a>
       <p>&copy; 2026 Premier Rheumatology. All rights reserved.</p>
-      <nav>
+      <div class="footer-links">
         <ul>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms of Use</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#booking">Contact</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
   </footer>
 
+  <script>
+    // Auto-add reveal + stagger delays to card groups
+    const cardGroups = [
+      '.reviews-grid .review-card',
+      '.centers-grid .center-card',
+      '.features-grid .feature-item',
+      '.steps-grid .step-card',
+      '.options-grid .option-card',
+      '.faq-grid .faq-item',
+    ];
+    cardGroups.forEach(selector => {
+      document.querySelectorAll(selector).forEach((el, i) => {
+        el.classList.add('reveal');
+        if (i < 4) el.classList.add('delay-' + (i + 1));
+      });
+    });
+
+    // Individual reveals for section content blocks
+    [
+      '.imagine .container > div',
+      '.why-trust .container > div',
+      '.qualify .container > div',
+      '.booking .container > div',
+      '.warning-box',
+      '.comparison-table',
+      '.final-thought .container',
+    ].forEach(selector => {
+      document.querySelectorAll(selector).forEach((el, i) => {
+        el.classList.add('reveal');
+        if (i > 0) el.classList.add('delay-' + Math.min(i, 4));
+      });
+    });
+
+    // Scroll reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
