@@ -162,17 +162,11 @@
     .two-col.reverse { direction: rtl; }
     .two-col.reverse > * { direction: ltr; }
 
-    .img-placeholder {
+    .site-img {
       width: 100%;
-      aspect-ratio: 4/3;
+      display: block;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--purple-pale) 0%, var(--gray-200) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--purple-light);
-      font-weight: 500;
+      object-fit: cover;
     }
 
     /* ── HERO ── */
@@ -1030,7 +1024,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <div class="img-placeholder" style="aspect-ratio:3/4;">Patient &amp; Doctor Photo</div>
+        <img src="smiling woman.png" alt="Premier Rheumatology patient" class="site-img" style="aspect-ratio:3/4;" />
         <div class="hero-card">
           <div class="hero-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2.2" xmlns="http://www.w3.org/2000/svg">
@@ -1089,7 +1083,7 @@
   <section class="problem section" id="why-us">
     <div class="container">
       <div>
-        <div class="img-placeholder" style="aspect-ratio:4/3; width:100%;">Patient Consultation Photo</div>
+        <img src="knee pain.png" alt="Patient consultation" class="site-img" style="aspect-ratio:4/3;" />
       </div>
       <div>
         <span class="label">We Hear You</span>
@@ -1223,7 +1217,7 @@
         <a href="#booking" class="btn btn-primary">Start Experiencing This</a>
       </div>
       <div>
-        <div class="img-placeholder" style="aspect-ratio:4/5; border-radius:20px; width:100%;">Warm Clinic Interior Photo</div>
+        <img src="care.png" alt="Premier Rheumatology clinic" class="site-img" style="aspect-ratio:4/5;" />
       </div>
     </div>
   </section>
@@ -1321,7 +1315,7 @@
   <section class="why-trust section">
     <div class="container">
       <div>
-        <div class="img-placeholder" style="aspect-ratio:4/3; border-radius:20px; width:100%;">Care Team Photo</div>
+        <img src="team.png" alt="Premier Rheumatology care team" class="site-img" style="aspect-ratio:4/3;" />
       </div>
       <div>
         <span class="label">Your Care Comes First</span>
@@ -1369,7 +1363,7 @@
       <p>Our team brings together board-certified specialists deeply committed to compassionate, evidence-based rheumatology care. We believe that every movement matters — and we're with you every step of the way.</p>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-photo">Dr. Boucher Photo</div>
+          <div class="team-photo"><img src="Dr-Muriel-Boucher-1.png" alt="Dr. Mouriel Boucher, DO" class="site-img" style="aspect-ratio:4/3;" /></div>
           <div class="team-body">
             <div class="team-name">Dr. Mouriel Boucher, DO</div>
             <div class="team-title">Rheumatologist</div>
@@ -1383,7 +1377,7 @@
           </div>
         </div>
         <div class="team-card">
-          <div class="team-photo">Natalie Akerman Photo</div>
+          <div class="team-photo"><img src="natalie-1.png" alt="Natalie Akerman, NP" class="site-img" style="aspect-ratio:4/3;" /></div>
           <div class="team-body">
             <div class="team-name">Natalie Akerman, NP</div>
             <div class="team-title">Family Nurse Practitioner, Rheumatology Specialist</div>
@@ -1565,7 +1559,7 @@
   <section class="qualify section">
     <div class="container">
       <div>
-        <div class="img-placeholder" style="aspect-ratio:4/3; border-radius:20px; width:100%;">Patient &amp; Provider Photo</div>
+        <img src="hands.png" alt="Patient and provider" class="site-img" style="aspect-ratio:4/3;" />
       </div>
       <div>
         <span class="label">Conditions We Treat</span>
