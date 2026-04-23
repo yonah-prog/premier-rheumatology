@@ -30,7 +30,6 @@ const SiteHeader = ({ active }) => (
       <NavLink href="about.html" active={active === 'about'}>About Premier Rheumatology</NavLink>
       <NavLink href="team.html" active={active === 'team'}>Our Team</NavLink>
       <NavLink href="conditions.html" active={active === 'conditions'}>Conditions We Treat</NavLink>
-      <NavLink href="services.html" active={active === 'services'}>Services</NavLink>
       <NavLink href="florida.html" active={active === 'florida'}>
         Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span>
       </NavLink>
@@ -74,7 +73,8 @@ const SiteFooter = () => (
           <a href="about.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>About</a>
           <a href="team.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>Our Team</a>
           <a href="conditions.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>Conditions</a>
-          <a href="services.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>Services</a>
+          <a href="florida.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>Florida</a>
+          <a href="new-york.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>New York</a>
           <a href="contact.html" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>Contact</a>
         </div>
       </div>
