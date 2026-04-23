@@ -60,7 +60,7 @@ const KeyFacts = ({ facts }) => (
     <dl style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: 18 }}>
       {facts.map((f, i) => (
         <div key={i} style={{ paddingBottom: 18, borderBottom: i === facts.length - 1 ? 'none' : `1px solid ${ap2.line}` }}>
-          <dt style={{ fontSize: 12, fontWeight: 600, color: ap2.purple, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6, fontFamily: 'JetBrains Mono, monospace' }}>{f.label}</dt>
+          <dt style={{ fontSize: 12, fontWeight: 600, color: ap2.purple, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6, fontFamily: 'Manrope, sans-serif' }}>{f.label}</dt>
           <dd style={{ margin: 0, fontSize: 14.5, lineHeight: 1.55, color: ap2.ink }}>{f.value}</dd>
         </div>
       ))}
@@ -169,7 +169,7 @@ const ConditionArticle = ({ slug }) => {
           <div style={{ ...aps2.eyebrow, marginBottom: 14 }}>{cat.label}</div>
           <h1 style={{ fontSize: 64, fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.05, margin: '0 0 24px' }}>{c.title}</h1>
           <p style={{ fontSize: 20, lineHeight: 1.55, color: ap2.sub, margin: 0, maxWidth: 780 }}>{c.excerpt}</p>
-          <div style={{ marginTop: 26, display: 'flex', gap: 20, fontSize: 13, color: ap2.sub, fontFamily: 'JetBrains Mono, monospace' }}>
+          <div style={{ marginTop: 26, display: 'flex', gap: 20, fontSize: 13, color: ap2.sub, fontFamily: 'Manrope, sans-serif' }}>
             <span>{c.readTime} MIN READ</span>
             <span>· PHYSICIAN-REVIEWED</span>
             <span>· UPDATED 2026</span>

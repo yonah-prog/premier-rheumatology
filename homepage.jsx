@@ -8,32 +8,9 @@ const pl = {
 };
 
 const ps = {
-  eyebrow: { fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: pl.purple, fontWeight: 500 },
+  eyebrow: { fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: pl.purple, fontWeight: 300 },
   h2: { fontFamily: 'Manrope, sans-serif', fontWeight: 700, letterSpacing: '-0.035em', fontSize: 56, lineHeight: 1.04, color: pl.ink, margin: 0 },
 };
-
-const navLink = { textDecoration: 'none', color: pl.ink, fontSize: 14.5, fontWeight: 500 };
-
-// ─── Header ──────────────────────────────────────────────
-const PHeader = () => (
-  <div>
-    <header style={{ padding: '22px 56px', display: 'grid', gridTemplateColumns: '220px 1fr auto', alignItems: 'center', gap: 40, background: pl.card, borderBottom: `1px solid ${pl.line}` }}>
-      <a href="index.html" style={{ textDecoration: 'none' }}><PRLogo size={40} wordColor={pl.ink} /></a>
-      <nav style={{ display: 'flex', gap: 32, justifyContent: 'center' }}>
-        <a href="about.html" style={navLink}>About Premier Rheumatology</a>
-        <a href="team.html" style={navLink}>Our Team</a>
-        <a href="conditions.html" style={navLink}>Conditions We Treat</a>
-        <a href="conditions.html" style={navLink}>Services</a>
-        <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
-        <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>New York <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
-        <a href="contact.html" style={navLink}>Contact</a>
-      </nav>
-      <a href="contact.html" style={{ textDecoration: 'none' }}>
-        <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Schedule an Appointment</button>
-      </a>
-    </header>
-  </div>
-);
 
 // ─── Hero: "Move Freely. Live Fully." ───────────────────────
 const PHero = () => (
@@ -349,47 +326,17 @@ const PContactCTA = () => (
   </section>
 );
 
-const PFooter = () => (
-  <footer style={{ background: pl.purpleDeep, color: '#fff', padding: '56px 56px 28px' }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, paddingBottom: 40, borderBottom: '1px solid #ffffff20' }}>
-      <div>
-        <PRLogo size={36} wordColor="#fff" />
-        <p style={{ marginTop: 20, opacity: 0.72, maxWidth: 360, fontSize: 15, lineHeight: 1.55 }}>
-          Specialized rheumatology and autoimmune care. Call today to schedule your consultation.
-        </p>
-      </div>
-      <div>
-        <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>Florida</div>
-        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>2900 N Military Trl<br/>Boca Raton, FL 33431<br/><a href="tel:+15617303894" style={{ color: 'inherit', textDecoration: 'none' }}>(561) 730-3894</a></div>
-      </div>
-      <div>
-        <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>New York</div>
-        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>261-12 E Williston Ave<br/>Queens, NY 11001<br/><a href="tel:+17183478888" style={{ color: 'inherit', textDecoration: 'none' }}>(718) 347-8888</a></div>
-      </div>
-      <div>
-        <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>Navigate</div>
-        <div style={{ opacity: 0.78, lineHeight: 2, fontSize: 14, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <a href="about.html" style={{ color: 'inherit', textDecoration: 'none' }}>About</a>
-          <a href="team.html" style={{ color: 'inherit', textDecoration: 'none' }}>Our Team</a>
-          <a href="conditions.html" style={{ color: 'inherit', textDecoration: 'none' }}>Conditions We Treat</a>
-          <a href="contact.html" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
-        </div>
-      </div>
-    </div>
-    <div style={{ paddingTop: 20, opacity: 0.5, fontSize: 12 }}>© 2026 Premier Rheumatology PLLC</div>
-  </footer>
-);
-
 const PremierHome = () => (
   <div style={{ background: pl.bg, color: pl.ink, fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
-    <PHeader />
+    <GlobalStyles />
+    <SiteHeader active="home" />
     <PHero />
     <PPremierCare />
     <PProcess />
     <PServices />
     <PLocations />
     <PContactCTA />
-    <PFooter />
+    <SiteFooter />
   </div>
 );
 

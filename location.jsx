@@ -248,7 +248,7 @@ const LocCTA = ({ cfg }) => (
   <section style={{ padding: '80px 56px' }}>
     <div style={{ background: cfg.dot, color: '#fff', borderRadius: 24, padding: '64px 64px', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 48, alignItems: 'center' }}>
       <div>
-        <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#ffffff99', marginBottom: 18 }}>
+        <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#ffffff99', marginBottom: 18 }}>
           {cfg.city} · {cfg.region}
         </div>
         <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 48, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: '0 0 18px' }}>

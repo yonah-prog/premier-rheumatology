@@ -8,9 +8,39 @@ const palette = {
 };
 
 const chromeStyles = {
-  eyebrow: { fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: palette.purple, fontWeight: 500 },
+  eyebrow: { fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: palette.purple, fontWeight: 300 },
   h2: { fontFamily: 'Manrope, sans-serif', fontWeight: 700, letterSpacing: '-0.035em', fontSize: 56, lineHeight: 1.04, color: palette.ink, margin: 0 },
 };
+
+const GlobalStyles = () => (
+  <style dangerouslySetInnerHTML={{ __html: `
+    /* Nav hover */
+    header nav a { transition: color 0.18s, border-bottom-color 0.18s; }
+    header nav a:hover { color: #5a1f99 !important; border-bottom-color: #5a1f99 !important; opacity: 1 !important; }
+
+    /* All buttons */
+    button { transition: filter 0.15s, transform 0.1s; }
+    button:hover { filter: brightness(0.88); }
+    button:active { transform: scale(0.97); }
+
+    /* Card links — lift */
+    section a > div { transition: box-shadow 0.2s, transform 0.2s; }
+    section a:hover > div { box-shadow: 0 10px 32px rgba(18,16,26,0.1); transform: translateY(-3px); }
+    section a:hover { opacity: 1 !important; }
+
+    /* Footer links */
+    footer a { transition: opacity 0.15s; }
+    footer a:hover { opacity: 1 !important; }
+
+    /* FAQ accordion open/close */
+    details summary { transition: color 0.15s; }
+    details summary:hover { color: #5a1f99; }
+    details[open] summary span:last-child { display: inline-block; transform: rotate(45deg); }
+
+    /* Global link transitions */
+    a { transition: opacity 0.15s; }
+  `}} />
+);
 
 const NavLink = ({ href, children, active }) => (
   <a href={href} style={{
@@ -35,7 +65,7 @@ const SiteHeader = ({ active }) => (
       <NavLink href="contact.html" active={active === 'contact'}>Contact</NavLink>
     </nav>
     <a href="contact.html" style={{ textDecoration: 'none' }}>
-      <button style={{ background: palette.ink, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>
+      <button style={{ background: palette.purple, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>
         Schedule an Appointment
       </button>
     </a>
@@ -81,6 +111,7 @@ const SiteFooter = () => (
 
 const PageShell = ({ active, children }) => (
   <div style={{ background: palette.bg, color: palette.ink, fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
+    <GlobalStyles />
     <SiteHeader active={active} />
     {children}
     <SiteFooter />

@@ -14,7 +14,7 @@ const inputStyle = {
 const labelStyle = {
   fontSize: 12.5, fontWeight: 600, letterSpacing: '0.06em',
   textTransform: 'uppercase', color: palette.sub,
-  fontFamily: 'JetBrains Mono, monospace', marginBottom: 7,
+  fontFamily: 'Manrope, sans-serif', marginBottom: 7,
   display: 'block',
 };
 
@@ -39,7 +39,7 @@ const OfficeInfo = ({ loc, dot }) => (
   <div style={{ marginBottom: 36, paddingBottom: 32, borderBottom: `1px solid ${cp2.line}` }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
       <span style={{ width: 10, height: 10, borderRadius: '50%', background: dot, flexShrink: 0 }} />
-      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', color: dot, textTransform: 'uppercase', fontFamily: 'JetBrains Mono, monospace' }}>
+      <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', color: dot, textTransform: 'uppercase', fontFamily: 'Manrope, sans-serif' }}>
         {loc.region} Office
       </span>
     </div>

@@ -37,7 +37,7 @@ const ConditionCard = ({ c, featured = false }) => {
           background: tones[cat.tone], color: inks[cat.tone],
           fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase',
           padding: '5px 10px', borderRadius: 6, marginBottom: 16,
-          fontFamily: 'JetBrains Mono, monospace',
+          fontFamily: 'Manrope, sans-serif',
         }}>{cat.short}</div>
         <h3 style={{
           fontSize: featured ? 24 : 19, fontWeight: 700, letterSpacing: '-0.02em',
@@ -45,7 +45,7 @@ const ConditionCard = ({ c, featured = false }) => {
         }}>{c.title}</h3>
         <p style={{ fontSize: 14.5, lineHeight: 1.55, color: cp.sub, margin: 0, flex: 1 }}>{c.excerpt}</p>
         <div style={{ marginTop: 20, paddingTop: 16, borderTop: `1px solid ${cp.line}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: 12, color: cp.sub, fontFamily: 'JetBrains Mono, monospace' }}>{c.readTime} min read</span>
+          <span style={{ fontSize: 12, color: cp.sub, fontFamily: 'Manrope, sans-serif' }}>{c.readTime} min read</span>
           <span style={{ fontSize: 13, fontWeight: 600, color: cp.ink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             Read <ArrowRight size={12} />
           </span>
@@ -172,7 +172,7 @@ const CAZIndex = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40 }}>
         {letters.filter(L => byLetter[L].length).map(L => (
           <div key={L}>
-            <div style={{ fontSize: 22, fontWeight: 700, color: cp.purple, marginBottom: 10, fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.05em' }}>{L}</div>
+            <div style={{ fontSize: 22, fontWeight: 700, color: cp.purple, marginBottom: 10, fontFamily: 'Manrope, sans-serif', letterSpacing: '0.05em' }}>{L}</div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
               {byLetter[L].map(c => (
                 <li key={c.slug}>
