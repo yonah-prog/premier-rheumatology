@@ -1,0 +1,297 @@
+// About Premier Rheumatology — location-centric SEO copy for Boca Raton, FL + Queens, NY.
+
+const ap = palette;
+const aps = chromeStyles;
+
+// ─── Hero ────────────────────────────────────────────────
+const AHero = () => (
+  <section style={{ padding: '80px 56px 72px', background: ap.card, borderBottom: `1px solid ${ap.line}` }}>
+    <div style={{ ...aps.eyebrow, marginBottom: 20 }}>About Premier Rheumatology</div>
+    <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 72, alignItems: 'end' }}>
+      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 88, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.02, margin: 0, color: ap.ink }}>
+        Trusted <span style={{ color: ap.purple }}>rheumatology care</span> in Boca Raton, FL and Queens, NY.
+      </h1>
+      <p style={{ fontSize: 18, lineHeight: 1.6, color: ap.sub, margin: 0, maxWidth: 520 }}>
+        Premier Rheumatology is a specialty practice focused on the diagnosis, long-term management, and personalized treatment of autoimmune, inflammatory, and musculoskeletal conditions — with board-certified rheumatologists serving patients across South Florida and the New York metro area.
+      </p>
+    </div>
+
+    <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      <Placeholder label="Boca Raton office · exterior" tone="purple" h={320} radius={18} />
+      <Placeholder label="Queens office · exterior" tone="cool" h={320} radius={18} />
+    </div>
+  </section>
+);
+
+// ─── Table of contents (anchor nav, good for SEO + UX) ───
+const ATOC = () => {
+  const items = [
+    { id: 'practice', label: 'About our practice' },
+    { id: 'comprehensive', label: 'Comprehensive care' },
+    { id: 'treatment', label: 'Personalized treatment' },
+    { id: 'long-term', label: 'Long-term management' },
+    { id: 'approach', label: 'Patient-centered approach' },
+    { id: 'locations', label: 'Our locations' },
+    { id: 'faq', label: 'Common questions' },
+  ];
+  return (
+    <nav aria-label="On this page" style={{ padding: '28px 56px', background: ap.bg, borderBottom: `1px solid ${ap.line}`, position: 'sticky', top: 0, zIndex: 10 }}>
+      <div style={{ display: 'flex', gap: 28, overflow: 'auto', fontSize: 13.5, color: ap.sub }}>
+        <span style={{ ...aps.eyebrow, color: ap.sub, flexShrink: 0 }}>On this page</span>
+        {items.map(i => (
+          <a key={i.id} href={`#${i.id}`} style={{ color: ap.ink, textDecoration: 'none', whiteSpace: 'nowrap' }}>{i.label}</a>
+        ))}
+      </div>
+    </nav>
+  );
+};
+
+// ─── Reusable long-form section ──────────────────────────
+const ASection = ({ id, eyebrow, h2, children, img, imgLabel, imgTone = 'purple', flip = false }) => (
+  <section id={id} style={{ padding: '96px 56px', borderBottom: `1px solid ${ap.line}`, scrollMarginTop: 80 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: img ? '1fr 1fr' : '1fr 1.8fr', gap: 72, alignItems: 'start' }}>
+      {flip && img && <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />}
+      <div>
+        <div style={{ ...aps.eyebrow, marginBottom: 16 }}>{eyebrow}</div>
+        <h2 style={{ ...aps.h2, fontSize: 44, marginBottom: 28 }}>{h2}</h2>
+        <div style={{ fontSize: 16.5, lineHeight: 1.7, color: ap.sub, display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {children}
+        </div>
+      </div>
+      {!flip && img && <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />}
+    </div>
+  </section>
+);
+
+// ─── Highlights strip ────────────────────────────────────
+const AHighlights = () => {
+  const items = [
+    { n: '2', l: 'Convenient office locations' },
+    { n: '20+', l: 'Years of combined experience' },
+    { n: '30+', l: 'Rheumatologic conditions treated' },
+    { n: 'Board', l: 'Certified rheumatologists' },
+  ];
+  return (
+    <section style={{ padding: '56px 56px', background: ap.purpleDeep, color: '#fff' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32 }}>
+        {items.map((it, i) => (
+          <div key={i} style={{ borderLeft: i === 0 ? 'none' : '1px solid #ffffff22', paddingLeft: i === 0 ? 0 : 32 }}>
+            <div style={{ fontSize: 56, fontWeight: 700, letterSpacing: '-0.035em', color: '#fff', lineHeight: 1 }}>{it.n}</div>
+            <div style={{ marginTop: 10, fontSize: 14, opacity: 0.78, maxWidth: 200, lineHeight: 1.5 }}>{it.l}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// ─── Locations callout ───────────────────────────────────
+const ALocations = () => (
+  <section id="locations" style={{ padding: '96px 56px', borderBottom: `1px solid ${ap.line}`, scrollMarginTop: 80 }}>
+    <div style={{ ...aps.eyebrow, marginBottom: 14 }}>Our locations</div>
+    <h2 style={{ ...aps.h2, fontSize: 44, marginBottom: 18 }}>Rheumatology care in two convenient locations.</h2>
+    <p style={{ fontSize: 17, lineHeight: 1.6, color: ap.sub, maxWidth: 720, marginBottom: 48 }}>
+      Whether you live in Palm Beach County, Broward, or the greater New York metro, our specialists provide the same evidence-based rheumatologic care at both offices — from initial evaluation through ongoing disease management.
+    </p>
+
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+      {LOCATIONS.map((loc, i) => (
+        <div key={loc.id} style={{ border: `1px solid ${ap.line}`, borderRadius: 20, overflow: 'hidden', background: ap.card }}>
+          <div style={{ height: 200, position: 'relative' }}>
+            <MapMini state={loc.id} tone={i === 0 ? ap.purpleLight : '#e6ede9'} ink={i === 0 ? ap.purple : '#2e6b52'} />
+          </div>
+          <div style={{ padding: '28px 30px 30px' }}>
+            <div style={{ ...aps.eyebrow, color: i === 0 ? ap.purple : '#2e6b52', marginBottom: 10 }}>
+              {i === 0 ? 'South Florida' : 'New York Metro'}
+            </div>
+            <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>
+              Rheumatologist in {loc.city}, {loc.id}
+            </div>
+            <div style={{ fontSize: 15, color: ap.sub, lineHeight: 1.6, marginBottom: 20 }}>
+              {loc.address}<br/>{loc.cityline}<br/>{loc.phone} · {loc.hours}
+            </div>
+            <a href={loc.id === 'FL' ? 'florida.html' : 'new-york.html'} style={{ textDecoration: 'none' }}>
+              <button style={{ background: ap.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                Visit {loc.region} office <ArrowRight size={14} />
+              </button>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+// ─── FAQ (great for SEO + patient trust) ─────────────────
+const AFAQ = () => {
+  const faqs = [
+    {
+      q: 'What conditions does a rheumatologist treat?',
+      a: 'Rheumatologists specialize in autoimmune and inflammatory conditions affecting the joints, bones, muscles, and connective tissues — including rheumatoid arthritis, lupus, psoriatic arthritis, gout, osteoporosis, ankylosing spondylitis, vasculitis, and fibromyalgia. Premier Rheumatology evaluates and manages more than thirty rheumatologic conditions at both our Boca Raton and Queens offices.',
+    },
+    {
+      q: 'When should I see a rheumatologist in Boca Raton or Queens?',
+      a: 'Consider scheduling a consultation if you have persistent joint pain, stiffness lasting more than thirty minutes in the morning, unexplained swelling, recurring inflammation, or have been told your blood work suggests an autoimmune condition. Early evaluation often leads to better long-term outcomes.',
+    },
+    {
+      q: 'Do I need a referral to visit Premier Rheumatology?',
+      a: 'Referral requirements depend on your insurance plan. Many patients at our Boca Raton, FL and Queens, NY offices self-refer, while others are referred by their primary care provider. Our team can help confirm whether a referral is required when you call to schedule.',
+    },
+    {
+      q: 'What insurance plans does Premier Rheumatology accept?',
+      a: 'We participate with most major commercial insurance plans and Medicare at both the Florida and New York locations. Please contact the office directly to confirm your specific plan before your first visit.',
+    },
+    {
+      q: 'What happens at a first rheumatology appointment?',
+      a: 'Your first visit typically includes a detailed medical history, a physical examination focused on affected joints and systems, and — when appropriate — laboratory testing or imaging. The goal is to clarify your diagnosis, answer your questions, and outline a clear next step.',
+    },
+    {
+      q: 'Do you offer infusion therapy on-site?',
+      a: 'Yes. Both the Boca Raton and Queens offices provide in-office infusion therapy for patients whose treatment plans include biologic medications, allowing care to be delivered in a familiar, supervised setting.',
+    },
+  ];
+
+  return (
+    <section id="faq" style={{ padding: '96px 56px', background: ap.card }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 72, alignItems: 'start' }}>
+        <div>
+          <div style={{ ...aps.eyebrow, marginBottom: 16 }}>Common questions</div>
+          <h2 style={{ ...aps.h2, fontSize: 44 }}>What patients ask before their first visit.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.6, color: ap.sub, marginTop: 22, maxWidth: 400 }}>
+            If you don't see your question answered here, our team is happy to help. Call either office or send a message through our contact form.
+          </p>
+        </div>
+        <div style={{ borderTop: `1px solid ${ap.line}` }}>
+          {faqs.map((f, i) => (
+            <details key={i} style={{ borderBottom: `1px solid ${ap.line}`, padding: '24px 0' }}>
+              <summary style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.01em', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
+                <span>{f.q}</span>
+                <span style={{ fontSize: 22, color: ap.purple, fontWeight: 300 }}>+</span>
+              </summary>
+              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.7, color: ap.sub }}>{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── Consultation CTA ────────────────────────────────────
+const ACTA = () => (
+  <section style={{ padding: '96px 56px', background: ap.bg }}>
+    <div style={{ background: ap.ink, color: '#fff', borderRadius: 24, padding: '72px 64px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 48, alignItems: 'center' }}>
+      <div>
+        <div style={{ ...aps.eyebrow, color: '#d9c3ea', marginBottom: 18 }}>Schedule a consultation</div>
+        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 52, fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.05, margin: '0 0 20px' }}>
+          Experiencing joint pain, stiffness, or inflammation?
+        </h2>
+        <p style={{ fontSize: 17, lineHeight: 1.6, opacity: 0.82, maxWidth: 560, margin: 0 }}>
+          A Premier Rheumatology consultation can help clarify the cause of your symptoms and outline appropriate management. We welcome new patients at our Boca Raton, FL and Queens, NY offices.
+        </p>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <a href="contact.html" style={{ textDecoration: 'none' }}>
+          <button style={{ width: '100%', background: '#fff', color: ap.ink, border: 'none', padding: '20px 28px', borderRadius: 12, fontSize: 16, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span>Request an appointment</span>
+            <ArrowRight size={18} />
+          </button>
+        </a>
+        <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
+          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff40', padding: '20px 28px', borderRadius: 12, fontSize: 15, fontWeight: 500, cursor: 'pointer', textAlign: 'left' }}>
+            Florida · (561) 730-3894
+          </button>
+        </a>
+        <a href="tel:+17183478888" style={{ textDecoration: 'none' }}>
+          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff40', padding: '20px 28px', borderRadius: 12, fontSize: 15, fontWeight: 500, cursor: 'pointer', textAlign: 'left' }}>
+            New York · (718) 347-8888
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── Page composition ────────────────────────────────────
+const AboutPage = () => (
+  <PageShell active="about">
+    <AHero />
+    <ATOC />
+
+    <ASection
+      id="practice"
+      eyebrow="Our practice"
+      h2="A dedicated rheumatology practice serving Boca Raton and Queens."
+      img imgLabel="Consultation · lifestyle" imgTone="warm"
+    >
+      <p>
+        Premier Rheumatology is a specialty practice focused on the accurate diagnosis, long-term management, and personalized treatment of autoimmune, inflammatory, degenerative, and musculoskeletal conditions affecting the joints, bones, and connective tissues. With offices in <strong>Boca Raton, Florida</strong> and <strong>Queens, New York</strong>, we serve patients across South Florida, Palm Beach County, and the greater New York metro area.
+      </p>
+      <p>
+        Rheumatologic conditions are often complex and can evolve over time. Our approach emphasizes careful clinical assessment, evidence-based treatment strategies, and consistent monitoring — so patients feel supported through every stage of their care, from first evaluation to long-term follow-up.
+      </p>
+    </ASection>
+
+    <ASection
+      id="comprehensive"
+      eyebrow="Comprehensive rheumatology care"
+      h2="Expert evaluation for a broad range of rheumatologic conditions."
+      img imgLabel="Clinical evaluation · placeholder" imgTone="purple" flip
+    >
+      <p>
+        Our rheumatologists care for patients with inflammatory and autoimmune arthritis (including rheumatoid arthritis, psoriatic arthritis, and ankylosing spondylitis), connective tissue diseases such as lupus and Sjögren's syndrome, metabolic bone disorders including osteoporosis, crystal-induced arthritis such as gout, spine and axial conditions, and chronic musculoskeletal pain.
+      </p>
+      <p>
+        Evaluation typically includes a detailed medical history, a focused physical examination, targeted laboratory testing, and imaging when appropriate. This comprehensive approach allows our Boca Raton and Queens rheumatology teams to identify underlying causes, differentiate between inflammatory and non-inflammatory conditions, and guide appropriate treatment decisions with confidence.
+      </p>
+    </ASection>
+
+    <ASection
+      id="treatment"
+      eyebrow="Personalized, evidence-based treatment"
+      h2="Treatment plans built around you — not a one-size-fits-all protocol."
+      img imgLabel="Treatment planning · placeholder" imgTone="cool"
+    >
+      <p>
+        Treatment plans at Premier Rheumatology are individualized and grounded in current clinical guidelines. Depending on your condition, care may include conservative management, oral medication therapy, advanced biologic treatments, and on-site infusion therapy at both our Florida and New York locations.
+      </p>
+      <p>
+        We place a strong emphasis on shared decision-making, patient education, and clear communication. Our goal is to help you understand your diagnosis, weigh your options, and participate actively in building a plan that fits your goals and daily life.
+      </p>
+    </ASection>
+
+    <ASection
+      id="long-term"
+      eyebrow="Long-term disease management"
+      h2="Continuity of care that keeps pace with your condition."
+      img imgLabel="Follow-up visit · placeholder" imgTone="mint" flip
+    >
+      <p>
+        Many rheumatologic conditions require ongoing management rather than one-time treatment. We focus on continuity — with regular follow-up, disease-activity monitoring, and thoughtful adjustments to your plan as your needs change.
+      </p>
+      <p>
+        Our team works collaboratively across the Boca Raton and Queens offices to support long-term joint health, preserve function, and reduce the risk of disease-related complications over time.
+      </p>
+    </ASection>
+
+    <ASection
+      id="approach"
+      eyebrow="A thoughtful, patient-centered approach"
+      h2="Careful, individualized care — never rushed."
+      img imgLabel="Patient and clinician · placeholder" imgTone="warm"
+    >
+      <p>
+        We recognize that rheumatologic conditions can affect mobility, energy, sleep, and overall quality of life. Our care model is designed to be supportive, accessible, and responsive — with attention to both physical symptoms and how you feel day to day.
+      </p>
+      <p>
+        Patients can expect a professional, respectful environment focused on careful evaluation and individualized care. We take the time to listen, explain, and plan together — because thoughtful care produces better outcomes.
+      </p>
+    </ASection>
+
+    <ALocations />
+    <AFAQ />
+    <ACTA />
+  </PageShell>
+);
+
+window.AboutPage = AboutPage;
