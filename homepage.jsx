@@ -26,9 +26,9 @@ const PHeader = () => (
         <a href="conditions.html" style={navLink}>Services</a>
         <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
         <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>New York <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
-        <a href="tel:+15617303894" style={navLink}>Contact</a>
+        <a href="contact.html" style={navLink}>Contact</a>
       </nav>
-      <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
+      <a href="contact.html" style={{ textDecoration: 'none' }}>
         <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Schedule an Appointment</button>
       </a>
     </header>
@@ -48,7 +48,7 @@ const PHero = () => (
           Dedicated to restoring mobility, relieving pain, and empowering every patient to live stronger and healthier. From the first consultation through ongoing care, our specialists combine clinical expertise with a warmth that makes complex conditions feel manageable—so you can get back to the life you love.
         </p>
         <div style={{ display: 'flex', gap: 12 }}>
-          <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
+          <a href="contact.html" style={{ textDecoration: 'none' }}>
             <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
               Make an Appointment <ArrowRight size={16} />
             </button>
@@ -278,7 +278,7 @@ const PLocations = () => (
               {loc.team.join(' · ')}
             </div>
             <div style={{ display: 'flex', gap: 10 }}>
-              <a href={`tel:${loc.id === 'FL' ? '+15617303894' : '+17183478888'}`} style={{ flex: 1, textDecoration: 'none' }}>
+              <a href="contact.html" style={{ flex: 1, textDecoration: 'none' }}>
                 <button style={{ width: '100%', background: pl.ink, color: '#fff', border: 'none', padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Contact our {loc.region} Office</button>
               </a>
               <a href={loc.id === 'FL' ? 'https://maps.google.com/?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431' : 'https://maps.google.com/?q=261-12+E+Williston+Ave,+Queens,+NY+11001'} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textDecoration: 'none' }}>
@@ -306,7 +306,7 @@ const PContactCTA = () => (
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, maxWidth: 880, margin: '0 auto' }}>
-        <a href="contact-florida.html" style={{ textDecoration: 'none' }}>
+        <a href="contact.html" style={{ textDecoration: 'none' }}>
           <button style={{
             width: '100%', background: pl.card, color: pl.ink, border: 'none',
             padding: '32px 28px', borderRadius: 18, cursor: 'pointer',
@@ -325,7 +325,7 @@ const PContactCTA = () => (
             </div>
           </button>
         </a>
-        <a href="contact-new-york.html" style={{ textDecoration: 'none' }}>
+        <a href="contact.html" style={{ textDecoration: 'none' }}>
           <button style={{
             width: '100%', background: pl.card, color: pl.ink, border: 'none',
             padding: '32px 28px', borderRadius: 18, cursor: 'pointer',
@@ -372,7 +372,7 @@ const PFooter = () => (
           <a href="about.html" style={{ color: 'inherit', textDecoration: 'none' }}>About</a>
           <a href="team.html" style={{ color: 'inherit', textDecoration: 'none' }}>Our Team</a>
           <a href="conditions.html" style={{ color: 'inherit', textDecoration: 'none' }}>Conditions We Treat</a>
-          <a href="tel:+15617303894" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
+          <a href="contact.html" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
         </div>
       </div>
     </div>
