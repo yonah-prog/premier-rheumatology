@@ -1,9 +1,18 @@
 // Condition article template — renders a single condition.
-// Full articles have `body` / `faqs` fields in conditions-data.
+// Articles with `htmlBody` render real WordPress content.
 // Stubs render a "coming soon" layout but still include SEO shell.
 
 const ap2 = palette;
 const aps2 = chromeStyles;
+
+// ─── Raw HTML body (from WordPress import) ───────────────────
+const HtmlBody = ({ html }) => (
+  <div
+    data-wp-body=""
+    dangerouslySetInnerHTML={{ __html: html }}
+    style={{ fontSize: 17, lineHeight: 1.75, color: ap2.ink }}
+  />
+);
 
 // ─── Article body sections (if provided) ─────────────────
 const ArticleBody = ({ body }) => (
@@ -141,7 +150,7 @@ const ConditionArticle = ({ slug }) => {
     );
   }
   const cat = CATEGORIES.find(x => x.id === c.category);
-  const hasBody = !!c.body;
+  const hasBody = !!(c.htmlBody || c.body);
 
   return (
     <PageShell active="conditions">
@@ -172,7 +181,7 @@ const ConditionArticle = ({ slug }) => {
       <section style={{ padding: '56px 56px 96px', borderTop: `1px solid ${ap2.line}` }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 64, alignItems: 'start' }}>
           <div>
-            {hasBody ? <ArticleBody body={c.body} /> : <StubBody c={c} />}
+            {c.htmlBody ? <HtmlBody html={c.htmlBody} /> : c.body ? <ArticleBody body={c.body} /> : <StubBody c={c} />}
             {c.faqs && <FAQs faqs={c.faqs} />}
             <Related current={c} />
             <ArticleCTA c={c} />

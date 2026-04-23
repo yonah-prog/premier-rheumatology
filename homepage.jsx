@@ -12,21 +12,25 @@ const ps = {
   h2: { fontFamily: 'Manrope, sans-serif', fontWeight: 700, letterSpacing: '-0.035em', fontSize: 56, lineHeight: 1.04, color: pl.ink, margin: 0 },
 };
 
+const navLink = { textDecoration: 'none', color: pl.ink, fontSize: 14.5, fontWeight: 500 };
+
 // ─── Header ──────────────────────────────────────────────
 const PHeader = () => (
   <div>
     <header style={{ padding: '22px 56px', display: 'grid', gridTemplateColumns: '220px 1fr auto', alignItems: 'center', gap: 40, background: pl.card, borderBottom: `1px solid ${pl.line}` }}>
-      <PRLogo size={40} wordColor={pl.ink} />
-      <nav style={{ display: 'flex', gap: 32, fontSize: 14.5, fontWeight: 500, color: pl.ink, justifyContent: 'center' }}>
-        <span>About Premier Rheumatology</span>
-        <span>Our Team</span>
-        <span>Conditions We Treat</span>
-        <span>Services</span>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></span>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>New York <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></span>
-        <span>Contact</span>
+      <a href="index.html" style={{ textDecoration: 'none' }}><PRLogo size={40} wordColor={pl.ink} /></a>
+      <nav style={{ display: 'flex', gap: 32, justifyContent: 'center' }}>
+        <a href="about.html" style={navLink}>About Premier Rheumatology</a>
+        <a href="team.html" style={navLink}>Our Team</a>
+        <a href="conditions.html" style={navLink}>Conditions We Treat</a>
+        <a href="conditions.html" style={navLink}>Services</a>
+        <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
+        <a href="about.html#locations" style={{ ...navLink, display: 'inline-flex', alignItems: 'center', gap: 6 }}>New York <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span></a>
+        <a href="tel:+15617303894" style={navLink}>Contact</a>
       </nav>
-      <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Schedule an Appointment</button>
+      <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
+        <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Schedule an Appointment</button>
+      </a>
     </header>
   </div>
 );
@@ -44,12 +48,16 @@ const PHero = () => (
           Dedicated to restoring mobility, relieving pain, and empowering every patient to live stronger and healthier. From the first consultation through ongoing care, our specialists combine clinical expertise with a warmth that makes complex conditions feel manageable—so you can get back to the life you love.
         </p>
         <div style={{ display: 'flex', gap: 12 }}>
-          <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-            Make an Appointment <ArrowRight size={16} />
-          </button>
-          <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600 }}>
-            Meet our team
-          </button>
+          <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
+            <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+              Make an Appointment <ArrowRight size={16} />
+            </button>
+          </a>
+          <a href="team.html" style={{ textDecoration: 'none' }}>
+            <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+              Meet our team
+            </button>
+          </a>
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, height: 440 }}>
@@ -78,14 +86,16 @@ const PTeamGrid = ({ people, toneA = 'purple', toneB = 'warm' }) => (
 );
 
 const TeamCard = ({ p, tone }) => (
-  <div style={{ border: `1px solid ${pl.line}`, borderRadius: 18, overflow: 'hidden', background: pl.card }}>
-    <Placeholder label={`${p.name} · portrait`} tone={tone} h={340} radius={0} />
-    <div style={{ padding: '22px 24px 24px' }}>
-      <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
-      <div style={{ fontSize: 13, color: pl.purple, fontWeight: 600, marginBottom: 12 }}>{p.role}</div>
-      <div style={{ fontSize: 13.5, lineHeight: 1.6, color: pl.sub }}>{p.bio}</div>
+  <a href="team.html" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <div style={{ border: `1px solid ${pl.line}`, borderRadius: 18, overflow: 'hidden', background: pl.card }}>
+      <Placeholder label={`${p.name} · portrait`} tone={tone} h={340} radius={0} />
+      <div style={{ padding: '22px 24px 24px' }}>
+        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
+        <div style={{ fontSize: 13, color: pl.purple, fontWeight: 600, marginBottom: 12 }}>{p.role}</div>
+        <div style={{ fontSize: 13.5, lineHeight: 1.6, color: pl.sub }}>{p.bio}</div>
+      </div>
     </div>
-  </div>
+  </a>
 );
 
 const TeamColumnHeader = ({ dot, title, sub }) => (
@@ -180,9 +190,11 @@ const PServices = () => (
         <h2 style={ps.h2}>Personalized treatment for every joint and every journey.</h2>
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '14px 22px', borderRadius: 10, fontSize: 14, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-          All Services <ArrowRight size={14} />
-        </button>
+        <a href="conditions.html" style={{ textDecoration: 'none' }}>
+          <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '14px 22px', borderRadius: 10, fontSize: 14, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+            All Services <ArrowRight size={14} />
+          </button>
+        </a>
       </div>
     </div>
 
@@ -208,9 +220,11 @@ const PServices = () => (
               <div style={{ fontSize: 21, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12 }}>{s.t}</div>
               <div style={{ fontSize: 14, lineHeight: 1.6, color: pl.sub, marginBottom: 20 }}>{s.d}</div>
               <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid ${pl.line}` }}>
-                <button style={{ background: 'transparent', border: 'none', padding: 0, color: pl.ink, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                  Learn more <ArrowRight size={14} />
-                </button>
+                <a href="conditions.html" style={{ textDecoration: 'none', color: pl.ink }}>
+                  <span style={{ fontSize: 14, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -264,8 +278,12 @@ const PLocations = () => (
               {loc.team.join(' · ')}
             </div>
             <div style={{ display: 'flex', gap: 10 }}>
-              <button style={{ flex: 1, background: pl.ink, color: '#fff', border: 'none', padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600 }}>Contact our {loc.region} Office</button>
-              <button style={{ flex: 1, background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600 }}>Get directions</button>
+              <a href={`tel:${loc.id === 'FL' ? '+15617303894' : '+17183478888'}`} style={{ flex: 1, textDecoration: 'none' }}>
+                <button style={{ width: '100%', background: pl.ink, color: '#fff', border: 'none', padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Contact our {loc.region} Office</button>
+              </a>
+              <a href={loc.id === 'FL' ? 'https://maps.google.com/?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431' : 'https://maps.google.com/?q=261-12+E+Williston+Ave,+Queens,+NY+11001'} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textDecoration: 'none' }}>
+                <button style={{ width: '100%', background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Get directions</button>
+              </a>
             </div>
           </div>
         </div>
@@ -342,15 +360,20 @@ const PFooter = () => (
       </div>
       <div>
         <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>Florida</div>
-        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>2900 N Military Trl<br/>Boca Raton, FL 33431<br/>(561) 730-3894</div>
+        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>2900 N Military Trl<br/>Boca Raton, FL 33431<br/><a href="tel:+15617303894" style={{ color: 'inherit', textDecoration: 'none' }}>(561) 730-3894</a></div>
       </div>
       <div>
         <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>New York</div>
-        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>261-12 E Williston Ave<br/>Queens, NY 11001</div>
+        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>261-12 E Williston Ave<br/>Queens, NY 11001<br/><a href="tel:+17183478888" style={{ color: 'inherit', textDecoration: 'none' }}>(718) 347-8888</a></div>
       </div>
       <div>
         <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 12 }}>Navigate</div>
-        <div style={{ opacity: 0.78, lineHeight: 2, fontSize: 14 }}>About · Our Team<br/>Conditions · Services<br/>Contact</div>
+        <div style={{ opacity: 0.78, lineHeight: 2, fontSize: 14, display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <a href="about.html" style={{ color: 'inherit', textDecoration: 'none' }}>About</a>
+          <a href="team.html" style={{ color: 'inherit', textDecoration: 'none' }}>Our Team</a>
+          <a href="conditions.html" style={{ color: 'inherit', textDecoration: 'none' }}>Conditions We Treat</a>
+          <a href="tel:+15617303894" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
+        </div>
       </div>
     </div>
     <div style={{ paddingTop: 20, opacity: 0.5, fontSize: 12 }}>© 2026 Premier Rheumatology PLLC</div>
