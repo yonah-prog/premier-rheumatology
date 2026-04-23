@@ -30,12 +30,8 @@ const SiteHeader = ({ active }) => (
       <NavLink href="about.html" active={active === 'about'}>About Premier Rheumatology</NavLink>
       <NavLink href="team.html" active={active === 'team'}>Our Team</NavLink>
       <NavLink href="conditions.html" active={active === 'conditions'}>Conditions We Treat</NavLink>
-      <NavLink href="florida.html" active={active === 'florida'}>
-        Florida <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span>
-      </NavLink>
-      <NavLink href="new-york.html" active={active === 'new-york'}>
-        New York <span style={{ fontSize: 10, opacity: 0.6 }}>▾</span>
-      </NavLink>
+      <NavLink href="florida.html" active={active === 'florida'}>Florida</NavLink>
+      <NavLink href="new-york.html" active={active === 'new-york'}>New York</NavLink>
       <NavLink href="contact.html" active={active === 'contact'}>Contact</NavLink>
     </nav>
     <a href="contact.html" style={{ textDecoration: 'none' }}>

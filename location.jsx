@@ -22,9 +22,9 @@ const LOC_CONFIG = {
     h1Line1: 'Rheumatology care',
     h1Line2: 'in Boca Raton, Florida.',
     eyebrow: 'Florida Office · Boca Raton',
-    intro: 'Premier Rheumatology's Boca Raton office provides expert, compassionate rheumatologic care to patients across South Florida, Palm Beach County, and surrounding communities. Our board-certified physicians specialize in the diagnosis and long-term management of autoimmune, inflammatory, and musculoskeletal conditions — with a focus on getting you back to the life you love.',
+    intro: "Premier Rheumatology's Boca Raton office provides expert, compassionate rheumatologic care to patients across South Florida, Palm Beach County, and surrounding communities. Our board-certified physicians specialize in the diagnosis and long-term management of autoimmune, inflammatory, and musculoskeletal conditions — with a focus on getting you back to the life you love.",
     seoBody: [
-      'Whether you're experiencing joint pain for the first time or managing a long-standing autoimmune condition, our Boca Raton rheumatology team meets you where you are. We take time to listen, build individualized care plans, and provide ongoing support that adapts as your needs change.',
+      "Whether you're experiencing joint pain for the first time or managing a long-standing autoimmune condition, our Boca Raton rheumatology team meets you where you are. We take time to listen, build individualized care plans, and provide ongoing support that adapts as your needs change.",
       'Conveniently located on N Military Trail, our Boca Raton clinic offers comprehensive rheumatology services including biologic infusion therapy, DEXA bone density scanning, joint assessments, and more — all in one location. New and established patients are welcome.',
     ],
     seoKeywords: ['rheumatologist Boca Raton', 'arthritis specialist South Florida', 'autoimmune disease Palm Beach County', 'lupus treatment Boca Raton', 'infusion therapy Boca Raton', 'rheumatology clinic Florida'],
@@ -48,7 +48,7 @@ const LOC_CONFIG = {
     h1Line1: 'Rheumatology care',
     h1Line2: 'in Queens, New York.',
     eyebrow: 'New York Office · Queens',
-    intro: 'Premier Rheumatology's Queens office brings board-certified rheumatologic expertise to New York City and the surrounding metro area. Our physician specializes in autoimmune arthritis, connective tissue diseases, bone health, and complex inflammatory conditions — delivering individualized care with the time and attention every patient deserves.',
+    intro: "Premier Rheumatology's Queens office brings board-certified rheumatologic expertise to New York City and the surrounding metro area. Our physician specializes in autoimmune arthritis, connective tissue diseases, bone health, and complex inflammatory conditions — delivering individualized care with the time and attention every patient deserves.",
     seoBody: [
       'At our Queens location, patients benefit from the same evidence-based, patient-first approach that defines Premier Rheumatology. We understand that navigating a rheumatologic diagnosis can be overwhelming — our goal is to make that process clear, supported, and as comfortable as possible.',
       'Conveniently located in Floral Park, Queens, our New York clinic offers comprehensive rheumatology services including biologic infusion therapy, joint evaluations, and long-term disease management. We welcome new patients and accept most major insurance plans.',
