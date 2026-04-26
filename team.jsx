@@ -9,14 +9,14 @@ const TEAM_FL = [
     role: 'Rheumatologist',
     bio: 'Dr. Mouriel Boucher is a board-certified rheumatologist with advanced training in the diagnosis and management of autoimmune and inflammatory conditions. She completed her rheumatology fellowship at HCA Florida Healthcare and her internal medicine residency at Palmetto General Hospital. Dr. Boucher provides evidence-based, patient-centered care for conditions including rheumatoid arthritis, lupus, osteoporosis, and complex joint disorders.',
     tone: 'purple',
-    photo: 'images/site-images-2/dr-mouriel-2-1.png',
+    photo: 'Images/site-images-2/dr-mouriel-2-1.png',
   },
   {
     name: 'Natalie Akerman, NP',
     role: 'Family Nurse Practitioner · Rheumatology Specialist',
     bio: "Natalie Akerman, NP is an experienced Family Nurse Practitioner specializing in rheumatology and chronic disease management. With over a decade of clinical experience across acute care, emergency medicine, pediatrics, and telehealth, she brings a comprehensive, collaborative approach to treating autoimmune and musculoskeletal conditions, with a strong focus on continuity of care and patient education.",
     tone: 'warm',
-    photo: 'images/site-images-2/natalie.png',
+    photo: 'Images/site-images-2/natalie.png',
   },
 ];
 

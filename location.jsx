@@ -235,7 +235,7 @@ const LocServices = ({ cfg }) => {
               </button>
             </a>
           </div>
-          <img src="images/site-images-3/5-Infusion-Therapy-Benefits.jpg" alt="Infusion therapy suite" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', borderRadius: 16 }} />
+          <img src="Images/site-images-3/5-Infusion-Therapy-Benefits.jpg" alt="Infusion therapy suite" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', borderRadius: 16 }} />
         </div>
       )}
 

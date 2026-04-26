@@ -43,13 +43,13 @@ const PHero = () => {
         {!isMobile && (
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, height: 440 }}>
             <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
-              <img src="images/site-images-1/yonah0704_15145_older_man_enjoying_his_children_and_grandchil_f2bee724-272c-4956-80db-f039c79f19e7_2.png" alt="Patient enjoying life after care" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src="Images/site-images-1/yonah0704_15145_older_man_enjoying_his_children_and_grandchil_f2bee724-272c-4956-80db-f039c79f19e7_2.png" alt="Patient enjoying life after care" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%', marginTop: 32 }}>
-              <img src="images/site-images-1/yonah0704_15145_Smiling_older_female_with_arthritis_wearing_c_64df078b-4892-4c76-8378-58edb7542b42_2.png" alt="Patient consulting with rheumatologist" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src="Images/site-images-1/yonah0704_15145_Smiling_older_female_with_arthritis_wearing_c_64df078b-4892-4c76-8378-58edb7542b42_2.png" alt="Patient consulting with rheumatologist" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
-              <img src="images/site-images-1/yonah0704_15145_young_black_nurse_caring_for_elderly_white_ma_958d6e56-9cca-4cda-82b4-2bf75add2b8f_0.png" alt="Care team with patient" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img src="Images/site-images-1/yonah0704_15145_young_black_nurse_caring_for_elderly_white_ma_958d6e56-9cca-4cda-82b4-2bf75add2b8f_0.png" alt="Care team with patient" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           </div>
         )}
@@ -198,11 +198,11 @@ const PServices = () => {
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(3, 1fr)', gap: 20 }}>
       {SERVICES.map((s, i) => {
         const serviceImages = [
-          'images/site-images-3/joint-pain.png',
-          'images/site-images-3/blood-test.png',
-          'images/site-images-3/womens-infusion.png',
-          'images/site-images-3/aging-2-1.png',
-          'images/site-images-1/pexels-yankrukov-5793798.jpg',
+          'Images/site-images-3/joint-pain.png',
+          'Images/site-images-3/blood-test.png',
+          'Images/site-images-3/womens-infusion.png',
+          'Images/site-images-3/aging-2-1.png',
+          'Images/site-images-1/pexels-yankrukov-5793798.jpg',
         ];
         return (
           <div key={i} style={{
