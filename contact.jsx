@@ -67,12 +67,6 @@ const OfficeInfo = ({ loc, dot }) => (
 );
 
 // ─── Contact form for one office ────────────────────────────
-// Web3Forms access keys — one per office (web3forms.com)
-const WEB3FORMS_KEYS = {
-  FL: 'd967bcdd-6660-4c91-b90c-4488da940015',
-  NY: 'YOUR_NY_ACCESS_KEY',
-};
-
 const OfficeForm = ({ loc, dot, accentColor }) => {
   const isMobile = useIsMobile();
   const [sent, setSent] = React.useState(false);
@@ -83,16 +77,23 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
     e.preventDefault();
     setSending(true);
     setError(null);
-    const data = new FormData(e.target);
-    data.append('access_key', WEB3FORMS_KEYS[loc.id]);
-    data.append('subject', `New patient inquiry — Premier Rheumatology ${loc.city}`);
-    data.append('office', loc.city);
-    data.append('from_name', 'Premier Rheumatology Website');
+    const form = e.target;
+    const body = {
+      officeId: loc.id,
+      office: loc.city,
+      first_name: form.first_name.value,
+      last_name: form.last_name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      insurance_provider: form.insurance_provider.value,
+      insurance_id: form.insurance_id.value,
+      message: form.message.value,
+    };
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
       });
       const json = await res.json();
       if (json.success) {
