@@ -68,6 +68,7 @@ const OfficeInfo = ({ loc, dot }) => (
 
 // ─── Contact form for one office ────────────────────────────
 const OfficeForm = ({ loc, dot, accentColor }) => {
+  const isMobile = useIsMobile();
   const [sent, setSent] = React.useState(false);
 
   const handleSubmit = (e) => {
@@ -77,7 +78,7 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
   };
 
   return (
-    <div style={{ background: cp2.card, border: `1px solid ${cp2.line}`, borderRadius: 20, padding: '40px 40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div style={{ background: cp2.card, border: `1px solid ${cp2.line}`, borderRadius: 20, padding: isMobile ? '28px 20px' : '40px 40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
       <OfficeInfo loc={loc} dot={dot} />
 
       {sent ? (
@@ -93,7 +94,7 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
           <Field label="First Name" name="first_name" placeholder="Jane" />
           <Field label="Last Name" name="last_name" placeholder="Smith" />
           <Field label="Email" type="email" name="email" placeholder="jane@example.com" />
@@ -124,28 +125,32 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
 };
 
 // ─── Hero ────────────────────────────────────────────────────
-const ContactHero = () => (
-  <section style={{ padding: '80px 56px 72px', background: cp2.card, borderBottom: `1px solid ${cp2.line}` }}>
+const ContactHero = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 72px', background: cp2.card, borderBottom: `1px solid ${cp2.line}` }}>
     <div style={{ ...cps2.eyebrow, marginBottom: 18 }}>Contact Us</div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 80, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0, color: cp2.ink }}>
-        We're here<br />
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: isMobile ? 24 : 72, alignItems: 'end' }}>
+      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 44 : 80, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0, color: cp2.ink }}>
+        We&apos;re here<br />
         <span style={{ color: cp2.purple }}>when you need us.</span>
       </h1>
       <p style={{ fontSize: 18, lineHeight: 1.65, color: cp2.sub, margin: 0 }}>
-        Every patient deserves to feel heard. Whether you're scheduling your first visit, have a question about your care, or need to reach your care team — we make it easy. Reach out to whichever office is most convenient for you and we'll get back to you promptly.
+        Every patient deserves to feel heard. Whether you&apos;re scheduling your first visit, have a question about your care, or need to reach your care team — we make it easy. Reach out to whichever office is most convenient for you and we&apos;ll get back to you promptly.
       </p>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Two-column forms ────────────────────────────────────────
 const ContactForms = () => {
+  const isMobile = useIsMobile();
   const fl = LOCATIONS.find(l => l.id === 'FL');
   const ny = LOCATIONS.find(l => l.id === 'NY');
   return (
-    <section style={{ padding: '80px 56px 100px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'start' }}>
+    <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 100px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 28, alignItems: 'start' }}>
         <OfficeForm loc={fl} dot={cp2.purple} accentColor={cp2.purple} />
         <OfficeForm loc={ny} dot="#2e6b52" accentColor="#2e6b52" />
       </div>

@@ -73,8 +73,8 @@ const ArrowRight = ({ size = 16, color = 'currentColor' }) => (
 );
 
 const CARE_TEAM = [
-  { loc: 'FL', name: 'Dr. Mouriel Boucher, DO', role: 'Rheumatologist', bio: 'Board-certified rheumatologist with deep expertise in autoimmune disease, inflammatory arthritis, and long-term joint preservation.', photo: 'images/site%20images%202/dr-mouriel-2-1.png' },
-  { loc: 'FL', name: 'Natalie Akerman, NP', role: 'Family Nurse Practitioner · Rheumatology Specialist', bio: 'Specialized in ongoing disease management, infusion therapy, and thoughtful patient education.', photo: 'images/site%20images%202/natalie.png' },
+  { loc: 'FL', name: 'Dr. Mouriel Boucher, DO', role: 'Rheumatologist', bio: 'Board-certified rheumatologist with deep expertise in autoimmune disease, inflammatory arthritis, and long-term joint preservation.', photo: 'images/site-images-2/dr-mouriel-2-1.png' },
+  { loc: 'FL', name: 'Natalie Akerman, NP', role: 'Family Nurse Practitioner · Rheumatology Specialist', bio: 'Specialized in ongoing disease management, infusion therapy, and thoughtful patient education.', photo: 'images/site-images-2/natalie.png' },
   { loc: 'NY', name: 'Dr. Bruce Stein, MD', role: 'Rheumatologist', bio: 'Fellowship-trained at Long Island Jewish Medical Center with over a decade leading our Queens practice. Special interest in rheumatoid arthritis, lupus, gout, fibromyalgia, osteoarthritis, myositis, osteoporosis, and sports-related injuries.', photo: null },
 ];
 
@@ -91,4 +91,24 @@ const LOCATIONS = [
   { id: 'NY', region: 'New York', city: 'Queens', address: '261-12 E Williston Ave', cityline: 'Queens, NY 11001', phone: '(718) 347-8888', fax: '—', hours: 'Mon–Fri · 9:00am–5:00pm', team: ['Our New York physician'] },
 ];
 
-Object.assign(window, { PRLogo, Placeholder, MapMini, CheckIcon, ArrowRight, CARE_TEAM, LOCATIONS, SERVICES });
+const useIsMobile = () => {
+  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  React.useEffect(() => {
+    const h = () => setW(window.innerWidth);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
+  return w < 768;
+};
+
+const useIsTablet = () => {
+  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  React.useEffect(() => {
+    const h = () => setW(window.innerWidth);
+    window.addEventListener('resize', h);
+    return () => window.removeEventListener('resize', h);
+  }, []);
+  return w < 1024;
+};
+
+Object.assign(window, { PRLogo, Placeholder, MapMini, CheckIcon, ArrowRight, CARE_TEAM, LOCATIONS, SERVICES, useIsMobile, useIsTablet });

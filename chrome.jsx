@@ -51,30 +51,74 @@ const NavLink = ({ href, children, active }) => (
   }}>{children}</a>
 );
 
-const SiteHeader = ({ active }) => (
-  <header style={{ padding: '22px 56px', display: 'grid', gridTemplateColumns: '220px 1fr auto', alignItems: 'center', gap: 40, background: palette.card, borderBottom: `1px solid ${palette.line}` }}>
-    <a href="index.html" style={{ textDecoration: 'none' }}>
-      <PRLogo size={40} wordColor={palette.ink} />
-    </a>
-    <nav style={{ display: 'flex', gap: 32, color: palette.ink, justifyContent: 'center' }}>
-      <NavLink href="about.html" active={active === 'about'}>About Premier Rheumatology</NavLink>
-      <NavLink href="team.html" active={active === 'team'}>Our Team</NavLink>
-      <NavLink href="conditions.html" active={active === 'conditions'}>Conditions We Treat</NavLink>
-      <NavLink href="florida.html" active={active === 'florida'}>Florida</NavLink>
-      <NavLink href="new-york.html" active={active === 'new-york'}>New York</NavLink>
-      <NavLink href="contact.html" active={active === 'contact'}>Contact</NavLink>
-    </nav>
-    <a href="contact.html" style={{ textDecoration: 'none' }}>
-      <button style={{ background: palette.purple, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>
-        Schedule an Appointment
-      </button>
-    </a>
-  </header>
-);
+const SiteHeader = ({ active }) => {
+  const isMobile = useIsMobile();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  return (
+    <header style={{ background: palette.card, borderBottom: `1px solid ${palette.line}` }}>
+      <div style={{ padding: isMobile ? '16px 20px' : '22px 56px', display: 'grid', gridTemplateColumns: isMobile ? '1fr auto' : '220px 1fr auto', alignItems: 'center', gap: isMobile ? 0 : 40 }}>
+        <a href="index.html" style={{ textDecoration: 'none' }}>
+          <PRLogo size={isMobile ? 34 : 40} wordColor={palette.ink} />
+        </a>
+        {!isMobile && (
+          <nav style={{ display: 'flex', gap: 32, color: palette.ink, justifyContent: 'center' }}>
+            <NavLink href="about.html" active={active === 'about'}>About Premier Rheumatology</NavLink>
+            <NavLink href="team.html" active={active === 'team'}>Our Team</NavLink>
+            <NavLink href="conditions.html" active={active === 'conditions'}>Conditions We Treat</NavLink>
+            <NavLink href="florida.html" active={active === 'florida'}>Florida</NavLink>
+            <NavLink href="new-york.html" active={active === 'new-york'}>New York</NavLink>
+            <NavLink href="contact.html" active={active === 'contact'}>Contact</NavLink>
+          </nav>
+        )}
+        {!isMobile && (
+          <a href="contact.html" style={{ textDecoration: 'none' }}>
+            <button style={{ background: palette.purple, color: '#fff', border: 'none', padding: '13px 22px', borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>
+              Schedule an Appointment
+            </button>
+          </a>
+        )}
+        {isMobile && (
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 24, padding: '4px 8px', color: palette.ink }}
+            aria-label="Toggle navigation"
+          >
+            {menuOpen ? '✕' : '☰'}
+          </button>
+        )}
+      </div>
+      {isMobile && menuOpen && (
+        <div style={{ borderTop: `1px solid ${palette.line}`, padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: 0, background: palette.card }}>
+          {[
+            { href: 'about.html', label: 'About Premier Rheumatology', key: 'about' },
+            { href: 'team.html', label: 'Our Team', key: 'team' },
+            { href: 'conditions.html', label: 'Conditions We Treat', key: 'conditions' },
+            { href: 'florida.html', label: 'Florida', key: 'florida' },
+            { href: 'new-york.html', label: 'New York', key: 'new-york' },
+            { href: 'contact.html', label: 'Contact', key: 'contact' },
+          ].map(item => (
+            <a key={item.key} href={item.href} style={{
+              textDecoration: 'none', color: active === item.key ? palette.purple : palette.ink,
+              fontSize: 16, fontWeight: active === item.key ? 700 : 500,
+              padding: '14px 0', borderBottom: `1px solid ${palette.line}`,
+            }}>{item.label}</a>
+          ))}
+          <a href="contact.html" style={{ textDecoration: 'none', marginTop: 16 }}>
+            <button style={{ width: '100%', background: palette.purple, color: '#fff', border: 'none', padding: '15px 22px', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+              Schedule an Appointment
+            </button>
+          </a>
+        </div>
+      )}
+    </header>
+  );
+};
 
-const SiteFooter = () => (
-  <footer style={{ background: palette.purpleDeep, color: '#fff', padding: '56px 56px 28px' }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, paddingBottom: 40, borderBottom: '1px solid #ffffff20' }}>
+const SiteFooter = () => {
+  const isMobile = useIsMobile();
+  return (
+  <footer style={{ background: palette.purpleDeep, color: '#fff', padding: isMobile ? '40px 20px 24px' : '56px 56px 28px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : '2fr 1fr 1fr 1fr', gap: isMobile ? 32 : 48, paddingBottom: 40, borderBottom: '1px solid #ffffff20' }}>
       <div>
         <PRLogo size={36} wordColor="#fff" />
         <p style={{ marginTop: 20, opacity: 0.72, maxWidth: 360, fontSize: 15, lineHeight: 1.55 }}>
@@ -107,7 +151,8 @@ const SiteFooter = () => (
     </div>
     <div style={{ paddingTop: 20, opacity: 0.5, fontSize: 12 }}>© 2026 Premier Rheumatology</div>
   </footer>
-);
+  );
+};
 
 const PageShell = ({ active, children }) => (
   <div style={{ background: palette.bg, color: palette.ink, fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>

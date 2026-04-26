@@ -9,14 +9,14 @@ const TEAM_FL = [
     role: 'Rheumatologist',
     bio: 'Dr. Mouriel Boucher is a board-certified rheumatologist with advanced training in the diagnosis and management of autoimmune and inflammatory conditions. She completed her rheumatology fellowship at HCA Florida Healthcare and her internal medicine residency at Palmetto General Hospital. Dr. Boucher provides evidence-based, patient-centered care for conditions including rheumatoid arthritis, lupus, osteoporosis, and complex joint disorders.',
     tone: 'purple',
-    photo: 'images/site%20images%202/dr-mouriel-2-1.png',
+    photo: 'images/site-images-2/dr-mouriel-2-1.png',
   },
   {
     name: 'Natalie Akerman, NP',
     role: 'Family Nurse Practitioner · Rheumatology Specialist',
     bio: "Natalie Akerman, NP is an experienced Family Nurse Practitioner specializing in rheumatology and chronic disease management. With over a decade of clinical experience across acute care, emergency medicine, pediatrics, and telehealth, she brings a comprehensive, collaborative approach to treating autoimmune and musculoskeletal conditions, with a strong focus on continuity of care and patient education.",
     tone: 'warm',
-    photo: 'images/site%20images%202/natalie.png',
+    photo: 'images/site-images-2/natalie.png',
   },
 ];
 
@@ -31,11 +31,13 @@ const TEAM_NY = [
 ];
 
 // ─── Hero ────────────────────────────────────────────────
-const THero = () => (
-  <section style={{ padding: '80px 56px 72px', background: tp.card, borderBottom: `1px solid ${tp.line}` }}>
+const THero = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 72px', background: tp.card, borderBottom: `1px solid ${tp.line}` }}>
     <div style={{ ...tps.eyebrow, marginBottom: 20 }}>Our Team</div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 84, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0, color: tp.ink }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 24 : 72, alignItems: 'end' }}>
+      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 44 : 84, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0, color: tp.ink }}>
         Rheumatology care that <span style={{ color: tp.purple }}>South Florida and New York</span> trust.
       </h1>
       <p style={{ fontSize: 18, lineHeight: 1.6, color: tp.sub, margin: 0, maxWidth: 520 }}>
@@ -43,7 +45,8 @@ const THero = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Provider card ───────────────────────────────────────
 const ProviderCard = ({ p }) => (
@@ -70,9 +73,11 @@ const ColumnHeader = ({ dot, title, sub }) => (
 );
 
 // ─── Team columns (FL + NY side-by-side) ─────────────────
-const TTeams = () => (
-  <section style={{ padding: '96px 56px', borderBottom: `1px solid ${tp.line}` }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'start' }}>
+const TTeams = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderBottom: `1px solid ${tp.line}` }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 40 : 56, alignItems: 'start' }}>
       <div>
         <ColumnHeader dot={tp.purple} title="Florida Care Team" sub="Boca Raton, FL" />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -87,12 +92,15 @@ const TTeams = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Philosophy ──────────────────────────────────────────
-const TPhilosophy = () => (
-  <section style={{ padding: '96px 56px', borderBottom: `1px solid ${tp.line}` }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 72, alignItems: 'start' }}>
+const TPhilosophy = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderBottom: `1px solid ${tp.line}` }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr', gap: isMobile ? 28 : 72, alignItems: 'start' }}>
       <div>
         <div style={{ ...tps.eyebrow, marginBottom: 14 }}>Clinical philosophy</div>
         <h2 style={{ ...tps.h2, fontSize: 44, margin: 0 }}>Our clinical care philosophy.</h2>
@@ -107,10 +115,12 @@ const TPhilosophy = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Conditions commonly managed ─────────────────────────
 const TConditions = () => {
+  const isMobile = useIsMobile();
   const items = [
     'Inflammatory and autoimmune arthritis',
     'Lupus and connective tissue diseases',
@@ -122,15 +132,15 @@ const TConditions = () => {
     'Tendonitis, bursitis, and sports injuries',
   ];
   return (
-    <section style={{ padding: '96px 56px', background: tp.card }}>
+    <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', background: tp.card }}>
       <div style={{ ...tps.eyebrow, marginBottom: 14 }}>Conditions we commonly manage</div>
       <h2 style={{ ...tps.h2, fontSize: 44, marginBottom: 40 }}>Expertise across the rheumatologic spectrum.</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 0, border: `1px solid ${tp.line}`, borderRadius: 16, overflow: 'hidden' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 0, border: `1px solid ${tp.line}`, borderRadius: 16, overflow: 'hidden' }}>
         {items.map((it, i) => (
           <div key={i} style={{
             padding: '26px 28px',
-            borderRight: i % 2 === 0 ? `1px solid ${tp.line}` : 'none',
-            borderBottom: i < items.length - 2 ? `1px solid ${tp.line}` : 'none',
+            borderRight: !isMobile && i % 2 === 0 ? `1px solid ${tp.line}` : 'none',
+            borderBottom: isMobile ? (i < items.length - 1 ? `1px solid ${tp.line}` : 'none') : (i < items.length - 2 ? `1px solid ${tp.line}` : 'none'),
             display: 'flex', alignItems: 'center', gap: 16,
             fontSize: 16.5, color: tp.ink,
           }}>
@@ -151,9 +161,11 @@ const TConditions = () => {
 };
 
 // ─── CTA ─────────────────────────────────────────────────
-const TCTA = () => (
-  <section style={{ padding: '80px 56px' }}>
-    <div style={{ background: tp.purpleDeep, color: '#fff', borderRadius: 24, padding: '60px 56px', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 40, alignItems: 'center' }}>
+const TCTA = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px' }}>
+    <div style={{ background: tp.purpleDeep, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '60px 56px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 40, alignItems: 'center' }}>
       <div>
         <div style={{ ...tps.eyebrow, color: '#d9c3ea', marginBottom: 16 }}>Ready to meet with our team?</div>
         <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 44, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: 0 }}>
@@ -170,7 +182,8 @@ const TCTA = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const TeamPage = () => (
   <PageShell active="team">

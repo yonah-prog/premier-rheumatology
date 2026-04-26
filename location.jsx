@@ -60,26 +60,31 @@ const LOC_CONFIG = {
 };
 
 // ─── Hero ────────────────────────────────────────────────────
-const LocHero = ({ cfg }) => (
-  <section style={{ padding: '80px 56px 72px', background: lp.card, borderBottom: `1px solid ${lp.line}` }}>
+const LocHero = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 72px', background: lp.card, borderBottom: `1px solid ${lp.line}` }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
       <span style={{ width: 9, height: 9, borderRadius: '50%', background: cfg.dot }} />
       <div style={{ ...lps.eyebrow, color: cfg.dot }}>{cfg.eyebrow}</div>
     </div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 76, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.04, margin: 0, color: lp.ink }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: isMobile ? 24 : 72, alignItems: 'end' }}>
+      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 44 : 76, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.04, margin: 0, color: lp.ink }}>
         {cfg.h1Line1}<br />
         <span style={{ color: cfg.dot }}>{cfg.h1Line2}</span>
       </h1>
       <p style={{ fontSize: 18, lineHeight: 1.65, color: lp.sub, margin: 0 }}>{cfg.intro}</p>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Location bar + map ──────────────────────────────────────
-const LocMap = ({ cfg }) => (
-  <section style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', minHeight: 440 }}>
-    <div style={{ padding: '56px 56px', background: lp.bg, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28, borderRight: `1px solid ${lp.line}` }}>
+const LocMap = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr', minHeight: isMobile ? 'auto' : 440 }}>
+    <div style={{ padding: isMobile ? '36px 20px' : '56px 56px', background: lp.bg, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28, borderRight: isMobile ? 'none' : `1px solid ${lp.line}`, borderBottom: isMobile ? `1px solid ${lp.line}` : 'none' }}>
       <div>
         <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Address</div>
         <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{cfg.address}</div>
@@ -107,24 +112,27 @@ const LocMap = ({ cfg }) => (
       </a>
       <div style={{ fontSize: 13, color: lp.sub, lineHeight: 1.6, borderTop: `1px solid ${lp.line}`, paddingTop: 20 }}>{cfg.servingText}</div>
     </div>
-    <div style={{ position: 'relative', minHeight: 440 }}>
+    <div style={{ position: 'relative', minHeight: isMobile ? 300 : 440 }}>
       <iframe
         title={`${cfg.city} office map`}
         src={cfg.mapSrc}
         width="100%" height="100%"
-        style={{ border: 0, display: 'block', minHeight: 440 }}
+        style={{ border: 0, display: 'block', minHeight: isMobile ? 300 : 440 }}
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
     </div>
   </section>
-);
+  );
+};
 
 // ─── Patient-centric care copy ───────────────────────────────
-const LocAbout = ({ cfg }) => (
-  <section style={{ padding: '96px 56px', borderTop: `1px solid ${lp.line}`, borderBottom: `1px solid ${lp.line}` }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, alignItems: 'start' }}>
+const LocAbout = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderTop: `1px solid ${lp.line}`, borderBottom: `1px solid ${lp.line}` }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr', gap: isMobile ? 32 : 80, alignItems: 'start' }}>
       <div>
         <div style={{ ...lps.eyebrow, marginBottom: 16 }}>Our {cfg.region} practice</div>
         <h2 style={{ ...lps.h2, fontSize: 44, marginBottom: 0 }}>
@@ -159,14 +167,16 @@ const LocAbout = ({ cfg }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Care team for this location ─────────────────────────────
 const LocTeam = ({ cfg }) => {
+  const isMobile = useIsMobile();
   const team = CARE_TEAM.filter(p => p.loc === cfg.teamLoc);
   const tones = ['purple', 'warm', 'cool', 'mint'];
   return (
-    <section style={{ padding: '96px 56px', background: lp.card, borderBottom: `1px solid ${lp.line}` }}>
+    <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', background: lp.card, borderBottom: `1px solid ${lp.line}` }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48 }}>
         <div>
           <div style={{ ...lps.eyebrow, marginBottom: 14 }}>{cfg.region} Care Team</div>
@@ -179,7 +189,7 @@ const LocTeam = ({ cfg }) => {
           </button>
         </a>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${team.length}, 1fr)`, gap: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : `repeat(${team.length}, 1fr)`, gap: 24 }}>
         {team.map((p, i) => (
           <div key={i} style={{ border: `1px solid ${lp.line}`, borderRadius: 20, overflow: 'hidden', background: lp.bg }}>
             {p.photo
@@ -200,16 +210,17 @@ const LocTeam = ({ cfg }) => {
 
 // ─── Services — infusion therapy featured ────────────────────
 const LocServices = ({ cfg }) => {
+  const isMobile = useIsMobile();
   const other = SERVICES.filter(s => !s.t.toLowerCase().includes('infusion'));
   const infusion = SERVICES.find(s => s.t.toLowerCase().includes('infusion'));
   return (
-    <section style={{ padding: '96px 56px', borderBottom: `1px solid ${lp.line}` }}>
+    <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderBottom: `1px solid ${lp.line}` }}>
       <div style={{ ...lps.eyebrow, marginBottom: 14 }}>Services at our {cfg.city} office</div>
       <h2 style={{ ...lps.h2, fontSize: 44, marginBottom: 48 }}>Comprehensive rheumatology, all in one place.</h2>
 
       {/* Infusion therapy — featured full-width */}
       {infusion && (
-        <div style={{ background: lp.purpleDeep, color: '#fff', borderRadius: 20, padding: '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+        <div style={{ background: lp.purpleDeep, color: '#fff', borderRadius: 20, padding: isMobile ? '32px 20px' : '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 56, alignItems: 'center' }}>
           <div>
             <div style={{ ...lps.eyebrow, color: '#c9a8f0', marginBottom: 16 }}>Featured service</div>
             <h3 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 38, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, margin: '0 0 20px' }}>{infusion.t}</h3>
@@ -224,12 +235,12 @@ const LocServices = ({ cfg }) => {
               </button>
             </a>
           </div>
-          <img src="images/site%20images%203/5-Infusion-Therapy-Benefits.jpg" alt="Infusion therapy suite" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', borderRadius: 16 }} />
+          <img src="images/site-images-3/5-Infusion-Therapy-Benefits.jpg" alt="Infusion therapy suite" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', borderRadius: 16 }} />
         </div>
       )}
 
       {/* Other services — grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 16 }}>
         {other.map((s, i) => (
           <div key={i} style={{ background: lp.card, border: `1px solid ${lp.line}`, borderRadius: 16, padding: '32px 32px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
             <div style={{ width: 44, height: 44, borderRadius: 12, background: lp.purpleLight, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -247,14 +258,16 @@ const LocServices = ({ cfg }) => {
 };
 
 // ─── CTA ─────────────────────────────────────────────────────
-const LocCTA = ({ cfg }) => (
-  <section style={{ padding: '80px 56px' }}>
-    <div style={{ background: cfg.dot, color: '#fff', borderRadius: 24, padding: '64px 64px', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 48, alignItems: 'center' }}>
+const LocCTA = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px' }}>
+    <div style={{ background: cfg.dot, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '64px 64px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 48, alignItems: 'center' }}>
       <div>
         <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#ffffff99', marginBottom: 18 }}>
           {cfg.city} · {cfg.region}
         </div>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 48, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: '0 0 18px' }}>
+        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 32 : 48, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: '0 0 18px' }}>
           Ready to meet our {cfg.city} team?
         </h2>
         <p style={{ fontSize: 17, lineHeight: 1.6, opacity: 0.85, margin: 0 }}>
@@ -275,7 +288,8 @@ const LocCTA = ({ cfg }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Page ────────────────────────────────────────────────────
 const LocationPage = ({ locationId }) => {

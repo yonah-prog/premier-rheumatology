@@ -56,11 +56,13 @@ const ConditionCard = ({ c, featured = false }) => {
 };
 
 // ─── Hero + search ───────────────────────────────────────
-const CHero = ({ q, setQ }) => (
-  <section style={{ padding: '72px 56px 56px', background: cp.card, borderBottom: `1px solid ${cp.line}` }}>
+const CHero = ({ q, setQ }) => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '72px 56px 56px', background: cp.card, borderBottom: `1px solid ${cp.line}` }}>
     <div style={{ ...cps.eyebrow, marginBottom: 18 }}>Conditions We Treat</div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 64, alignItems: 'end', marginBottom: 40 }}>
-      <h1 style={{ fontSize: 76, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 20 : 64, alignItems: 'end', marginBottom: 40 }}>
+      <h1 style={{ fontSize: isMobile ? 40 : 76, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0 }}>
         A library of <span style={{ color: cp.purple }}>rheumatologic conditions</span> — evaluated, explained, and treated at our Boca Raton and Queens offices.
       </h1>
       <p style={{ fontSize: 17, lineHeight: 1.6, color: cp.sub, margin: 0, maxWidth: 500 }}>
@@ -76,34 +78,42 @@ const CHero = ({ q, setQ }) => (
       <input
         value={q}
         onChange={e => setQ(e.target.value)}
-        placeholder="Search conditions, symptoms, or keywords (e.g. 'joint pain', 'lupus', 'ANA')"
+        placeholder="Search conditions, symptoms, or keywords"
         style={{
           width: '100%', padding: '20px 24px 20px 56px',
           fontSize: 16, border: `1px solid ${cp.line}`, borderRadius: 12,
           background: cp.bg, fontFamily: 'inherit', outline: 'none', color: cp.ink,
+          boxSizing: 'border-box',
         }}
       />
     </div>
   </section>
-);
+  );
+};
 
 // ─── Featured strip ──────────────────────────────────────
-const CFeatured = ({ items }) => (
-  <section style={{ padding: '72px 56px', borderBottom: `1px solid ${cp.line}` }}>
+const CFeatured = ({ items }) => {
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '72px 56px', borderBottom: `1px solid ${cp.line}` }}>
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 28 }}>
       <div>
         <div style={{ ...cps.eyebrow, marginBottom: 10 }}>Featured</div>
         <h2 style={{ fontSize: 38, fontWeight: 700, letterSpacing: '-0.03em', margin: 0 }}>Most common conditions we manage.</h2>
       </div>
     </div>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(3, 1fr)', gap: 20 }}>
       {items.map(c => <ConditionCard key={c.slug} c={c} featured />)}
     </div>
   </section>
-);
+  );
+};
 
 // ─── Main browser ────────────────────────────────────────
 const CBrowser = ({ q, setQ, active, setActive }) => {
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
   const filtered = CONDITIONS.filter(c => {
     if (active && c.category !== active) return false;
     if (q) {
@@ -117,7 +127,7 @@ const CBrowser = ({ q, setQ, active, setActive }) => {
   const countBy = (catId) => CONDITIONS.filter(c => c.category === catId).length;
 
   return (
-    <section style={{ padding: '72px 56px' }}>
+    <section style={{ padding: isMobile ? '48px 20px' : '72px 56px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 28 }}>
         <div>
           <div style={{ ...cps.eyebrow, marginBottom: 10 }}>Browse all</div>
@@ -146,7 +156,7 @@ const CBrowser = ({ q, setQ, active, setActive }) => {
           No conditions match your search. Try a different keyword or clear filters.
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(3, 1fr)', gap: 16 }}>
           {filtered.map(c => <ConditionCard key={c.slug} c={c} />)}
         </div>
       )}
@@ -156,6 +166,7 @@ const CBrowser = ({ q, setQ, active, setActive }) => {
 
 // ─── A-Z index ───────────────────────────────────────────
 const CAZIndex = () => {
+  const isMobile = useIsMobile();
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   const byLetter = {};
   letters.forEach(L => byLetter[L] = []);
@@ -165,11 +176,11 @@ const CAZIndex = () => {
   });
 
   return (
-    <section style={{ padding: '72px 56px', background: cp.card, borderTop: `1px solid ${cp.line}` }}>
+    <section style={{ padding: isMobile ? '48px 20px' : '72px 56px', background: cp.card, borderTop: `1px solid ${cp.line}` }}>
       <div style={{ ...cps.eyebrow, marginBottom: 10 }}>A–Z index</div>
       <h2 style={{ fontSize: 38, fontWeight: 700, letterSpacing: '-0.03em', margin: 0, marginBottom: 32 }}>Browse alphabetically.</h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 24 : 40 }}>
         {letters.filter(L => byLetter[L].length).map(L => (
           <div key={L}>
             <div style={{ fontSize: 22, fontWeight: 700, color: cp.purple, marginBottom: 10, fontFamily: 'Manrope, sans-serif', letterSpacing: '0.05em' }}>{L}</div>
@@ -188,9 +199,11 @@ const CAZIndex = () => {
 };
 
 // ─── CTA ─────────────────────────────────────────────────
-const CConsult = () => (
-  <section style={{ padding: '80px 56px' }}>
-    <div style={{ background: cp.purpleDeep, color: '#fff', borderRadius: 24, padding: '60px 56px', display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 40, alignItems: 'center' }}>
+const CConsult = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px' }}>
+    <div style={{ background: cp.purpleDeep, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '60px 56px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 24 : 40, alignItems: 'center' }}>
       <div>
         <div style={{ ...cps.eyebrow, color: '#d9c3ea', marginBottom: 16 }}>Can't find your condition?</div>
         <h2 style={{ fontSize: 42, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: 0 }}>
@@ -204,7 +217,8 @@ const CConsult = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── Page ────────────────────────────────────────────────
 const ConditionsPage = () => {

@@ -13,44 +13,50 @@ const ps = {
 };
 
 // ─── Hero: "Move Freely. Live Fully." ───────────────────────
-const PHero = () => (
-  <section style={{ padding: '72px 56px 96px', background: pl.card, borderBottom: `1px solid ${pl.line}` }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', marginBottom: 56 }}>
-      <div>
-        <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 120, fontWeight: 700, letterSpacing: '-0.045em', lineHeight: 0.98, margin: '0 0 32px', color: pl.ink }}>
-          Move Freely.<br/>
-          <span style={{ color: pl.purple }}>Live Fully.</span>
-        </h1>
-        <p style={{ fontSize: 20, lineHeight: 1.55, color: pl.sub, maxWidth: 520, margin: '0 0 40px' }}>
-          Dedicated to restoring mobility, relieving pain, and empowering every patient to live stronger and healthier. From the first consultation through ongoing care, our specialists combine clinical expertise with a warmth that makes complex conditions feel manageable—so you can get back to the life you love.
-        </p>
-        <div style={{ display: 'flex', gap: 12 }}>
-          <a href="contact.html" style={{ textDecoration: 'none' }}>
-            <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
-              Make an Appointment <ArrowRight size={16} />
-            </button>
-          </a>
-          <a href="team.html" style={{ textDecoration: 'none' }}>
-            <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
-              Meet our team
-            </button>
-          </a>
+const PHero = () => {
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+  return (
+    <section style={{ padding: isMobile ? '40px 20px 56px' : '72px 56px 96px', background: pl.card, borderBottom: `1px solid ${pl.line}` }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 40 : 64, alignItems: 'center', marginBottom: 56 }}>
+        <div>
+          <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 52 : isTablet ? 80 : 120, fontWeight: 700, letterSpacing: '-0.045em', lineHeight: 0.98, margin: '0 0 32px', color: pl.ink }}>
+            Move Freely.<br/>
+            <span style={{ color: pl.purple }}>Live Fully.</span>
+          </h1>
+          <p style={{ fontSize: isMobile ? 17 : 20, lineHeight: 1.55, color: pl.sub, maxWidth: 520, margin: '0 0 40px' }}>
+            Dedicated to restoring mobility, relieving pain, and empowering every patient to live stronger and healthier. From the first consultation through ongoing care, our specialists combine clinical expertise with a warmth that makes complex conditions feel manageable—so you can get back to the life you love.
+          </p>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <a href="contact.html" style={{ textDecoration: 'none' }}>
+              <button style={{ background: pl.ink, color: '#fff', border: 'none', padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+                Make an Appointment <ArrowRight size={16} />
+              </button>
+            </a>
+            <a href="team.html" style={{ textDecoration: 'none' }}>
+              <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '18px 28px', borderRadius: 10, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>
+                Meet our team
+              </button>
+            </a>
+          </div>
         </div>
+        {!isMobile && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, height: 440 }}>
+            <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
+              <img src="images/site-images-1/yonah0704_15145_older_man_enjoying_his_children_and_grandchil_f2bee724-272c-4956-80db-f039c79f19e7_2.png" alt="Patient enjoying life after care" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%', marginTop: 32 }}>
+              <img src="images/site-images-1/yonah0704_15145_Smiling_older_female_with_arthritis_wearing_c_64df078b-4892-4c76-8378-58edb7542b42_2.png" alt="Patient consulting with rheumatologist" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
+              <img src="images/site-images-1/yonah0704_15145_young_black_nurse_caring_for_elderly_white_ma_958d6e56-9cca-4cda-82b4-2bf75add2b8f_0.png" alt="Care team with patient" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+          </div>
+        )}
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, height: 440 }}>
-        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
-          <img src="images/site%20images%201/yonah0704_15145_older_man_enjoying_his_children_and_grandchil_f2bee724-272c-4956-80db-f039c79f19e7_2.png" alt="Patient enjoying life after care" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        </div>
-        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%', marginTop: 32 }}>
-          <img src="images/site%20images%201/yonah0704_15145_Smiling_older_female_with_arthritis_wearing_c_64df078b-4892-4c76-8378-58edb7542b42_2.png" alt="Patient consulting with rheumatologist" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        </div>
-        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
-          <img src="images/site%20images%201/yonah0704_15145_young_black_nurse_caring_for_elderly_white_ma_958d6e56-9cca-4cda-82b4-2bf75add2b8f_0.png" alt="Care team with patient" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // ─── Premier Care — team of professionals (FL + NY sub-sections) ──
 const PTeamGrid = ({ people, toneA = 'purple', toneB = 'warm' }) => (
@@ -95,30 +101,31 @@ const TeamColumnHeader = ({ dot, title, sub }) => (
 );
 
 const PPremierCare = () => {
+  const isMobile = useIsMobile();
   const fl = CARE_TEAM.filter(p => p.loc === 'FL');
   const ny = CARE_TEAM.filter(p => p.loc === 'NY');
   return (
-    <section style={{ padding: '110px 56px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 72, alignItems: 'start', marginBottom: 56 }}>
+    <section style={{ padding: isMobile ? '56px 20px' : '110px 56px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.4fr', gap: isMobile ? 24 : 72, alignItems: 'start', marginBottom: 56 }}>
         <div>
           <div style={{ ...ps.eyebrow, marginBottom: 16 }}>Premier Care</div>
           <h2 style={ps.h2}>A team of professionals dedicated to your recovery.</h2>
         </div>
-        <p style={{ fontSize: 18, lineHeight: 1.65, color: pl.sub, maxWidth: 640, marginTop: 10 }}>
+        <p style={{ fontSize: 18, lineHeight: 1.65, color: pl.sub, maxWidth: 640, marginTop: isMobile ? 0 : 10 }}>
           Our care team brings together experienced clinicians with deep expertise in rheumatology and autoimmune disease management. We focus on delivering compassionate, personalized treatment that supports healing, restores function, and improves quality of life. Your health is our priority, and we are with you every step of the way.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 48, alignItems: 'start' }}>
         <div>
           <TeamColumnHeader dot={pl.purple} title="Florida Care Team" sub="Boca Raton" />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
             {fl.map((p, i) => <TeamCard key={i} p={p} tone={i === 0 ? 'purple' : 'warm'} />)}
           </div>
         </div>
         <div>
           <TeamColumnHeader dot="#2e6b52" title="New York Care Team" sub="Queens" />
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
             {ny.map((p, i) => <TeamCard key={i} p={p} tone="cool" />)}
           </div>
         </div>
@@ -129,6 +136,7 @@ const PPremierCare = () => {
 
 // ─── How it works — 4 steps ─────────────────────────────
 const PProcess = () => {
+  const isMobile = useIsMobile();
   const steps = [
     { t: 'Appointment', d: 'Schedule your consultation online or by phone at a time that\u2019s convenient for you.' },
     { t: 'Evaluation', d: 'Meet with our specialist for a personalized assessment and diagnosis tailored to your symptoms and medical history.' },
@@ -136,12 +144,12 @@ const PProcess = () => {
     { t: 'Relief and Recovery', d: 'Experience lasting improvement in mobility, comfort, and quality of life with ongoing expert support.' },
   ];
   return (
-    <section style={{ padding: '110px 56px', background: pl.card, borderTop: `1px solid ${pl.line}`, borderBottom: `1px solid ${pl.line}` }}>
+    <section style={{ padding: isMobile ? '56px 20px' : '110px 56px', background: pl.card, borderTop: `1px solid ${pl.line}`, borderBottom: `1px solid ${pl.line}` }}>
       <div style={{ ...ps.eyebrow, marginBottom: 14 }}>Your path to care</div>
-      <h2 style={{ ...ps.h2, marginBottom: 56 }}>How care works here.</h2>
+      <h2 style={{ ...ps.h2, fontSize: isMobile ? 32 : 56, marginBottom: 56 }}>How care works here.</h2>
       <div style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', top: 36, left: 40, right: 40, height: 1, background: pl.line }} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, position: 'relative' }}>
+        {!isMobile && <div style={{ position: 'absolute', top: 36, left: 40, right: 40, height: 1, background: pl.line }} />}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: 20, position: 'relative' }}>
           {steps.map((s, i) => (
             <div key={i}>
               <div style={{
@@ -168,14 +176,17 @@ const PProcess = () => {
 };
 
 // ─── Services — card grid ─────────────────────────────────
-const PServices = () => (
-  <section style={{ padding: '110px 56px' }}>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 72, alignItems: 'end', marginBottom: 48 }}>
+const PServices = () => {
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '110px 56px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.2fr', gap: isMobile ? 20 : 72, alignItems: 'end', marginBottom: 48 }}>
       <div>
         <div style={{ ...ps.eyebrow, marginBottom: 14 }}>Comprehensive Rheumatology Care</div>
         <h2 style={ps.h2}>Personalized treatment for every joint and every journey.</h2>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <div style={{ display: 'flex', justifyContent: isMobile ? 'flex-start' : 'flex-end' }}>
         <a href="conditions.html" style={{ textDecoration: 'none' }}>
           <button style={{ background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '14px 22px', borderRadius: 10, fontSize: 14, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
             All Services <ArrowRight size={14} />
@@ -184,14 +195,14 @@ const PServices = () => (
       </div>
     </div>
 
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(3, 1fr)', gap: 20 }}>
       {SERVICES.map((s, i) => {
         const serviceImages = [
-          'images/site%20images%203/joint-pain.png',
-          'images/site%20images%203/blood-test.png',
-          'images/site%20images%203/womens-infusion.png',
-          'images/site%20images%203/aging-2-1.png',
-          'images/site%20images%201/pexels-yankrukov-5793798.jpg',
+          'images/site-images-3/joint-pain.png',
+          'images/site-images-3/blood-test.png',
+          'images/site-images-3/womens-infusion.png',
+          'images/site-images-3/aging-2-1.png',
+          'images/site-images-1/pexels-yankrukov-5793798.jpg',
         ];
         return (
           <div key={i} style={{
@@ -217,11 +228,14 @@ const PServices = () => (
       })}
     </div>
   </section>
-);
+  );
+};
 
 // ─── Locations section (FL + NY shown here, with parity) ────
-const PLocations = () => (
-  <section style={{ padding: '110px 56px' }}>
+const PLocations = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '110px 56px' }}>
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48 }}>
       <div>
         <div style={{ ...ps.eyebrow, marginBottom: 14 }}>Our locations</div>
@@ -232,7 +246,7 @@ const PLocations = () => (
       </div>
     </div>
 
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 20 }}>
       {LOCATIONS.map((loc, i) => (
         <div key={loc.id} style={{ border: `1px solid ${pl.line}`, borderRadius: 20, overflow: 'hidden', background: pl.card }}>
           <div style={{ height: 240, position: 'relative' }}>
@@ -275,22 +289,25 @@ const PLocations = () => (
       ))}
     </div>
   </section>
-);
+  );
+};
 
 // ─── Contact CTA — location-specific buttons ─────────────────
-const PContactCTA = () => (
-  <section style={{ padding: '120px 56px', background: pl.ink, color: '#fff' }}>
+const PContactCTA = () => {
+  const isMobile = useIsMobile();
+  return (
+  <section style={{ padding: isMobile ? '56px 20px' : '120px 56px', background: pl.ink, color: '#fff' }}>
     <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
       <div style={{ ...ps.eyebrow, color: pl.accent, marginBottom: 20 }}>Get in touch</div>
-      <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 72, fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.02, margin: '0 0 24px' }}>
+      <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 40 : 72, fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.02, margin: '0 0 24px' }}>
         Ready to feel better?<br/>
-        <span style={{ color: pl.accent }}>Let's get you on the schedule.</span>
+        <span style={{ color: pl.accent }}>Let&apos;s get you on the schedule.</span>
       </h2>
       <p style={{ fontSize: 18, lineHeight: 1.6, opacity: 0.8, maxWidth: 620, margin: '0 auto 56px' }}>
         Select the office closest to you and our team will follow up to book your consultation.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, maxWidth: 880, margin: '0 auto' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 20, maxWidth: 880, margin: '0 auto' }}>
         <a href="contact.html" style={{ textDecoration: 'none' }}>
           <button style={{
             width: '100%', background: pl.card, color: pl.ink, border: 'none',
@@ -332,7 +349,8 @@ const PContactCTA = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const PremierHome = () => (
   <div style={{ background: pl.bg, color: pl.ink, fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
