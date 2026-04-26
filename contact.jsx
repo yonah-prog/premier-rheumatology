@@ -67,10 +67,10 @@ const OfficeInfo = ({ loc, dot }) => (
 );
 
 // ─── Contact form for one office ────────────────────────────
-// Formspree form IDs — replace with IDs from formspree.io dashboard
-const FORMSPREE_IDS = {
-  FL: 'YOUR_FL_FORM_ID',
-  NY: 'YOUR_NY_FORM_ID',
+// Web3Forms access keys — one per office (web3forms.com)
+const WEB3FORMS_KEYS = {
+  FL: 'd967bcdd-6660-4c91-b90c-4488da940015',
+  NY: 'YOUR_NY_ACCESS_KEY',
 };
 
 const OfficeForm = ({ loc, dot, accentColor }) => {
@@ -83,17 +83,19 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
     e.preventDefault();
     setSending(true);
     setError(null);
-    const formId = FORMSPREE_IDS[loc.id];
     const data = new FormData(e.target);
-    data.append('_subject', `New patient inquiry — Premier Rheumatology ${loc.city}`);
+    data.append('access_key', WEB3FORMS_KEYS[loc.id]);
+    data.append('subject', `New patient inquiry — Premier Rheumatology ${loc.city}`);
     data.append('office', loc.city);
+    data.append('from_name', 'Premier Rheumatology Website');
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
       });
-      if (res.ok) {
+      const json = await res.json();
+      if (json.success) {
         setSent(true);
       } else {
         setError('Something went wrong. Please call us directly.');
