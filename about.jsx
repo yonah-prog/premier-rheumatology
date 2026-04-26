@@ -61,10 +61,13 @@ const ATOC = () => {
 };
 
 // ─── Reusable long-form section ──────────────────────────
-const ASection = ({ id, eyebrow, h2, children, img, imgLabel, imgTone = 'purple', flip = false }) => (
+const ASection = ({ id, eyebrow, h2, children, img, imgLabel, imgTone = 'purple', imgSrc, flip = false }) => (
   <section id={id} style={{ padding: '96px 56px', borderBottom: `1px solid ${ap.line}`, scrollMarginTop: 80 }}>
     <div style={{ display: 'grid', gridTemplateColumns: img ? '1fr 1fr' : '1fr 1.8fr', gap: 72, alignItems: 'start' }}>
-      {flip && img && <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />}
+      {flip && img && (imgSrc
+        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 20, display: 'block' }} />
+        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />
+      )}
       <div>
         <div style={{ ...aps.eyebrow, marginBottom: 16 }}>{eyebrow}</div>
         <h2 style={{ ...aps.h2, fontSize: 44, marginBottom: 28 }}>{h2}</h2>
@@ -72,7 +75,10 @@ const ASection = ({ id, eyebrow, h2, children, img, imgLabel, imgTone = 'purple'
           {children}
         </div>
       </div>
-      {!flip && img && <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />}
+      {!flip && img && (imgSrc
+        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 20, display: 'block' }} />
+        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />
+      )}
     </div>
   </section>
 );
@@ -244,6 +250,7 @@ const AboutPage = () => (
       eyebrow="Our practice"
       h2="A dedicated rheumatology practice serving Boca Raton and Queens."
       img imgLabel="Consultation · lifestyle" imgTone="warm"
+      imgSrc="Images/site-images-3/care.webp"
     >
       <p>
         Premier Rheumatology is a specialty practice focused on the accurate diagnosis, long-term management, and personalized treatment of autoimmune, inflammatory, degenerative, and musculoskeletal conditions affecting the joints, bones, and connective tissues. With offices in <strong>Boca Raton, Florida</strong> and <strong>Queens, New York</strong>, we serve patients across South Florida, Palm Beach County, and the greater New York metro area.
@@ -257,7 +264,8 @@ const AboutPage = () => (
       id="comprehensive"
       eyebrow="Comprehensive rheumatology care"
       h2="Expert evaluation for a broad range of rheumatologic conditions."
-      img imgLabel="Clinical evaluation · placeholder" imgTone="purple" flip
+      img imgLabel="Clinical evaluation" imgTone="purple" flip
+      imgSrc="Images/site-images-3/blood-test.png"
     >
       <p>
         Our rheumatologists care for patients with inflammatory and autoimmune arthritis (including rheumatoid arthritis, psoriatic arthritis, and ankylosing spondylitis), connective tissue diseases such as lupus and Sjögren's syndrome, metabolic bone disorders including osteoporosis, crystal-induced arthritis such as gout, spine and axial conditions, and chronic musculoskeletal pain.
@@ -271,7 +279,8 @@ const AboutPage = () => (
       id="treatment"
       eyebrow="Personalized, evidence-based treatment"
       h2="Treatment plans built around you — not a one-size-fits-all protocol."
-      img imgLabel="Treatment planning · placeholder" imgTone="cool"
+      img imgLabel="Treatment planning" imgTone="cool"
+      imgSrc="Images/site-images-3/pexels-samuel-patrick-2155522097-33776738.jpg"
     >
       <p>
         Treatment plans at Premier Rheumatology are individualized and grounded in current clinical guidelines. Depending on your condition, care may include conservative management, oral medication therapy, advanced biologic treatments, and on-site infusion therapy at both our Florida and New York locations.
@@ -285,7 +294,8 @@ const AboutPage = () => (
       id="long-term"
       eyebrow="Long-term disease management"
       h2="Continuity of care that keeps pace with your condition."
-      img imgLabel="Follow-up visit · placeholder" imgTone="mint" flip
+      img imgLabel="Follow-up visit" imgTone="mint" flip
+      imgSrc="Images/site-images-3/pexels-konrads-photo-32254525.jpg"
     >
       <p>
         Many rheumatologic conditions require ongoing management rather than one-time treatment. We focus on continuity — with regular follow-up, disease-activity monitoring, and thoughtful adjustments to your plan as your needs change.
@@ -299,7 +309,8 @@ const AboutPage = () => (
       id="approach"
       eyebrow="A thoughtful, patient-centered approach"
       h2="Careful, individualized care — never rushed."
-      img imgLabel="Patient and clinician · placeholder" imgTone="warm"
+      img imgLabel="Patient and clinician" imgTone="warm"
+      imgSrc="Images/site-images-3/pexels-mo3ath-photos-110226063-26886760.jpg"
     >
       <p>
         We recognize that rheumatologic conditions can affect mobility, energy, sleep, and overall quality of life. Our care model is designed to be supportive, accessible, and responsive — with attention to both physical symptoms and how you feel day to day.

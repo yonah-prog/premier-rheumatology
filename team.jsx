@@ -49,19 +49,34 @@ const THero = () => {
 };
 
 // ─── Provider card ───────────────────────────────────────
-const ProviderCard = ({ p }) => (
-  <article style={{ border: `1px solid ${tp.line}`, borderRadius: 20, overflow: 'hidden', background: tp.card, display: 'flex', flexDirection: 'column' }}>
-    {p.photo
-      ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: 360, objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
-      : <Placeholder label={`${p.name} · portrait`} tone={p.tone} h={360} radius={0} />
-    }
-    <div style={{ padding: '28px 30px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-      <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{p.name}</div>
-      <div style={{ fontSize: 13.5, color: tp.purple, fontWeight: 600, marginBottom: 18 }}>{p.role}</div>
-      <div style={{ fontSize: 15, lineHeight: 1.65, color: tp.sub, flex: 1 }}>{p.bio}</div>
-    </div>
-  </article>
-);
+const ProviderCard = ({ p }) => {
+  const isMobile = useIsMobile();
+  return (
+    <article style={{ border: `1px solid ${tp.line}`, borderRadius: 16, overflow: 'hidden', background: tp.card, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
+      {/* Square image */}
+      <div style={{ flexShrink: 0, width: isMobile ? '100%' : 180, height: isMobile ? 'auto' : 180 }}>
+        {isMobile
+          ? <div style={{ position: 'relative', width: '100%', paddingBottom: '60%', overflow: 'hidden' }}>
+              {p.photo
+                ? <img src={p.photo} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+                : <Placeholder label={p.name} tone={p.tone} h={160} radius={0} />
+              }
+            </div>
+          : (p.photo
+              ? <img src={p.photo} alt={p.name} style={{ width: 180, height: 180, objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+              : <Placeholder label={p.name} tone={p.tone} h={180} radius={0} />
+            )
+        }
+      </div>
+      {/* Text */}
+      <div style={{ padding: isMobile ? '20px 22px 24px' : '24px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
+        <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
+        <div style={{ fontSize: 12.5, color: tp.purple, fontWeight: 600, marginBottom: 12, letterSpacing: '0.01em' }}>{p.role}</div>
+        <div style={{ fontSize: 14, lineHeight: 1.65, color: tp.sub }}>{p.bio}</div>
+      </div>
+    </article>
+  );
+};
 
 // ─── Column header ───────────────────────────────────────
 const ColumnHeader = ({ dot, title, sub }) => (

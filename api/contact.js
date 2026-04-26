@@ -29,6 +29,7 @@ module.exports = async function handler(req, res) {
     email, phone,
     insurance_provider, insurance_id,
     message,
+    attachment,
   } = req.body;
 
   const config = OFFICE_CONFIG[officeId];
@@ -90,6 +91,9 @@ module.exports = async function handler(req, res) {
         reply_to: email,
         subject: `New patient inquiry — Premier Rheumatology ${office}`,
         html,
+        ...(attachment && {
+          attachments: [{ filename: attachment.filename, content: attachment.content }],
+        }),
       }),
     });
 

@@ -189,17 +189,29 @@ const LocTeam = ({ cfg }) => {
           </button>
         </a>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : `repeat(${team.length}, 1fr)`, gap: 24 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {team.map((p, i) => (
-          <div key={i} style={{ border: `1px solid ${lp.line}`, borderRadius: 20, overflow: 'hidden', background: lp.bg }}>
-            {p.photo
-              ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: 360, objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
-              : <Placeholder label={`${p.name} · portrait`} tone={tones[i] || 'cool'} h={360} radius={0} />
-            }
-            <div style={{ padding: '28px 30px 32px' }}>
-              <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{p.name}</div>
-              <div style={{ fontSize: 13, color: cfg.dot, fontWeight: 600, marginBottom: 14 }}>{p.role}</div>
-              <div style={{ fontSize: 14.5, lineHeight: 1.65, color: lp.sub }}>{p.bio}</div>
+          <div key={i} style={{ border: `1px solid ${lp.line}`, borderRadius: 16, overflow: 'hidden', background: lp.bg, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
+            {/* Square image */}
+            <div style={{ flexShrink: 0, width: isMobile ? '100%' : 180, height: isMobile ? 'auto' : 180 }}>
+              {isMobile
+                ? <div style={{ position: 'relative', width: '100%', paddingBottom: '55%', overflow: 'hidden' }}>
+                    {p.photo
+                      ? <img src={p.photo} alt={p.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+                      : <Placeholder label={p.name} tone={tones[i] || 'cool'} h={160} radius={0} />
+                    }
+                  </div>
+                : (p.photo
+                    ? <img src={p.photo} alt={p.name} style={{ width: 180, height: 180, objectFit: 'cover', objectPosition: 'top center', display: 'block' }} />
+                    : <Placeholder label={p.name} tone={tones[i] || 'cool'} h={180} radius={0} />
+                  )
+              }
+            </div>
+            {/* Text */}
+            <div style={{ padding: isMobile ? '20px 22px 24px' : '24px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
+              <div style={{ fontSize: 12.5, color: cfg.dot, fontWeight: 600, marginBottom: 12 }}>{p.role}</div>
+              <div style={{ fontSize: 14, lineHeight: 1.65, color: lp.sub }}>{p.bio}</div>
             </div>
           </div>
         ))}

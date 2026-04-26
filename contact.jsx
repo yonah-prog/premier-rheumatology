@@ -78,6 +78,26 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
     setSending(true);
     setError(null);
     const form = e.target;
+
+    // Read optional attachment as base64
+    let attachment = null;
+    const fileInput = form.attachment;
+    if (fileInput && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      if (file.size > 8 * 1024 * 1024) {
+        setError('File is too large. Please attach a file under 8 MB.');
+        setSending(false);
+        return;
+      }
+      const base64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+      attachment = { filename: file.name, content: base64, type: file.type };
+    }
+
     const body = {
       officeId: loc.id,
       office: loc.city,
@@ -88,6 +108,7 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
       insurance_provider: form.insurance_provider.value,
       insurance_id: form.insurance_id.value,
       message: form.message.value,
+      attachment,
     };
     try {
       const res = await fetch('/api/contact', {
@@ -133,6 +154,20 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
           <Field label="Insurance Provider" name="insurance_provider" placeholder="e.g. Blue Cross" />
           <Field label="Insurance ID #" name="insurance_id" placeholder="Member ID" />
           <Field label="Message" name="message" placeholder="Tell us about your symptoms or reason for visit…" span textarea />
+
+          {/* File attachment */}
+          <div style={{ gridColumn: '1 / -1' }}>
+            <label style={labelStyle}>Attach a document <span style={{ fontWeight: 400, textTransform: 'none', letterSpacing: 0, opacity: 0.6 }}>(optional — referral, insurance card, records)</span></label>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '13px 16px', border: `1px dashed ${cp2.line}`, borderRadius: 10, background: '#fafafa', cursor: 'pointer' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke={cp2.sub} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span style={{ fontSize: 14, color: cp2.sub, fontFamily: 'Manrope, sans-serif' }}>Click to choose file · PDF, JPG, PNG, DOC up to 8 MB</span>
+              <input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style={{ display: 'none' }} onChange={e => {
+                const label = e.target.closest('label').querySelector('span');
+                label.textContent = e.target.files[0] ? e.target.files[0].name : 'Click to choose file · PDF, JPG, PNG, DOC up to 8 MB';
+                label.style.color = e.target.files[0] ? cp2.ink : cp2.sub;
+              }} />
+            </label>
+          </div>
 
           <div style={{ gridColumn: '1 / -1' }}>
             <button type="submit" disabled={sending} style={{
