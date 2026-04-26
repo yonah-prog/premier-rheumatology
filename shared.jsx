@@ -73,9 +73,9 @@ const ArrowRight = ({ size = 16, color = 'currentColor' }) => (
 );
 
 const CARE_TEAM = [
-  { loc: 'FL', name: 'Dr. Mouriel Boucher, DO', role: 'Rheumatologist', bio: 'Board-certified rheumatologist with deep expertise in autoimmune disease, inflammatory arthritis, and long-term joint preservation.' },
-  { loc: 'FL', name: 'Natalie Akerman, NP', role: 'Family Nurse Practitioner · Rheumatology Specialist', bio: 'Specialized in ongoing disease management, infusion therapy, and thoughtful patient education.' },
-  { loc: 'NY', name: 'Dr. Bruce Stein, MD', role: 'Rheumatologist', bio: 'Fellowship-trained at Long Island Jewish Medical Center with over a decade leading our Queens practice. Special interest in rheumatoid arthritis, lupus, gout, fibromyalgia, osteoarthritis, myositis, osteoporosis, and sports-related injuries.' },
+  { loc: 'FL', name: 'Dr. Mouriel Boucher, DO', role: 'Rheumatologist', bio: 'Board-certified rheumatologist with deep expertise in autoimmune disease, inflammatory arthritis, and long-term joint preservation.', photo: 'images/site%20images%202/dr-mouriel-2-1.png' },
+  { loc: 'FL', name: 'Natalie Akerman, NP', role: 'Family Nurse Practitioner · Rheumatology Specialist', bio: 'Specialized in ongoing disease management, infusion therapy, and thoughtful patient education.', photo: 'images/site%20images%202/natalie.png' },
+  { loc: 'NY', name: 'Dr. Bruce Stein, MD', role: 'Rheumatologist', bio: 'Fellowship-trained at Long Island Jewish Medical Center with over a decade leading our Queens practice. Special interest in rheumatoid arthritis, lupus, gout, fibromyalgia, osteoarthritis, myositis, osteoporosis, and sports-related injuries.', photo: null },
 ];
 
 const SERVICES = [

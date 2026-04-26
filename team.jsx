@@ -9,12 +9,14 @@ const TEAM_FL = [
     role: 'Rheumatologist',
     bio: 'Dr. Mouriel Boucher is a board-certified rheumatologist with advanced training in the diagnosis and management of autoimmune and inflammatory conditions. She completed her rheumatology fellowship at HCA Florida Healthcare and her internal medicine residency at Palmetto General Hospital. Dr. Boucher provides evidence-based, patient-centered care for conditions including rheumatoid arthritis, lupus, osteoporosis, and complex joint disorders.',
     tone: 'purple',
+    photo: 'images/site%20images%202/dr-mouriel-2-1.png',
   },
   {
     name: 'Natalie Akerman, NP',
     role: 'Family Nurse Practitioner · Rheumatology Specialist',
     bio: "Natalie Akerman, NP is an experienced Family Nurse Practitioner specializing in rheumatology and chronic disease management. With over a decade of clinical experience across acute care, emergency medicine, pediatrics, and telehealth, she brings a comprehensive, collaborative approach to treating autoimmune and musculoskeletal conditions, with a strong focus on continuity of care and patient education.",
     tone: 'warm',
+    photo: 'images/site%20images%202/natalie.png',
   },
 ];
 
@@ -24,6 +26,7 @@ const TEAM_NY = [
     role: 'Rheumatologist',
     bio: 'After completing a residency in internal medicine in Columbus, Ohio, Dr. Stein completed a fellowship in rheumatology at Long Island Jewish Medical Center. Dr. Stein worked in a large group practicing rheumatology before opening Floral Park Arthritis, P.C., where he has been practicing for over 10 years. He takes special interest in the diagnosis and management of Rheumatoid Arthritis, Lupus, Gout, Fibromyalgia, Osteoarthritis, Myositis, and Osteoporosis, with additional expertise in treating Tendonitis, Bursitis, and Sports Injuries.',
     tone: 'cool',
+    photo: null,
   },
 ];
 
@@ -45,7 +48,10 @@ const THero = () => (
 // ─── Provider card ───────────────────────────────────────
 const ProviderCard = ({ p }) => (
   <article style={{ border: `1px solid ${tp.line}`, borderRadius: 20, overflow: 'hidden', background: tp.card, display: 'flex', flexDirection: 'column' }}>
-    <Placeholder label={`${p.name} · portrait`} tone={p.tone} h={360} radius={0} />
+    {p.photo
+      ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: 360, objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+      : <Placeholder label={`${p.name} · portrait`} tone={p.tone} h={360} radius={0} />
+    }
     <div style={{ padding: '28px 30px 32px', display: 'flex', flexDirection: 'column', flex: 1 }}>
       <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{p.name}</div>
       <div style={{ fontSize: 13.5, color: tp.purple, fontWeight: 600, marginBottom: 18 }}>{p.role}</div>

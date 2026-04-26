@@ -38,9 +38,15 @@ const PHero = () => (
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, height: 440 }}>
-        <Placeholder label="Older man · portrait" tone="warm" h="100%" radius={16} />
-        <Placeholder label="Older woman · smiling" tone="purple" h="100%" radius={16} style={{ marginTop: 32 }} />
-        <Placeholder label="Active senior" tone="cool" h="100%" radius={16} />
+        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
+          <img src="images/site%20images%201/yonah0704_15145_older_man_enjoying_his_children_and_grandchil_f2bee724-272c-4956-80db-f039c79f19e7_2.png" alt="Patient enjoying life after care" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
+        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%', marginTop: 32 }}>
+          <img src="images/site%20images%201/yonah0704_15145_Smiling_older_female_with_arthritis_wearing_c_64df078b-4892-4c76-8378-58edb7542b42_2.png" alt="Patient consulting with rheumatologist" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
+        <div style={{ borderRadius: 16, overflow: 'hidden', height: '100%' }}>
+          <img src="images/site%20images%201/yonah0704_15145_young_black_nurse_caring_for_elderly_white_ma_958d6e56-9cca-4cda-82b4-2bf75add2b8f_0.png" alt="Care team with patient" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
       </div>
     </div>
   </section>
@@ -65,7 +71,10 @@ const PTeamGrid = ({ people, toneA = 'purple', toneB = 'warm' }) => (
 const TeamCard = ({ p, tone }) => (
   <a href="team.html" style={{ textDecoration: 'none', color: 'inherit' }}>
     <div style={{ border: `1px solid ${pl.line}`, borderRadius: 18, overflow: 'hidden', background: pl.card }}>
-      <Placeholder label={`${p.name} · portrait`} tone={tone} h={340} radius={0} />
+      {p.photo
+        ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: 340, objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+        : <Placeholder label={`${p.name} · portrait`} tone={tone} h={340} radius={0} />
+      }
       <div style={{ padding: '22px 24px 24px' }}>
         <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
         <div style={{ fontSize: 13, color: pl.purple, fontWeight: 600, marginBottom: 12 }}>{p.role}</div>
@@ -177,21 +186,20 @@ const PServices = () => (
 
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
       {SERVICES.map((s, i) => {
-        const tones = ['purple', 'warm', 'cool', 'mint', 'purple'];
-        const labels = [
-          'Joint care · placeholder',
-          'Autoimmune · placeholder',
-          'Infusion suite · placeholder',
-          'Bone health · placeholder',
-          'Sports medicine · placeholder',
+        const serviceImages = [
+          'images/site%20images%203/joint-pain.png',
+          'images/site%20images%203/blood-test.png',
+          'images/site%20images%203/womens-infusion.png',
+          'images/site%20images%203/aging-2-1.png',
+          'images/site%20images%201/pexels-yankrukov-5793798.jpg',
         ];
         return (
           <div key={i} style={{
             background: pl.card, border: `1px solid ${pl.line}`, borderRadius: 18,
             display: 'flex', flexDirection: 'column', overflow: 'hidden',
           }}>
-            <div style={{ position: 'relative' }}>
-              <Placeholder label={labels[i]} tone={tones[i]} h={200} radius={0} />
+            <div style={{ position: 'relative', height: 200, overflow: 'hidden' }}>
+              <img src={serviceImages[i]} alt={s.t} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div style={{ padding: '26px 28px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
               <div style={{ fontSize: 21, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12 }}>{s.t}</div>

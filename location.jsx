@@ -182,7 +182,10 @@ const LocTeam = ({ cfg }) => {
       <div style={{ display: 'grid', gridTemplateColumns: `repeat(${team.length}, 1fr)`, gap: 24 }}>
         {team.map((p, i) => (
           <div key={i} style={{ border: `1px solid ${lp.line}`, borderRadius: 20, overflow: 'hidden', background: lp.bg }}>
-            <Placeholder label={`${p.name} · portrait`} tone={tones[i] || 'cool'} h={360} radius={0} />
+            {p.photo
+              ? <img src={p.photo} alt={p.name} style={{ width: '100%', height: 360, objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+              : <Placeholder label={`${p.name} · portrait`} tone={tones[i] || 'cool'} h={360} radius={0} />
+            }
             <div style={{ padding: '28px 30px 32px' }}>
               <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{p.name}</div>
               <div style={{ fontSize: 13, color: cfg.dot, fontWeight: 600, marginBottom: 14 }}>{p.role}</div>
@@ -221,7 +224,7 @@ const LocServices = ({ cfg }) => {
               </button>
             </a>
           </div>
-          <Placeholder label="Infusion suite · placeholder" tone="purple" h={320} radius={16} style={{ opacity: 0.6 }} />
+          <img src="images/site%20images%203/5-Infusion-Therapy-Benefits.jpg" alt="Infusion therapy suite" style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block', borderRadius: 16 }} />
         </div>
       )}
 
