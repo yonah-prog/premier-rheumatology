@@ -17,8 +17,22 @@ const AHero = () => (
     </div>
 
     <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-      <Placeholder label="Boca Raton office · exterior" tone="purple" h={320} radius={18} />
-      <Placeholder label="Queens office · exterior" tone="cool" h={320} radius={18} />
+      <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
+        <iframe
+          src="https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15"
+          width="100%" height="320" style={{ border: 'none', display: 'block' }}
+          allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+          title="Boca Raton office map"
+        />
+      </div>
+      <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
+        <iframe
+          src="https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15"
+          width="100%" height="320" style={{ border: 'none', display: 'block' }}
+          allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+          title="Queens office map"
+        />
+      </div>
     </div>
   </section>
 );
@@ -98,7 +112,14 @@ const ALocations = () => (
       {LOCATIONS.map((loc, i) => (
         <div key={loc.id} style={{ border: `1px solid ${ap.line}`, borderRadius: 20, overflow: 'hidden', background: ap.card }}>
           <div style={{ height: 200, position: 'relative' }}>
-            <MapMini state={loc.id} tone={i === 0 ? ap.purpleLight : '#e6ede9'} ink={i === 0 ? ap.purple : '#2e6b52'} />
+            <iframe
+              src={loc.id === 'FL'
+                ? 'https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15'
+                : 'https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15'}
+              width="100%" height="200" style={{ border: 'none', display: 'block' }}
+              allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+              title={`${loc.city} office map`}
+            />
           </div>
           <div style={{ padding: '28px 30px 30px' }}>
             <div style={{ ...aps.eyebrow, color: i === 0 ? ap.purple : '#2e6b52', marginBottom: 10 }}>

@@ -250,7 +250,14 @@ const PLocations = () => {
       {LOCATIONS.map((loc, i) => (
         <div key={loc.id} style={{ border: `1px solid ${pl.line}`, borderRadius: 20, overflow: 'hidden', background: pl.card }}>
           <div style={{ height: 240, position: 'relative' }}>
-            <MapMini state={loc.id} tone={i === 0 ? pl.purpleLight : '#e6ede9'} ink={i === 0 ? pl.purple : '#2e6b52'} />
+            <iframe
+              src={loc.id === 'FL'
+                ? 'https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15'
+                : 'https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15'}
+              width="100%" height="240" style={{ border: 'none', display: 'block' }}
+              allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+              title={`${loc.city} office map`}
+            />
             <div style={{ position: 'absolute', top: 20, left: 20, background: pl.card, padding: '10px 16px', borderRadius: 10, border: `1px solid ${pl.line}`, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: i === 0 ? pl.purple : '#2e6b52' }} />
               <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.04em' }}>{loc.region.toUpperCase()}</span>
