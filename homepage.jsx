@@ -204,13 +204,28 @@ const PServices = () => {
           'Images/site-images-3/aging-2-1.png',
           'Images/site-images-1/pexels-yankrukov-5793798.jpg',
         ];
+        const [hovered, setHovered] = React.useState(false);
         return (
-          <div key={i} style={{
-            background: pl.card, border: `1px solid ${pl.line}`, borderRadius: 18,
-            display: 'flex', flexDirection: 'column', overflow: 'hidden',
-          }}>
-            <div style={{ position: 'relative', height: 200, overflow: 'hidden' }}>
-              <img src={serviceImages[i]} alt={s.t} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <div key={i}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+              background: pl.card, border: `1px solid ${hovered ? pl.ink : pl.line}`, borderRadius: 18,
+              display: 'flex', flexDirection: 'column', overflow: 'hidden',
+              transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
+              boxShadow: hovered ? '0 12px 40px rgba(18,16,26,0.12)' : '0 0 0 rgba(0,0,0,0)',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
+              cursor: 'pointer',
+            }}>
+            {/* 3:4 aspect ratio image */}
+            <div style={{ position: 'relative', width: '100%', paddingBottom: '133.33%', overflow: 'hidden', flexShrink: 0 }}>
+              <img src={serviceImages[i]} alt={s.t} style={{
+                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                objectFit: 'cover', objectPosition: 'center',
+                display: 'block',
+                transform: hovered ? 'scale(1.04)' : 'scale(1)',
+                transition: 'transform 0.4s ease',
+              }} />
             </div>
             <div style={{ padding: '26px 28px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
               <div style={{ fontSize: 21, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12 }}>{s.t}</div>

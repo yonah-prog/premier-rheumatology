@@ -67,14 +67,42 @@ const OfficeInfo = ({ loc, dot }) => (
 );
 
 // ─── Contact form for one office ────────────────────────────
+// Formspree form IDs — replace with IDs from formspree.io dashboard
+const FORMSPREE_IDS = {
+  FL: 'YOUR_FL_FORM_ID',
+  NY: 'YOUR_NY_FORM_ID',
+};
+
 const OfficeForm = ({ loc, dot, accentColor }) => {
   const isMobile = useIsMobile();
   const [sent, setSent] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Replace with real form handler / email service
-    setSent(true);
+    setSending(true);
+    setError(null);
+    const formId = FORMSPREE_IDS[loc.id];
+    const data = new FormData(e.target);
+    data.append('_subject', `New patient inquiry — Premier Rheumatology ${loc.city}`);
+    data.append('office', loc.city);
+    try {
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setError('Something went wrong. Please call us directly.');
+      }
+    } catch {
+      setError('Network error. Please call us directly.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -104,16 +132,17 @@ const OfficeForm = ({ loc, dot, accentColor }) => {
           <Field label="Message" name="message" placeholder="Tell us about your symptoms or reason for visit…" span textarea />
 
           <div style={{ gridColumn: '1 / -1' }}>
-            <button type="submit" style={{
+            <button type="submit" disabled={sending} style={{
               width: '100%', background: accentColor, color: '#fff',
               border: 'none', padding: '17px 24px', borderRadius: 12,
-              fontSize: 15, fontWeight: 700, cursor: 'pointer',
+              fontSize: 15, fontWeight: 700, cursor: sending ? 'wait' : 'pointer',
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-              fontFamily: 'Manrope, sans-serif',
+              fontFamily: 'Manrope, sans-serif', opacity: sending ? 0.7 : 1,
             }}>
-              Send message to {loc.city} office
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {sending ? 'Sending…' : `Send message to ${loc.city} office`}
+              {!sending && <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
             </button>
+            {error && <p style={{ fontSize: 13, color: '#c0392b', textAlign: 'center', marginTop: 10, marginBottom: 0 }}>{error}</p>}
             <p style={{ fontSize: 12.5, color: cp2.sub, textAlign: 'center', marginTop: 12, marginBottom: 0 }}>
               We respond within 1 business day. For urgent matters, please call us directly.
             </p>
