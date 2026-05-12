@@ -3,5 +3,8 @@
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/(.*)", "dest": "/404.html", "status": 404 }
+  ],
+  "errors": [
+    { "status": 403, "destination": "/403.html" }
   ]
 }
