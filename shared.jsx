@@ -1,23 +1,16 @@
 // Shared helpers used across the Premier Rheumatology site.
 
-const PRLogo = ({ size = 44, wordmark = true, wordColor = '#12101a' }) => (
-  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12 }}>
-    <svg width={size} height={size} viewBox="0 0 80 80" aria-label="Premier Rheumatology">
-      <g>
-        <ellipse cx="28" cy="22" rx="18" ry="14" transform="rotate(-20 28 22)" fill="#5e1a8f" opacity="0.92" />
-        <ellipse cx="54" cy="30" rx="18" ry="14" transform="rotate(35 54 30)" fill="#b48fd1" opacity="0.9" />
-        <ellipse cx="32" cy="54" rx="18" ry="14" transform="rotate(75 32 54)" fill="#2a1247" opacity="0.95" />
-        <ellipse cx="20" cy="40" rx="14" ry="11" transform="rotate(50 20 40)" fill="#8a8a95" opacity="0.7" />
-      </g>
-    </svg>
-    {wordmark && (
-      <div style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, lineHeight: 0.95, color: wordColor, letterSpacing: '-0.01em', fontSize: size * 0.46 }}>
-        <div>PREMIER</div>
-        <div>RHEUMATOLOGY</div>
-      </div>
-    )}
-  </div>
-);
+const PRLogo = ({ size = 44, wordmark = true, wordColor = '#12101a' }) => {
+  const isLight = wordColor === '#fff';
+  const src = isLight ? 'Images/site-images-1/Asset-3.png' : 'logo.png';
+  return (
+    <img
+      src={src}
+      alt="Premier Rheumatology"
+      style={{ height: size, width: 'auto', display: 'block', objectFit: 'contain' }}
+    />
+  );
+};
 
 const Placeholder = ({ label, w = '100%', h = 320, tone = 'warm', radius = 18, style = {} }) => {
   const palettes = {
