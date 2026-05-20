@@ -80,7 +80,7 @@ const SERVICES = [
 ];
 
 const LOCATIONS = [
-  { id: 'FL', region: 'Florida', city: 'Boca Raton', address: '2900 N Military Trl', cityline: 'Boca Raton, FL 33431', phone: '(561) 730-3894', fax: '(561) 440-3280', hours: 'Mon–Fri · 8:30am–5:00pm', team: ['Dr. Mouriel Boucher, DO', 'Natalie Akerman, NP'],
+  { id: 'FL', region: 'Florida', city: 'Boca Raton', address: '2900 N Military Trl, Suite 230', cityline: 'Boca Raton, FL 33431', phone: '(561) 730-3894', fax: '(561) 440-3280', hours: 'Mon–Fri · 8:30am–5:00pm', team: ['Dr. Mouriel Boucher, DO', 'Natalie Akerman, NP'],
     city2: 'Coconut Creek', address2: '4400 W Sample Rd, Suite 234', cityline2: 'Coconut Creek, FL 33066',
     mapSrc2: 'https://www.google.com/maps?q=4400+W+Sample+Rd+Suite+234,+Coconut+Creek,+FL+33066&output=embed&z=15',
     mapsUrl2: 'https://maps.google.com/?q=4400+W+Sample+Rd+Suite+234,+Coconut+Creek,+FL+33066',

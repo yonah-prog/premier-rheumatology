@@ -267,7 +267,7 @@ const PLocations = () => {
           <div style={{ height: 240, position: 'relative' }}>
             <iframe
               src={loc.id === 'FL'
-                ? 'https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15'
+                ? 'https://www.google.com/maps?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431&output=embed&z=15'
                 : 'https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15'}
               width="100%" height="240" style={{ border: 'none', display: 'block' }}
               allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
@@ -307,7 +307,7 @@ const PLocations = () => {
               <a href="contact.html" style={{ flex: 1, textDecoration: 'none' }}>
                 <button style={{ width: '100%', background: pl.ink, color: '#fff', border: 'none', padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Contact our {loc.region} Office</button>
               </a>
-              <a href={loc.id === 'FL' ? 'https://maps.google.com/?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431' : 'https://maps.google.com/?q=261-12+E+Williston+Ave,+Queens,+NY+11001'} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textDecoration: 'none' }}>
+              <a href={loc.id === 'FL' ? 'https://maps.google.com/?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431' : 'https://maps.google.com/?q=261-12+E+Williston+Ave,+Queens,+NY+11001'} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textDecoration: 'none' }}>
                 <button style={{ width: '100%', background: 'transparent', color: pl.ink, border: `1px solid ${pl.line}`, padding: '15px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}>Get directions</button>
               </a>
             </div>
