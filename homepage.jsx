@@ -280,7 +280,12 @@ const PLocations = () => {
           </div>
           <div style={{ padding: '32px 32px 36px' }}>
             <div style={{ fontSize: 34, fontWeight: 700, letterSpacing: '-0.025em', marginBottom: 4 }}>{loc.city}</div>
-            <div style={{ fontSize: 15, color: pl.sub, marginBottom: 22 }}>{loc.address}, {loc.cityline}</div>
+            <div style={{ fontSize: 15, color: pl.sub, marginBottom: loc.address2 ? 10 : 22 }}>{loc.address}, {loc.cityline}</div>
+            {loc.address2 && (
+              <div style={{ fontSize: 15, color: pl.sub, marginBottom: 22, paddingTop: 10, borderTop: `1px solid ${pl.line}` }}>
+                {loc.address2}, {loc.cityline2}
+              </div>
+            )}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, padding: '20px 0', borderTop: `1px solid ${pl.line}`, borderBottom: `1px solid ${pl.line}`, marginBottom: 22 }}>
               <div>
                 <div style={{ ...ps.eyebrow, marginBottom: 6 }}>Phone</div>
@@ -341,8 +346,8 @@ const PContactCTA = () => {
                 <span style={{ width: 10, height: 10, borderRadius: '50%', background: pl.purple }} />
                 <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.12em', color: pl.purple, textTransform: 'uppercase' }}>Florida Office</span>
               </div>
-              <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>Contact Boca Raton</div>
-              <div style={{ fontSize: 14, color: pl.sub }}>2900 N Military Trl · (561) 730-3894</div>
+              <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>Contact Florida Offices</div>
+              <div style={{ fontSize: 13, color: pl.sub, lineHeight: 1.6 }}>Boca Raton · 2900 N Military Trl<br/>Coconut Creek · 4400 W Sample Rd</div>
             </div>
             <div style={{ width: 52, height: 52, borderRadius: '50%', background: pl.ink, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <ArrowRight size={20} />

@@ -17,21 +17,27 @@ const AHero = () => (
     </div>
 
     <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-      <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
-        <iframe
-          src="https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15"
-          width="100%" height="320" style={{ border: 'none', display: 'block' }}
-          allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          title="Boca Raton office map"
-        />
+      <div>
+        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: ap.purple, marginBottom: 10 }}>Florida</div>
+        <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
+          <iframe
+            src="https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15"
+            width="100%" height="320" style={{ border: 'none', display: 'block' }}
+            allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+            title="Boca Raton office map"
+          />
+        </div>
       </div>
-      <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
-        <iframe
-          src="https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15"
-          width="100%" height="320" style={{ border: 'none', display: 'block' }}
-          allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-          title="Queens office map"
-        />
+      <div>
+        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2e6b52', marginBottom: 10 }}>New York</div>
+        <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
+          <iframe
+            src="https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15"
+            width="100%" height="320" style={{ border: 'none', display: 'block' }}
+            allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+            title="Queens office map"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -116,33 +122,28 @@ const ALocations = () => (
 
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
       {LOCATIONS.map((loc, i) => (
-        <div key={loc.id} style={{ border: `1px solid ${ap.line}`, borderRadius: 20, overflow: 'hidden', background: ap.card }}>
-          <div style={{ height: 200, position: 'relative' }}>
-            <iframe
-              src={loc.id === 'FL'
-                ? 'https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed&z=15'
-                : 'https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15'}
-              width="100%" height="200" style={{ border: 'none', display: 'block' }}
-              allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-              title={`${loc.city} office map`}
-            />
+        <div key={loc.id} style={{ border: `1px solid ${ap.line}`, borderRadius: 20, background: ap.card, padding: '28px 30px 30px' }}>
+          <div style={{ ...aps.eyebrow, color: i === 0 ? ap.purple : '#2e6b52', marginBottom: 10 }}>
+            {i === 0 ? 'South Florida' : 'New York Metro'}
           </div>
-          <div style={{ padding: '28px 30px 30px' }}>
-            <div style={{ ...aps.eyebrow, color: i === 0 ? ap.purple : '#2e6b52', marginBottom: 10 }}>
-              {i === 0 ? 'South Florida' : 'New York Metro'}
-            </div>
-            <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8 }}>
-              Rheumatologist in {loc.city}, {loc.id}
-            </div>
-            <div style={{ fontSize: 15, color: ap.sub, lineHeight: 1.6, marginBottom: 20 }}>
-              {loc.address}<br/>{loc.cityline}<br/>{loc.phone} · {loc.hours}
-            </div>
-            <a href={loc.id === 'FL' ? 'florida.html' : 'new-york.html'} style={{ textDecoration: 'none' }}>
-              <button style={{ background: ap.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Visit {loc.region} office <ArrowRight size={14} />
-              </button>
-            </a>
+          <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+            Rheumatologist in {loc.city}, {loc.id}
           </div>
+          {/* Primary address */}
+          <div style={{ fontSize: 15, color: ap.sub, lineHeight: 1.6, marginBottom: 8 }}>
+            {loc.address}<br/>{loc.cityline}<br/>{loc.phone} · {loc.hours}
+          </div>
+          {/* Second FL address */}
+          {loc.address2 && (
+            <div style={{ fontSize: 15, color: ap.sub, lineHeight: 1.6, marginTop: 14, paddingTop: 14, borderTop: `1px solid ${ap.line}` }}>
+              {loc.address2}<br/>{loc.cityline2}
+            </div>
+          )}
+          <a href={loc.id === 'FL' ? 'florida.html' : 'new-york.html'} style={{ textDecoration: 'none', display: 'inline-block', marginTop: 20 }}>
+            <button style={{ background: ap.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              Visit {loc.region} office <ArrowRight size={14} />
+            </button>
+          </a>
         </div>
       ))}
     </div>

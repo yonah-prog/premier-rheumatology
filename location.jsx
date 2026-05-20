@@ -19,6 +19,9 @@ const LOC_CONFIG = {
     dot: palette.purple,
     mapSrc: 'https://www.google.com/maps?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431&output=embed',
     mapsUrl: 'https://maps.google.com/?q=2900+N+Military+Trl,+Boca+Raton,+FL+33431',
+    address2: '4400 W Sample Rd, Suite 234', cityline2: 'Coconut Creek, FL 33066',
+    mapSrc2: 'https://www.google.com/maps?q=4400+W+Sample+Rd+Suite+234,+Coconut+Creek,+FL+33066&output=embed',
+    mapsUrl2: 'https://maps.google.com/?q=4400+W+Sample+Rd+Suite+234,+Coconut+Creek,+FL+33066',
     h1Line1: 'Rheumatology care',
     h1Line2: 'in Boca Raton, Florida.',
     eyebrow: 'Florida Office · Boca Raton',
@@ -121,6 +124,46 @@ const LocMap = ({ cfg }) => {
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
+      />
+    </div>
+  </section>
+  );
+};
+
+// ─── Second FL location (Coconut Creek) ─────────────────────
+const LocMap2 = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  if (!cfg.address2) return null;
+  return (
+  <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr', minHeight: isMobile ? 'auto' : 400, borderTop: `1px solid ${lp.line}` }}>
+    <div style={{ padding: isMobile ? '36px 20px' : '56px 56px', background: lp.bg, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28, borderRight: isMobile ? 'none' : `1px solid ${lp.line}`, borderBottom: isMobile ? `1px solid ${lp.line}` : 'none' }}>
+      <div>
+        <div style={{ ...lps.eyebrow, marginBottom: 8, color: cfg.dot }}>Second Florida Location</div>
+        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{cfg.address2}</div>
+        <div style={{ fontSize: 16, color: lp.sub }}>{cfg.cityline2}</div>
+      </div>
+      <div>
+        <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Phone</div>
+        <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 20, fontWeight: 700, color: lp.ink, textDecoration: 'none', letterSpacing: '-0.01em' }}>{cfg.phone}</a>
+      </div>
+      <div>
+        <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Hours</div>
+        <div style={{ fontSize: 16, fontWeight: 600 }}>{cfg.hours}</div>
+      </div>
+      <a href={cfg.mapsUrl2} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'inline-block', marginTop: 8 }}>
+        <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '15px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'inherit' }}>
+          Get directions
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+      </a>
+    </div>
+    <div style={{ position: 'relative', minHeight: isMobile ? 300 : 400 }}>
+      <iframe
+        title="Coconut Creek office map"
+        src={cfg.mapSrc2}
+        width="100%" height="100%"
+        style={{ border: 0, display: 'block', minHeight: isMobile ? 300 : 400 }}
+        allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
       />
     </div>
   </section>
@@ -311,6 +354,7 @@ const LocationPage = ({ locationId }) => {
     <PageShell active={cfg.active}>
       <LocHero cfg={cfg} />
       <LocMap cfg={cfg} />
+      <LocMap2 cfg={cfg} />
       <LocAbout cfg={cfg} />
       <LocTeam cfg={cfg} />
       <LocServices cfg={cfg} />

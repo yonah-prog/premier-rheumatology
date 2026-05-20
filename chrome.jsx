@@ -126,9 +126,12 @@ const SiteFooter = () => {
         </p>
       </div>
       <div>
-        <div style={{ ...chromeStyles.eyebrow, color: palette.accent, marginBottom: 12 }}>Florida Office</div>
+        <div style={{ ...chromeStyles.eyebrow, color: palette.accent, marginBottom: 12 }}>Florida Offices</div>
         <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14 }}>
           2900 N Military Trl<br/>Boca Raton, FL 33431<br/>(561) 730-3894
+        </div>
+        <div style={{ opacity: 0.78, lineHeight: 1.7, fontSize: 14, marginTop: 12, paddingTop: 12, borderTop: '1px solid #ffffff18' }}>
+          4400 W Sample Rd, Suite 234<br/>Coconut Creek, FL 33066
         </div>
       </div>
       <div>

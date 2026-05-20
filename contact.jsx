@@ -36,31 +36,40 @@ const Field = ({ label, type = 'text', name, placeholder, span = false, textarea
 
 // ─── Office info strip ───────────────────────────────────────
 const OfficeInfo = ({ loc, dot }) => (
-  <div style={{ marginBottom: 36, paddingBottom: 32, borderBottom: `1px solid ${cp2.line}` }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
+  <div style={{ marginBottom: 28, paddingBottom: 24, borderBottom: `1px solid ${cp2.line}` }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
       <span style={{ width: 10, height: 10, borderRadius: '50%', background: dot, flexShrink: 0 }} />
       <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', color: dot, textTransform: 'uppercase', fontFamily: 'Manrope, sans-serif' }}>
-        {loc.region} Office
+        {loc.region} {loc.address2 ? 'Offices' : 'Office'}
       </span>
     </div>
-    <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{loc.city}</div>
-    <div style={{ fontSize: 15, color: cp2.sub, lineHeight: 1.7, marginBottom: 18 }}>
-      {loc.address}<br />{loc.cityline}
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+
+    {/* Address(es) — side by side if two FL locations */}
+    <div style={{ display: 'grid', gridTemplateColumns: loc.address2 ? '1fr 1fr' : '1fr', gap: 12, marginBottom: 16 }}>
       <div>
-        <div style={{ ...cps2.eyebrow, marginBottom: 4 }}>Phone</div>
-        <a href={`tel:+1${loc.phone.replace(/\D/g,'')}`} style={{ fontSize: 15, fontWeight: 600, color: cp2.ink, textDecoration: 'none' }}>{loc.phone}</a>
+        <div style={{ fontSize: 13, fontWeight: 700, color: cp2.ink, marginBottom: 3 }}>{loc.city}</div>
+        <div style={{ fontSize: 13.5, color: cp2.sub, lineHeight: 1.6 }}>
+          {loc.address}<br />{loc.cityline}
+        </div>
       </div>
-      {loc.fax && loc.fax !== '—' && (
+      {loc.address2 && (
         <div>
-          <div style={{ ...cps2.eyebrow, marginBottom: 4 }}>Fax</div>
-          <div style={{ fontSize: 15, fontWeight: 600 }}>{loc.fax}</div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: cp2.ink, marginBottom: 3 }}>{loc.city2}</div>
+          <div style={{ fontSize: 13.5, color: cp2.sub, lineHeight: 1.6 }}>
+            {loc.address2}<br />{loc.cityline2}
+          </div>
         </div>
       )}
+    </div>
+
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div>
+        <div style={{ ...cps2.eyebrow, marginBottom: 4 }}>Phone</div>
+        <a href={`tel:+1${loc.phone.replace(/\D/g,'')}`} style={{ fontSize: 14, fontWeight: 600, color: cp2.ink, textDecoration: 'none' }}>{loc.phone}</a>
+      </div>
       <div>
         <div style={{ ...cps2.eyebrow, marginBottom: 4 }}>Hours</div>
-        <div style={{ fontSize: 15, fontWeight: 600 }}>{loc.hours}</div>
+        <div style={{ fontSize: 14, fontWeight: 600 }}>{loc.hours}</div>
       </div>
     </div>
   </div>
