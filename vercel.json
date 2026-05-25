@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
   "trailingSlash": false,
   "redirects": [
     { "source": "/about",                       "destination": "/about.html",      "permanent": true },
