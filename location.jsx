@@ -82,7 +82,7 @@ const LocHero = ({ cfg }) => {
   );
 };
 
-// ─── Location bar + map ──────────────────────────────────────
+// ─── Location bar + map (single location — used for NY) ──────
 const LocMap = ({ cfg }) => {
   const isMobile = useIsMobile();
   return (
@@ -130,43 +130,71 @@ const LocMap = ({ cfg }) => {
   );
 };
 
-// ─── Second FL location (Coconut Creek) ─────────────────────
-const LocMap2 = ({ cfg }) => {
+// ─── Two FL locations side by side ───────────────────────────
+const LocMapsGrid = ({ cfg }) => {
   const isMobile = useIsMobile();
-  if (!cfg.address2) return null;
+  const locs = [
+    { label: cfg.city,  address: cfg.address,  cityline: cfg.cityline,  mapsUrl: cfg.mapsUrl,  mapSrc: cfg.mapSrc  },
+    { label: cfg.city2, address: cfg.address2, cityline: cfg.cityline2, mapsUrl: cfg.mapsUrl2, mapSrc: cfg.mapSrc2 },
+  ];
   return (
-  <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr', minHeight: isMobile ? 'auto' : 400, borderTop: `1px solid ${lp.line}` }}>
-    <div style={{ padding: isMobile ? '36px 20px' : '56px 56px', background: lp.bg, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28, borderRight: isMobile ? 'none' : `1px solid ${lp.line}`, borderBottom: isMobile ? `1px solid ${lp.line}` : 'none' }}>
-      <div>
-        <div style={{ ...lps.eyebrow, marginBottom: 8, color: cfg.dot }}>Second Florida Location</div>
-        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{cfg.address2}</div>
-        <div style={{ fontSize: 16, color: lp.sub }}>{cfg.cityline2}</div>
+    <section style={{ borderBottom: `1px solid ${lp.line}` }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
+        {locs.map((loc, i) => (
+          <div key={i} style={{
+            display: 'flex', flexDirection: 'column',
+            borderRight: !isMobile && i === 0 ? `1px solid ${lp.line}` : 'none',
+            borderBottom: isMobile && i === 0 ? `1px solid ${lp.line}` : 'none',
+          }}>
+            {/* Info panel */}
+            <div style={{ padding: isMobile ? '36px 20px' : '48px 48px', background: lp.bg, display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <div>
+                <div style={{ ...lps.eyebrow, color: cfg.dot, marginBottom: 10 }}>{loc.label}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{loc.address}</div>
+                <div style={{ fontSize: 15, color: lp.sub }}>{loc.cityline}</div>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div>
+                  <div style={{ ...lps.eyebrow, marginBottom: 8 }}>Phone</div>
+                  <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 15, fontWeight: 700, color: lp.ink, textDecoration: 'none' }}>{cfg.phone}</a>
+                </div>
+                <div>
+                  <div style={{ ...lps.eyebrow, marginBottom: 8 }}>Hours</div>
+                  <div style={{ fontSize: 15, fontWeight: 600 }}>{cfg.hours}</div>
+                </div>
+              </div>
+              {i === 0 && cfg.fax && (
+                <div>
+                  <div style={{ ...lps.eyebrow, marginBottom: 8 }}>Fax</div>
+                  <div style={{ fontSize: 15, fontWeight: 600 }}>{cfg.fax}</div>
+                </div>
+              )}
+              <a href={loc.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'inline-block' }}>
+                <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'inherit' }}>
+                  Get directions
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </button>
+              </a>
+            </div>
+            {/* Map */}
+            <div style={{ flex: 1, minHeight: isMobile ? 260 : 320 }}>
+              <iframe
+                title={`${loc.label} office map`}
+                src={loc.mapSrc}
+                width="100%" height="100%"
+                style={{ border: 0, display: 'block', minHeight: isMobile ? 260 : 320 }}
+                allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        ))}
       </div>
-      <div>
-        <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Phone</div>
-        <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 20, fontWeight: 700, color: lp.ink, textDecoration: 'none', letterSpacing: '-0.01em' }}>{cfg.phone}</a>
-      </div>
-      <div>
-        <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Hours</div>
-        <div style={{ fontSize: 16, fontWeight: 600 }}>{cfg.hours}</div>
-      </div>
-      <a href={cfg.mapsUrl2} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'inline-block', marginTop: 8 }}>
-        <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '15px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'inherit' }}>
-          Get directions
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        </button>
-      </a>
-    </div>
-    <div style={{ position: 'relative', minHeight: isMobile ? 300 : 400 }}>
-      <iframe
-        title="Coconut Creek office map"
-        src={cfg.mapSrc2}
-        width="100%" height="100%"
-        style={{ border: 0, display: 'block', minHeight: isMobile ? 300 : 400 }}
-        allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-      />
-    </div>
-  </section>
+      {cfg.servingText && (
+        <div style={{ padding: isMobile ? '20px 20px' : '20px 48px', fontSize: 13, color: lp.sub, lineHeight: 1.6, borderTop: `1px solid ${lp.line}`, background: lp.bg }}>
+          {cfg.servingText}
+        </div>
+      )}
+    </section>
   );
 };
 
@@ -353,8 +381,7 @@ const LocationPage = ({ locationId }) => {
   return (
     <PageShell active={cfg.active}>
       <LocHero cfg={cfg} />
-      <LocMap cfg={cfg} />
-      <LocMap2 cfg={cfg} />
+      {cfg.address2 ? <LocMapsGrid cfg={cfg} /> : <LocMap cfg={cfg} />}
       <LocAbout cfg={cfg} />
       <LocTeam cfg={cfg} />
       <LocServices cfg={cfg} />
