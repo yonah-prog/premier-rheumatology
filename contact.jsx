@@ -22,11 +22,11 @@ const Field = ({ label, type = 'text', name, placeholder, span = false, textarea
   <div style={{ gridColumn: span ? '1 / -1' : undefined, display: 'flex', flexDirection: 'column' }}>
     <label style={labelStyle}>{label}</label>
     {textarea
-      ? <textarea name={name} placeholder={placeholder} rows={4}
+      ? <textarea name={name} placeholder={placeholder} rows={4} required
           style={{ ...inputStyle, resize: 'vertical' }}
           onFocus={e => e.target.style.borderColor = palette.purple}
           onBlur={e => e.target.style.borderColor = palette.line} />
-      : <input type={type} name={name} placeholder={placeholder}
+      : <input type={type} name={name} placeholder={placeholder} required
           style={inputStyle}
           onFocus={e => e.target.style.borderColor = palette.purple}
           onBlur={e => e.target.style.borderColor = palette.line} />
