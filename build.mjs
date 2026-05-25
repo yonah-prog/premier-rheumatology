@@ -24,16 +24,27 @@ const DIST = process.env.DIST_DIR ? path.resolve(process.env.DIST_DIR) : path.jo
 
 const REACT_VER = '18.3.1';
 
-// ── Pages to prerender (proving the approach on key pages first) ──
+// ── Pages to prerender (auto-discovers every page in conditions/) ──
+const conditionDeps = ['shared.jsx', 'chrome.jsx', 'conditions-data.jsx', 'condition-article.jsx'];
+const conditionPages = fs
+  .readdirSync(path.join(ROOT, 'conditions'))
+  .filter((f) => f.endsWith('.html'))
+  .map((f) => {
+    const fileSlug = f.replace(/\.html$/, '');
+    const src = fs.readFileSync(path.join(ROOT, 'conditions', f), 'utf8');
+    const m = src.match(/ConditionArticle\s+slug="([^"]+)"/);
+    return {
+      html: `conditions/${f}`,
+      deps: conditionDeps,
+      global: 'ConditionArticle',
+      props: { slug: m ? m[1] : fileSlug },
+      bundle: fileSlug,
+    };
+  });
+
 const PAGES = [
   { html: 'index.html', deps: ['shared.jsx', 'chrome.jsx', 'homepage.jsx'], global: 'PremierHome', props: null, bundle: 'home' },
-  ...['rheumatoid-arthritis', 'lupus-systemic-lupus-erythematosus', 'osteoporosis', 'gout'].map((slug) => ({
-    html: `conditions/${slug}.html`,
-    deps: ['shared.jsx', 'chrome.jsx', 'conditions-data.jsx', 'condition-article.jsx'],
-    global: 'ConditionArticle',
-    props: { slug },
-    bundle: slug,
-  })),
+  ...conditionPages,
 ];
 
 // ── 1. Reset dist and copy the repo through (excluding build artifacts) ──
