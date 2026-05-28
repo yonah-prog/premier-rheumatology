@@ -42,8 +42,19 @@ const conditionPages = fs
     };
   });
 
+// Main content pages (WO-002 — about/team/contact/conditions + the two location pages).
+const mainPages = [
+  { html: 'about.html',      deps: ['shared.jsx', 'chrome.jsx', 'about.jsx'],                              global: 'AboutPage',      props: null,                 bundle: 'about' },
+  { html: 'team.html',       deps: ['shared.jsx', 'chrome.jsx', 'team.jsx'],                               global: 'TeamPage',       props: null,                 bundle: 'team' },
+  { html: 'contact.html',    deps: ['shared.jsx', 'chrome.jsx', 'contact.jsx'],                            global: 'ContactPage',    props: null,                 bundle: 'contact' },
+  { html: 'conditions.html', deps: ['shared.jsx', 'chrome.jsx', 'conditions-data.jsx', 'conditions.jsx'],  global: 'ConditionsPage', props: null,                 bundle: 'conditions' },
+  { html: 'florida.html',    deps: ['shared.jsx', 'chrome.jsx', 'location.jsx'],                           global: 'LocationPage',   props: { locationId: 'FL' }, bundle: 'florida' },
+  { html: 'new-york.html',   deps: ['shared.jsx', 'chrome.jsx', 'location.jsx'],                           global: 'LocationPage',   props: { locationId: 'NY' }, bundle: 'new-york' },
+];
+
 const PAGES = [
   { html: 'index.html', deps: ['shared.jsx', 'chrome.jsx', 'homepage.jsx'], global: 'PremierHome', props: null, bundle: 'home' },
+  ...mainPages,
   ...conditionPages,
 ];
 
