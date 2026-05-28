@@ -53,6 +53,7 @@ const LOC_CONFIG = {
     eyebrow: 'New York Office · Queens',
     intro: "Premier Rheumatology's Queens office brings board-certified rheumatologic expertise to New York City and the surrounding metro area. Our physician specializes in autoimmune arthritis, connective tissue diseases, bone health, and complex inflammatory conditions — delivering individualized care with the time and attention every patient deserves.",
     seoBody: [
+      "Premier Rheumatology's Queens office — previously known as Floral Park Arthritis — has served Queens, Nassau, and Long Island patients for over a decade under Dr. Bruce Stein, MD. The practice is now part of Premier Rheumatology, bringing the same physician and the same location together with our Boca Raton team under one brand.",
       'At our Queens location, patients benefit from the same evidence-based, patient-first approach that defines Premier Rheumatology. We understand that navigating a rheumatologic diagnosis can be overwhelming — our goal is to make that process clear, supported, and as comfortable as possible.',
       'Conveniently located in Floral Park, Queens, our New York clinic offers comprehensive rheumatology services including biologic infusion therapy, joint evaluations, and long-term disease management. We welcome new patients and accept most major insurance plans.',
     ],
