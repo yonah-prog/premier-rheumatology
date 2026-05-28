@@ -84,6 +84,67 @@ const FAQs = ({ faqs }) => (
         </details>
       ))}
     </div>
+    {/* FAQPage JSON-LD for search engines and AI assistants */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map(f => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }),
+      }}
+    />
+  </section>
+);
+
+// ─── Local-intent answer block (rendered right under H1) ──
+const LocalAnswer = ({ text }) => (
+  <div style={{
+    background: '#f6f1ff',
+    border: `1px solid ${ap2.line}`,
+    borderLeft: `4px solid ${ap2.purple}`,
+    borderRadius: 12,
+    padding: '22px 26px',
+    margin: '0 0 36px',
+    fontSize: 16.5,
+    lineHeight: 1.65,
+    color: ap2.ink,
+  }}>
+    {text}
+  </div>
+);
+
+// ─── On-site biologic / IV infusion call-out ──────────────
+const BiologicCallout = () => (
+  <section style={{ padding: '40px 0 0' }}>
+    <a href="../florida.html#infusion" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+      <div style={{
+        background: ap2.card,
+        border: `1px solid ${ap2.line}`,
+        borderLeft: `4px solid ${ap2.purple}`,
+        borderRadius: 14,
+        padding: '24px 28px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 18,
+      }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ ...aps2.eyebrow, marginBottom: 6 }}>Available on-site in Boca Raton</div>
+          <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.015em', marginBottom: 4 }}>
+            On-site biologic & IV infusion therapy
+          </div>
+          <div style={{ fontSize: 14.5, lineHeight: 1.55, color: ap2.sub }}>
+            Receive your infusion treatment in the same office where you see your rheumatologist — no separate infusion-center referral needed.
+          </div>
+        </div>
+        <div style={{ color: ap2.purple, fontSize: 22, fontWeight: 300 }}>→</div>
+      </div>
+    </a>
   </section>
 );
 
@@ -181,7 +242,9 @@ const ConditionArticle = ({ slug }) => {
       <section style={{ padding: '56px 56px 96px', borderTop: `1px solid ${ap2.line}` }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 64, alignItems: 'start' }}>
           <div>
+            {c.localAnswer && <LocalAnswer text={c.localAnswer} />}
             {c.htmlBody ? <HtmlBody html={c.htmlBody} /> : c.body ? <ArticleBody body={c.body} /> : <StubBody c={c} />}
+            {c.treatsWithBiologics && <BiologicCallout />}
             {c.faqs && <FAQs faqs={c.faqs} />}
             <Related current={c} />
             <ArticleCTA c={c} />

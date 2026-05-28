@@ -116,7 +116,19 @@ const CONDITIONS = [
 
 <p>If you are experiencing symptoms consistent with rheumatoid arthritis, <a href="contact-us.html">scheduling a consultation</a> can help clarify your diagnosis and explore appropriate treatment options in a supportive clinical setting.</p>
 
-<p></p>` },
+<p></p>`,
+    localAnswer: "Rheumatoid arthritis (RA) is an autoimmune disease in which the immune system attacks the joint lining, causing pain, swelling, stiffness, and over time, joint damage. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our board-certified rheumatologists diagnose and treat RA using current guidelines \u2014 including DMARDs, JAK inhibitors, and on-site biologic and IV infusion therapy, so patients don't need a separate infusion-center referral to start advanced treatment.",
+    faqs: [
+      { q: "What's the difference between rheumatoid arthritis and osteoarthritis?", a: "Rheumatoid arthritis is autoimmune-driven inflammation that attacks the joint lining and typically affects joints symmetrically. Osteoarthritis is mechanical wear-and-tear of cartilage that develops in specific joints over time. The treatments are very different \u2014 RA usually requires immune-modulating medication, while osteoarthritis is managed with activity modification, physical therapy, and pain control." },
+      { q: "How soon should I see a rheumatologist after RA is suspected?", a: "As soon as possible. Early treatment of rheumatoid arthritis \u2014 ideally within the first 3 to 6 months of symptoms \u2014 has been shown to reduce long-term joint damage and improve the chance of achieving remission." },
+      { q: "Do I have to drive to a separate infusion center for biologics?", a: "No. Our Boca Raton office offers on-site biologic and IV infusion therapy, so RA patients can receive their medications in the same office where they see their rheumatologist." },
+      { q: "Will my insurance cover biologic infusions for RA?", a: "Most major commercial insurance plans and Medicare cover biologic infusions for RA when medically necessary. Our team handles prior authorization and benefit verification before treatment begins." },
+      { q: "How long does the first rheumatology appointment take?", a: "Plan for about 60 to 90 minutes for a new-patient rheumatology evaluation. This includes review of medical history, a focused joint exam, basic lab review, and a treatment plan discussion." },
+      { q: "Can rheumatoid arthritis go into remission?", a: "Yes \u2014 many patients achieve clinical remission, meaning minimal or no joint inflammation, with appropriate treatment. Remission is the goal of modern RA care, especially when treatment begins early." },
+      { q: "Are biologics safe long-term?", a: "Biologic medications have been used for over two decades and have a well-studied safety profile. Patients are monitored regularly with labs and clinical visits, and your rheumatologist will adjust treatment if any concerns arise." }
+    ],
+    treatsWithBiologics: true,
+  },
   { slug: 'psoriatic-arthritis', title: 'Psoriatic Arthritis', category: 'inflammatory-autoimmune-arthritis', excerpt: 'Psoriatic arthritis is a chronic inflammatory condition that affects some individuals with psoriasis. It can cause joint pain, stiffness, and swelling, and may also involve the skin, nails, and other tissues. T…', readTime: 4, featured: false,
     htmlBody: `<p>Psoriatic arthritis is a chronic inflammatory condition that affects some individuals with psoriasis. It can cause joint pain, stiffness, and swelling, and may also involve the skin, nails, and other tissues. The severity and pattern of psoriatic arthritis can vary widely, ranging from mild joint discomfort to more persistent inflammation that affects daily function.</p>
 
@@ -217,7 +229,18 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If joint pain or stiffness is affecting your daily activities, scheduling a consultation can help determine whether psoriatic arthritis or another condition may be contributing to your symptoms.</p>` },
+<p>If joint pain or stiffness is affecting your daily activities, scheduling a consultation can help determine whether psoriatic arthritis or another condition may be contributing to your symptoms.</p>`,
+    localAnswer: "Psoriatic arthritis is an inflammatory arthritis that occurs in some people with psoriasis, causing joint pain, swelling, stiffness, and sometimes nail and skin changes. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our rheumatologists treat psoriatic arthritis with current biologic and targeted-synthetic therapies \u2014 including TNF inhibitors, IL-17 inhibitors, IL-23 inhibitors, and JAK inhibitors \u2014 with on-site biologic infusion therapy available in our Boca Raton office.",
+    faqs: [
+      { q: "Do I need to have psoriasis to get psoriatic arthritis?", a: "Most patients have psoriasis first, but joint symptoms can appear before skin changes in some people. A family history of psoriasis is also a risk factor even if your own skin is clear." },
+      { q: "How is psoriatic arthritis different from rheumatoid arthritis?", a: "Psoriatic arthritis often affects joints asymmetrically, can involve whole fingers or toes ('sausage digits'), affects the spine, and includes nail and skin changes. Lab markers are typically different." },
+      { q: "What treatments work best?", a: "Treatment is highly individualized. Many patients respond well to biologics targeting TNF, IL-17, or IL-23, or to JAK inhibitors. Methotrexate is still used in many cases. The right plan depends on which joints, skin, and other tissues are involved." },
+      { q: "Will treatment also help my psoriasis?", a: "Often yes. Biologics used for psoriatic arthritis frequently improve skin psoriasis as well, which simplifies care." },
+      { q: "Can psoriatic arthritis damage my joints permanently?", a: "Untreated, yes \u2014 inflammation can lead to erosions and deformity. With timely, appropriate treatment, most patients preserve joint structure and function." },
+      { q: "Do I need an infusion or are pills enough?", a: "Many treatments are pills or self-injections. Some biologics are given IV \u2014 we offer those on-site in Boca Raton so you do not need to travel to a separate infusion center." }
+    ],
+    treatsWithBiologics: true,
+  },
   { slug: 'ankylosing-spondylitis', title: 'Ankylosing Spondylitis', category: 'inflammatory-autoimmune-arthritis', excerpt: 'Ankylosing spondylitis is a chronic inflammatory condition that primarily affects the spine and sacroiliac joints. It can cause persistent back pain, stiffness, and reduced flexibility, particularly in younger …', readTime: 4, featured: false,
     htmlBody: `<p>Ankylosing spondylitis is a chronic inflammatory condition that primarily affects the spine and sacroiliac joints. It can cause persistent back pain, stiffness, and reduced flexibility, particularly in younger adults. Over time, ongoing inflammation may affect posture and spinal mobility if not appropriately managed.</p>
 
@@ -723,7 +746,19 @@ const CONDITIONS = [
 
 <p>If you are experiencing symptoms that may be related to lupus, <a href="contact-us.html">scheduling a consultation</a> allows for a thorough evaluation and discussion of individualized care options.</p>
 
-<p></p>` },
+<p></p>`,
+    localAnswer: "Lupus (systemic lupus erythematosus, or SLE) is a chronic autoimmune disease in which the immune system attacks multiple body systems \u2014 joints, skin, kidneys, blood, and more. At Premier Rheumatology in Boca Raton, FL and Queens, NY, lupus care is led by board-certified rheumatologists experienced in protecting organs from long-term damage, with on-site biologic infusion therapy \u2014 including options such as belimumab \u2014 available in our Boca Raton office.",
+    faqs: [
+      { q: "What are the most common early symptoms of lupus?", a: "Joint pain, persistent fatigue, low-grade fevers, a facial 'butterfly' rash, hair thinning, mouth ulcers, and sun sensitivity are common. Symptoms often come and go in flares." },
+      { q: "How is lupus diagnosed?", a: "There is no single test. Diagnosis combines clinical findings, antibody blood tests (such as ANA, anti-dsDNA, anti-Smith), and assessment of organ involvement. A rheumatologist integrates the full picture rather than relying on any single lab value." },
+      { q: "Is lupus life-threatening?", a: "With modern treatment, the great majority of lupus patients live full lives. Outcomes are best when the disease is diagnosed early and monitored carefully for kidney, heart, and neurologic involvement." },
+      { q: "Do I need a kidney specialist if I have lupus?", a: "Sometimes. If urine or blood tests suggest lupus nephritis, your rheumatologist will coordinate with nephrology. Many patients are managed primarily through rheumatology with periodic kidney screening." },
+      { q: "Can lupus be cured?", a: "There is no cure yet, but most patients can achieve long stretches of low disease activity or remission with appropriate medication, lifestyle adjustments, and regular monitoring." },
+      { q: "What lifestyle changes help with lupus?", a: "Sun protection (SPF, hats, shade), consistent sleep, stress management, smoking cessation, and a heart-healthy diet all support better long-term outcomes." },
+      { q: "Will I need biologic infusions for lupus?", a: "Many but not all lupus patients benefit from biologic therapy. Our Boca Raton office offers these infusions on-site, so patients can avoid a separate trip to an outside infusion center." }
+    ],
+    treatsWithBiologics: true,
+  },
   { slug: 'sjogrens-syndrome', title: 'Sjögren’s Syndrome', category: 'systemic-autoimmune', excerpt: 'Sjögren’s syndrome is a chronic autoimmune condition that primarily affects the glands responsible for producing moisture, such as the tear and salivary glands. It can lead to dryness of the eyes and mouth and …', readTime: 4, featured: false,
     htmlBody: `<p>Sjögren’s syndrome is a chronic autoimmune condition that primarily affects the glands responsible for producing moisture, such as the tear and salivary glands. It can lead to dryness of the eyes and mouth and may also involve the joints and other organs. Symptoms can range from mild dryness to more systemic manifestations that affect daily comfort and function.</p>
 
@@ -929,7 +964,18 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you are experiencing symptoms suggestive of scleroderma, scheduling a consultation allows for thorough evaluation and discussion of appropriate management options.</p>` },
+<p>If you are experiencing symptoms suggestive of scleroderma, scheduling a consultation allows for thorough evaluation and discussion of appropriate management options.</p>`,
+    localAnswer: "Scleroderma (systemic sclerosis) is a rare autoimmune disease that causes thickening of the skin and can affect blood vessels, lungs, heart, kidneys, and the digestive tract. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our rheumatologists provide comprehensive scleroderma care \u2014 including organ-specific monitoring, vasodilator therapy for Raynaud's, immunosuppression, and on-site biologic infusion therapy in Boca Raton for select patients.",
+    faqs: [
+      { q: "What's the difference between localized and systemic scleroderma?", a: "Localized scleroderma (morphea) affects only the skin and underlying tissue. Systemic sclerosis can affect internal organs as well \u2014 that is the more serious form and the one that requires ongoing rheumatology care." },
+      { q: "Why do my fingers turn white in the cold?", a: "Most scleroderma patients experience Raynaud's phenomenon, in which small blood vessels in the fingers and toes spasm \u2014 turning the skin white, then blue, then red. Medications and avoiding cold exposure usually help." },
+      { q: "How is scleroderma diagnosed?", a: "Diagnosis is based on skin findings, antibody blood tests (ANA, anti-centromere, anti-Scl-70, anti-RNA polymerase III), nailfold capillary examination, and assessment of internal organ involvement." },
+      { q: "Can scleroderma be cured?", a: "There is no cure, but treatments effectively control symptoms and protect organs. Early diagnosis and regular monitoring make a major difference in outcomes." },
+      { q: "What organs does scleroderma affect?", a: "Skin, blood vessels (Raynaud's), lungs (interstitial lung disease and pulmonary hypertension), heart, kidneys, and gastrointestinal tract. Regular screening for these is part of routine care." },
+      { q: "What treatments are available?", a: "Vasodilators for Raynaud's, immunosuppressives such as mycophenolate or methotrexate for skin and lung disease, ACE inhibitors for kidney protection, and biologic infusions for select patients. We offer infusion therapy on-site in Boca Raton." }
+    ],
+    treatsWithBiologics: true,
+  },
   { slug: 'mixed-connective-tissue-disease', title: 'Mixed Connective Tissue Disease', category: 'systemic-autoimmune', excerpt: 'Mixed Connective Tissue Disease (MCTD) is a chronic autoimmune condition that features overlapping characteristics of several connective tissue diseases. Symptoms can involve the joints, muscles, skin, and inte…', readTime: 4, featured: false,
     htmlBody: `<p>Mixed Connective Tissue Disease (MCTD) is a chronic autoimmune condition that features overlapping characteristics of several connective tissue diseases. Symptoms can involve the joints, muscles, skin, and internal organs, and disease expression may vary significantly between individuals.</p>
 
@@ -1222,7 +1268,18 @@ const CONDITIONS = [
 
 <p>If you are experiencing symptoms suggestive of vasculitis, <a href="contact-us.html">scheduling a consultation</a> allows for thorough evaluation and discussion of appropriate treatment options.</p>
 
-<p></p>` },
+<p></p>`,
+    localAnswer: "Vasculitis is a group of autoimmune diseases that cause inflammation of blood vessels, which can damage organs such as the kidneys, lungs, skin, and nerves. At Premier Rheumatology in Boca Raton, FL and Queens, NY, board-certified rheumatologists diagnose and manage all major vasculitis subtypes \u2014 including ANCA-associated vasculitis (GPA, MPA, EGPA) \u2014 with corticosteroids, immunosuppressive drugs, and on-site biologic infusion therapy such as rituximab available in our Boca Raton office.",
+    faqs: [
+      { q: "What are the early signs of vasculitis?", a: "Symptoms vary widely. Common early features include unexplained fatigue, fevers, weight loss, joint pain, unusual rashes, sinus or ear problems, numbness or weakness, and blood in the urine." },
+      { q: "How is vasculitis diagnosed?", a: "Diagnosis combines symptoms, blood tests (including ANCA), imaging, and often a biopsy of affected tissue such as skin, kidney, nerve, or sinus. Early diagnosis matters because some forms can damage organs quickly." },
+      { q: "What's the difference between large-, medium-, and small-vessel vasculitis?", a: "These describe the size of blood vessels involved. Different categories cause different symptoms and need different treatments \u2014 for example, giant cell arteritis is large-vessel, polyarteritis nodosa is medium-vessel, and ANCA-associated diseases are small-vessel." },
+      { q: "How is vasculitis treated?", a: "Treatment depends on subtype. Most patients start with corticosteroids, then move to immunosuppressives such as azathioprine, methotrexate, or mycophenolate \u2014 or to biologic infusions like rituximab for long-term control." },
+      { q: "Can vasculitis come back after treatment?", a: "Many forms of vasculitis can relapse. Patients stay under rheumatology care long-term so that flares are caught early." },
+      { q: "Is vasculitis hereditary?", a: "Most forms of vasculitis are not directly inherited, though some have genetic risk factors. It is not typically something one passes to children." }
+    ],
+    treatsWithBiologics: true,
+  },
   // Bone & Metabolic Disorders
   { slug: 'osteoporosis', title: 'Osteoporosis', category: 'bone-metabolic', excerpt: 'Osteoporosis is a common bone condition characterized by reduced bone density and strength, increasing the risk of fractures. It often develops silently over time and may not cause noticeable symptoms until a f…', readTime: 4, featured: true,
     htmlBody: `<p>Osteoporosis is a common bone condition characterized by reduced bone density and strength, increasing the risk of fractures. It often develops silently over time and may not cause noticeable symptoms until a fracture occurs. Because bone loss can progress without pain, osteoporosis is frequently identified through screening or after an injury.</p>
@@ -1324,7 +1381,18 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you have concerns about bone density or fracture risk, scheduling a consultation can help clarify your bone health status and explore appropriate management options.</p>` },
+<p>If you have concerns about bone density or fracture risk, scheduling a consultation can help clarify your bone health status and explore appropriate management options.</p>`,
+    localAnswer: "Osteoporosis is a silent disease of weakened bone that increases fracture risk \u2014 often without symptoms until a fracture occurs. At Premier Rheumatology in Boca Raton, FL and Queens, NY, board-certified rheumatologists evaluate bone density with DEXA scanning, identify reversible causes, and treat osteoporosis with bisphosphonates, denosumab, and IV infusion options such as zoledronic acid (Reclast) \u2014 available on-site in our Boca Raton office.",
+    faqs: [
+      { q: "Who should be screened for osteoporosis?", a: "Postmenopausal women, men over 70, and anyone over 50 with a history of low-impact fracture, long-term steroid use, certain autoimmune diseases, or low body weight should have a DEXA scan to measure bone density." },
+      { q: "What does a DEXA scan involve?", a: "A DEXA scan is a quick, painless, low-radiation X-ray of the hip and spine. It produces a T-score that tells your rheumatologist whether bone density is normal, in the osteopenic range, or osteoporotic." },
+      { q: "Can osteoporosis be reversed?", a: "Bone loss can often be slowed and partially reversed with the right treatment. The primary goals are to reduce fracture risk and protect remaining bone mass \u2014 many patients see improved T-scores over a few years of therapy." },
+      { q: "What treatments are available for osteoporosis?", a: "Options include oral bisphosphonates, IV bisphosphonate infusions (such as zoledronic acid, given once yearly), denosumab injections, and anabolic medications such as teriparatide. Vitamin D, calcium, and weight-bearing exercise are part of every plan." },
+      { q: "Is osteoporosis treatment lifelong?", a: "Not always. Many treatments are given for a defined period and then reassessed. Your rheumatologist will discuss the appropriate duration based on your fracture risk and response to therapy." },
+      { q: "Are osteoporosis infusions painful or risky?", a: "Most patients tolerate them well. Side effects after the first dose are usually mild flu-like symptoms. Serious risks are rare, and we monitor kidney function and dental health before treatment." }
+    ],
+    treatsWithBiologics: false,
+  },
   { slug: 'osteopenia', title: 'Osteopenia', category: 'bone-metabolic', excerpt: 'Osteopenia refers to lower-than-normal bone density that is not severe enough to be classified as osteoporosis. It is often identified through bone density screening and may represent an early stage of bone los…', readTime: 4, featured: false,
     htmlBody: `<p>Osteopenia refers to lower-than-normal bone density that is not severe enough to be classified as osteoporosis. It is often identified through bone density screening and may represent an early stage of bone loss. While osteopenia does not always progress, it can increase the risk of future bone weakening if left unaddressed.</p>
 
@@ -1729,7 +1797,18 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you are experiencing recurrent gout attacks or ongoing joint symptoms, scheduling a consultation can help clarify your diagnosis and explore appropriate treatment options.</p>` },
+<p>If you are experiencing recurrent gout attacks or ongoing joint symptoms, scheduling a consultation can help clarify your diagnosis and explore appropriate treatment options.</p>`,
+    localAnswer: "Gout is a painful inflammatory arthritis caused by uric acid crystals depositing in joints, often striking the big toe first. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our rheumatologists diagnose gout with joint fluid analysis, treat acute flares with anti-inflammatory medication, and lower long-term uric acid with allopurinol, febuxostat, or \u2014 for severe, treatment-resistant cases \u2014 pegloticase IV infusion therapy available on-site in Boca Raton.",
+    faqs: [
+      { q: "What does a gout attack feel like?", a: "Most patients describe sudden, severe joint pain \u2014 often starting at night \u2014 with redness, swelling, and warmth. The big toe is the classic site, but ankles, knees, and other joints can be affected." },
+      { q: "How is gout diagnosed?", a: "The most reliable test is joint fluid analysis to look for uric acid crystals under a microscope. Blood uric acid levels can support the diagnosis but are not sufficient by themselves." },
+      { q: "Can I prevent future gout attacks?", a: "Yes. Long-term uric-acid\u2013lowering medication, dietary changes (limiting red meat, organ meats, beer, and sugary drinks), weight management, and good hydration significantly reduce attacks." },
+      { q: "What foods should I avoid with gout?", a: "Red meat, organ meats, shellfish, beer, hard liquor, and high-fructose drinks (sodas and juice) raise uric acid most. Cherries, coffee, low-fat dairy, and water can help lower attack risk." },
+      { q: "Is gout linked to other health problems?", a: "Gout is associated with high blood pressure, kidney disease, diabetes, and cardiovascular disease. Rheumatology care often includes coordinating with your primary care doctor to address these." },
+      { q: "What if my gout doesn't respond to standard medications?", a: "A small number of patients have severe, treatment-resistant gout (often with tophi). We offer pegloticase IV infusion therapy on-site in Boca Raton for those cases." }
+    ],
+    treatsWithBiologics: false,
+  },
   { slug: 'pseudogout-cppd', title: 'Pseudogout (CPPD)', category: 'crystal-inflammatory', excerpt: 'Pseudogout, also known as Calcium Pyrophosphate Deposition Disease (CPPD), is an inflammatory joint condition caused by the accumulation of calcium crystals within the joints. It can cause sudden episodes of jo…', readTime: 4, featured: false,
     htmlBody: `<p>Pseudogout, also known as Calcium Pyrophosphate Deposition Disease (CPPD), is an inflammatory joint condition caused by the accumulation of calcium crystals within the joints. It can cause sudden episodes of joint pain, swelling, and stiffness that may resemble gout or other forms of arthritis.</p>
 
@@ -2756,7 +2835,18 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If stiffness and pain are limiting your daily activities, scheduling a consultation can help determine whether polymyalgia rheumatica may be contributing to your symptoms.</p>` },
+<p>If stiffness and pain are limiting your daily activities, scheduling a consultation can help determine whether polymyalgia rheumatica may be contributing to your symptoms.</p>`,
+    localAnswer: "Polymyalgia rheumatica (PMR) is an inflammatory condition that causes pain and stiffness in the shoulders, hips, and neck, usually in adults over 50. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our rheumatologists diagnose PMR based on clinical findings and elevated inflammatory markers, treat it with carefully monitored low-dose corticosteroids, and screen for associated giant cell arteritis \u2014 a related condition that can affect vision and requires urgent treatment.",
+    faqs: [
+      { q: "How is polymyalgia rheumatica different from ordinary muscle stiffness?", a: "PMR causes severe morning stiffness lasting more than an hour, primarily in the shoulders, hips, and neck. Stiffness is usually accompanied by elevated inflammatory blood markers (ESR and CRP), which helps distinguish it from age-related stiffness." },
+      { q: "Is polymyalgia rheumatica related to giant cell arteritis?", a: "Yes \u2014 up to 30% of PMR patients also develop giant cell arteritis, which can cause vision loss. Any new severe headache, jaw pain when chewing, scalp tenderness, or vision changes should be reported immediately." },
+      { q: "How is polymyalgia rheumatica treated?", a: "Low-dose corticosteroids (prednisone) usually relieve symptoms within days. Treatment is tapered slowly over 12 to 24 months, with monitoring for relapses and steroid side effects." },
+      { q: "Will I be on steroids forever?", a: "Most patients are tapered off after 1 to 2 years, though some need longer treatment. Your rheumatologist will tailor the taper to your symptoms and inflammatory markers." },
+      { q: "Are there alternatives to steroids?", a: "In some cases, methotrexate or a biologic such as tocilizumab (given as an IV infusion or injection) can be added to reduce steroid exposure. We can administer those infusions on-site in Boca Raton." },
+      { q: "Does polymyalgia rheumatica come back?", a: "Relapses are common, especially during the steroid taper. Regular follow-up catches them early so the dose can be adjusted before symptoms become severe." }
+    ],
+    treatsWithBiologics: false,
+  },
   { slug: 'temporal-arteritis-giant-cell-arteritis', title: 'Temporal Arteritis (Giant Cell Arteritis)', category: 'immune-mediated', excerpt: 'Temporal arteritis, also known as giant cell arteritis, is a serious inflammatory condition affecting medium and large arteries, most commonly those in the head and neck. It primarily occurs in older adults and…', readTime: 4, featured: false,
     htmlBody: `<p>Temporal arteritis, also known as giant cell arteritis, is a serious inflammatory condition affecting medium and large arteries, most commonly those in the head and neck. It primarily occurs in older adults and may lead to serious complications if not promptly recognized and treated.</p>
 
