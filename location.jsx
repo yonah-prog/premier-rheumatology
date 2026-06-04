@@ -33,6 +33,21 @@ const LOC_CONFIG = {
     seoKeywords: ['rheumatologist Boca Raton', 'arthritis specialist South Florida', 'autoimmune disease Palm Beach County', 'lupus treatment Boca Raton', 'infusion therapy Boca Raton', 'rheumatology clinic Florida'],
     servingText: 'Serving Boca Raton, Delray Beach, Boynton Beach, West Palm Beach, Deerfield Beach, and surrounding Palm Beach County communities.',
     teamLoc: 'FL',
+    // FAQ copy must stay verbatim-identical to the FAQPage JSON-LD in florida.html (Google parity).
+    faqs: [
+      { q: 'Who are the rheumatologists at Premier Rheumatology in Boca Raton?',
+        a: 'Dr. Mouriel Boucher, DO, a board-certified rheumatologist, and Natalie Akerman, NP see patients at our Boca Raton office (2900 N Military Trl, Suite 230) and our Coconut Creek office (4400 W Sample Rd, Suite 234).' },
+      { q: 'Does the Boca Raton office offer on-site biologic or IV infusion therapy?',
+        a: 'Yes. Biologic and IV infusions are administered in-office under clinical supervision, so patients do not need to go to a separate infusion center.' },
+      { q: 'What conditions do you treat in Boca Raton?',
+        a: 'Rheumatoid arthritis, lupus, osteoporosis, gout, psoriatic arthritis, scleroderma, vasculitis, and other autoimmune and inflammatory joint diseases.' },
+      { q: 'Where is the Boca Raton office located?',
+        a: '2900 N Military Trl, Suite 230, Boca Raton, FL 33431, with a second Florida office at 4400 W Sample Rd, Suite 234, Coconut Creek, FL 33066.' },
+      { q: 'Are you accepting new patients in Boca Raton?',
+        a: 'Yes, the Florida practice is currently accepting new patients. Call (561) 730-3894 to schedule.' },
+      { q: 'Do I need a referral to see a rheumatologist in Boca Raton?',
+        a: 'It depends on your insurance plan. Many patients self-refer; the front desk can confirm whether a referral is required when you call.' },
+    ],
   },
   NY: {
     id: 'NY',
@@ -60,6 +75,21 @@ const LOC_CONFIG = {
     seoKeywords: ['rheumatologist Queens NY', 'arthritis specialist New York', 'autoimmune disease Queens', 'lupus treatment New York', 'infusion therapy Queens NY', 'rheumatology Floral Park'],
     servingText: 'Serving Queens, Nassau County, Long Island, Brooklyn, and surrounding New York metro communities.',
     teamLoc: 'NY',
+    // FAQ copy must stay verbatim-identical to the FAQPage JSON-LD in new-york.html (Google parity).
+    faqs: [
+      { q: 'Who is the rheumatologist at Premier Rheumatology in Queens?',
+        a: 'Dr. Bruce Stein, MD, fellowship-trained at Long Island Jewish Medical Center, has led our Queens practice for over a decade.' },
+      { q: 'What conditions does Dr. Stein treat?',
+        a: 'Rheumatoid arthritis, lupus, gout, osteoarthritis, osteoporosis, myositis, fibromyalgia, and sports-related injuries.' },
+      { q: 'Where is the Queens office located?',
+        a: '261-12 E Williston Ave, Queens, NY 11001. Phone: (718) 347-8888.' },
+      { q: 'Is the Queens practice accepting new patients?',
+        a: 'Yes. Call (718) 347-8888 to schedule.' },
+      { q: 'Do you treat autoimmune and inflammatory arthritis in Queens?',
+        a: 'Yes — full rheumatologic evaluation and management, including biologic therapy where appropriate.' },
+      { q: 'Do I need a referral to see Dr. Stein?',
+        a: 'It depends on your insurance plan; the office can confirm when you call.' },
+    ],
   },
 };
 
@@ -341,6 +371,36 @@ const LocServices = ({ cfg }) => {
   );
 };
 
+// ─── Location FAQ (on-page parity for the FAQPage JSON-LD) ────
+const LocFAQ = ({ cfg }) => {
+  const isMobile = useIsMobile();
+  if (!cfg.faqs || !cfg.faqs.length) return null;
+  return (
+    <section id="faq" style={{ padding: isMobile ? '56px 20px' : '96px 56px', background: lp.card, borderTop: `1px solid ${lp.line}`, borderBottom: `1px solid ${lp.line}` }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr', gap: isMobile ? 28 : 72, alignItems: 'start' }}>
+        <div>
+          <div style={{ ...lps.eyebrow, marginBottom: 16 }}>Common questions</div>
+          <h2 style={{ ...lps.h2, fontSize: 44, margin: 0 }}>{cfg.city} rheumatology FAQ.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.6, color: lp.sub, marginTop: 22, maxWidth: 400 }}>
+            Have a question about care at our {cfg.city} office? Call {cfg.phone} and our team will be glad to help.
+          </p>
+        </div>
+        <div style={{ borderTop: `1px solid ${lp.line}` }}>
+          {cfg.faqs.map((f, i) => (
+            <details key={i} style={{ borderBottom: `1px solid ${lp.line}`, padding: '24px 0' }}>
+              <summary style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.01em', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
+                <span>{f.q}</span>
+                <span style={{ fontSize: 22, color: cfg.dot, fontWeight: 300 }}>+</span>
+              </summary>
+              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.7, color: lp.sub }}>{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ─── CTA ─────────────────────────────────────────────────────
 const LocCTA = ({ cfg }) => {
   const isMobile = useIsMobile();
@@ -386,6 +446,7 @@ const LocationPage = ({ locationId }) => {
       <LocAbout cfg={cfg} />
       <LocTeam cfg={cfg} />
       <LocServices cfg={cfg} />
+      <LocFAQ cfg={cfg} />
       <LocCTA cfg={cfg} />
     </PageShell>
   );
