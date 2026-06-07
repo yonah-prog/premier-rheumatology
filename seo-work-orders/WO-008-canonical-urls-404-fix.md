@@ -182,3 +182,17 @@ Run each of these. Each should pass.
 
 - Very low. `cleanUrls: true` is a Vercel-native flag that's been stable for years. Deleting a `routes` block whose behaviors are already Vercel defaults is a no-op functionally.
 - One thing to spot-check after deploy: the `/api/*` paths still work (POST to `/api/contact` if you have a contact-form handler). Verification step #5 covers the 404 fallback; if `/api/contact` 404s after deploy, restore Option B's `rewrites` block.
+
+---
+
+## Live re-confirmation — 2026-06-07 (daily SEO pass)
+
+The canonical→404 defect is still live in production today. Direct fetches:
+
+- `https://premierjointcare.com/conditions/rheumatoid-arthritis.html` → **200**, full content (38 "Rheumatoid", FAQ + 2× `application/ld+json` schema), title "Rheumatoid Arthritis | Premier Rheumatology". Its `<link rel="canonical">` = `https://premierjointcare.com/conditions/rheumatoid-arthritis` (extensionless).
+- `https://premierjointcare.com/conditions/rheumatoid-arthritis` (the canonical URL) → **404** (Vercel, "Page Not Found").
+- `https://premierjointcare.com/rheumatoid-arthritis` → **404**.
+
+So all 45 condition pages currently advertise a canonical URL that returns 404 — the exact self-defeating signal this WO fixes. Confirmed across the condition library (45 `.html` files in `/conditions/`).
+
+The fix candidate (`cleanUrls: true` + extensionless redirect destinations) remains staged uncommitted in `vercel.json` (confirmed via `git diff`). It still needs a human Vercel **preview-deploy** test before shipping (site-wide routing change, plus the `/api/contact` spot-check in Verification #5) — outside autonomous no-ask scope. **This remains the single highest-ROI engineering action available.**
