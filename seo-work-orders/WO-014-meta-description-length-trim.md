@@ -1,6 +1,6 @@
 # WO-014 — Trim over-length meta descriptions on index / about / team
 
-**Status:** OPEN — drafted 2026-06-08 (daily SEO pass)
+**Status:** IMPLEMENTED in repo 2026-06-08 (midday pass) — all 3 edits applied; rendered lengths 159 / 160 / 162 chars (≤162). build.mjs verified not to regenerate `<head>` (preserves static meta). Pending push + deploy (gated by WO-012). Verify live snippet post-deploy, then close.
 **Priority:** Low-to-medium. Low risk, quick win. Independent of WO-008 (these pages are LIVE at 200, so the fix takes effect on the next deploy — no routing dependency).
 **Owner to implement:** Claude Code (after Yonah approves)
 **Type:** On-page SEO (SERP snippet quality)
