@@ -66,3 +66,14 @@ The 2026-06-06/06-07 closures attributed the legacy markers to **Google's stale 
 
 ## Reopen/close discipline
 This reopening is backed by two live fetches captured 2026-06-08 (apex homepage + `/our-team/`). Do **not** re-close as "disproven" without a fresh live fetch of the apex showing phone **(561) 730-3894**, the Queens office, and Dr. Bruce Stein — i.e., the inverse of today's evidence.
+
+---
+
+## Recurrence log
+
+- **2026-06-08 morning** — REOPENED on live evidence (above).
+- **2026-06-10 (morning/midday/evening)** — apex fetched **clean** (correct React build at the homepage; Suite 236 propagating). Per the strict re-close criterion (multiple consecutive healthy fetches across passes AND legacy host decommissioned), this did **not** clear the WO — and today proves why.
+- **2026-06-11 — 🚨 SAME-DAY TWO-ORIGIN EVIDENCE (strongest since 06-08).** Two same-day deep passes fetched the **same** apex URL `https://premierjointcare.com/` and got **different sites**, exactly as the KEY DIAGNOSIS predicts:
+  - **Pass A (concurrent):** apex returned the **correct React build** — title "Rheumatologist in Boca Raton, FL & Queens, NY | Premier Rheumatology", 301→www, phone 730-3894, Boucher + Akerman + Dr. Bruce Stein, Boca Ste 230 + Coconut Creek Ste 236 (footer caught up), 0 WP markers, canonical → apex. (Recorded in `seo-daily-notes/2026-06-11.md` main note as "Site health — CLEAN.")
+  - **Pass B (this pass):** apex returned the **legacy WordPress** homepage — `<title>` "Premier Rheumatology | Florida's Top Joint & Autoimmune Care"; header phone **(561) 440-3270** + Fax (561)-440 3280; `/wp-content/uploads/...` images; lorem-ipsum **"What is physiotherapy?"** FAQ; **Boucher + Akerman only, no Dr. Bruce Stein / no Queens**; footer **"© 2026 Specialty infusions FL Inc"**; nav to legacy WP URLs.
+  - Both fetches are credible. The repo source is verified correct in both passes (deploy/serving problem, not code): `index.html` title correct, phone 730-3894, apex canonical, 0 WP markers; `florida.html`/`new-york.html` correct titles, Suite 230 + Suite 236. **This is the intermittent two-origin defect — not a one-off regression and not a stale snippet.** It confirms the apex is still being served by two origins (legacy WP + Vercel) on a per-request basis. Required human action unchanged (see above): assign the apex to the Vercel project / repoint apex DNS off the legacy WP host and decommission the WordPress origin. `www` not independently fetchable this pass (web_fetch provenance allow-list).
