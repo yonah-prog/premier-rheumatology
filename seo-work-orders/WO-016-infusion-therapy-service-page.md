@@ -69,6 +69,19 @@ Write in the site's existing clinical-but-warm voice. Structure for extraction:
 - [ ] No `premierrheumatology.com` references; NAP matches the site (Boca Ste 230 / (561) 730-3894).
 - [ ] After deploy: request indexing in GSC for `/infusion-therapy.html` and re-submit the sitemap.
 
+---
+
+## Evidence addendum — 2026-06-12 (corroboration; no scope change)
+
+Today's pass re-ran both infusion probes and the pattern is unchanged and, if anything, sharper:
+
+- **"biologic infusion therapy Boca Raton"** (web search): page-1 results = Baptist Health, First Choice Neurology, Yelp, Restore Hyper Wellness, Hybrid Medical, 4Ever Young, USA Sports Medicine (regenerative), änasa, BocaInfusion, thebiostation — **0 rheumatology peers; 100% wellness-IV / hospital / monoclonal-COVID centers.** Premier absent (consistent).
+- **"where can I get biologic infusions near Boca Raton"** (AI-style probe): surfaced BocaInfusion, thebiostation, Baptist Health, First Choice Neurology, Yelp, änasa, Restore, Boca Cryo, and — newly prominent — **Coastal Infusion** ("South Florida's premier *medical* infusion center") and First Choice's rheumatic-conditions infusion line. So the SERP is now drawing in *medical* infusion centers, not just vitamin-drip spas — i.e. the competitive set is consolidating around standalone medical-infusion NAP, none of which is a rheumatology practice administering biologics in-office.
+
+**Implication for the build:** the page's single most important job is the differentiation framing in §2/§5 — *"on-site biologic infusion administered by your own rheumatologist, in the same office, no separate infusion-center referral."* That is the one thing none of these competitors can say, and it's the angle that makes the term winnable. No spec change; this entry just records that the 06-12 evidence continues to support building the page exactly as drafted. Still the highest-leverage **new** lever on the board, and buildable by Claude Code now (independent of the WO-012 deploy blocker — it ships with everything else on the next deploy).
+
+---
+
 ## Out of scope
 - Claims about specific drugs being guaranteed/stocked — keep examples generic and medically careful.
 - A separate Queens infusion page — single page, honest about where infusions are administered.
