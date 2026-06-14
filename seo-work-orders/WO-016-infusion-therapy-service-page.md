@@ -86,3 +86,14 @@ Today's pass re-ran both infusion probes and the pattern is unchanged and, if an
 - Claims about specific drugs being guaranteed/stocked — keep examples generic and medically careful.
 - A separate Queens infusion page — single page, honest about where infusions are administered.
 - Paid search for the infusion term — organic/AEO only here.
+
+---
+
+## Evidence addendum — 2026-06-14 (corroboration; no scope change)
+
+Re-ran both infusion probes; pattern holds and the medical-infusion consolidation continues:
+
+- **"biologic infusion therapy Boca Raton"** (web search): page-1 = The DRIPBaR (NAD+), 4Ever Young, änasa, Restore, Hybrid Medical, USA Sports Medicine, BocaInfusion, First Choice Infusion Centers — **0 rheumatology peers.** First Choice explicitly lists "rheumatic conditions" among its infusion indications. Premier absent (consistent, 30+ passes).
+- **"where can I get biologic infusions near Boca Raton"** (AI-style probe): the AI answer split results into a **"Medical/Clinical"** tier (Baptist Health, **Florida Infusion Centers** — "rheumatic conditions, demyelinating diseases, myasthenia gravis", **Coastal Infusion** — "South Florida's premier medical infusion center") vs. a "Wellness/IV" tier (biostation, Prime IV, Hybrid, 4Ever). The medical tier is now the lead — i.e. an AI assistant answering this question recommends standalone medical-infusion centers, none of which is a rheumatology practice giving biologics in-office.
+
+**Implication unchanged:** the differentiation framing in §2/§5 (*on-site biologic infusion administered by your own rheumatologist, same office, no separate infusion-center referral*) is exactly the gap none of these competitors can fill, and the reason the term is winnable. No spec change. Still the highest-leverage **new** lever and buildable now independent of the WO-012 deploy blocker.
