@@ -16,7 +16,7 @@ const LOC_CONFIG = {
     phoneTel: '+15617303894',
     fax: '(561) 440-3280',
     hours: 'Mon–Fri · 8:30am–5:00pm',
-    dot: palette.purple,
+    dot: palette.regionFL,
     mapSrc: 'https://www.google.com/maps?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431&output=embed',
     mapsUrl: 'https://maps.google.com/?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431',
     address2: '4400 W Sample Rd, Suite 236', cityline2: 'Coconut Creek, FL 33066',
@@ -60,7 +60,7 @@ const LOC_CONFIG = {
     phoneTel: '+17183478888',
     fax: null,
     hours: 'Mon–Fri · 9:00am–5:00pm',
-    dot: '#2e6b52',
+    dot: palette.regionNY,
     mapSrc: 'https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed',
     mapsUrl: 'https://maps.google.com/?q=261-12+E+Williston+Ave,+Queens,+NY+11001',
     h1Line1: 'Rheumatology care',
@@ -97,17 +97,17 @@ const LOC_CONFIG = {
 const LocHero = ({ cfg }) => {
   const isMobile = useIsMobile();
   return (
-  <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 72px', background: lp.card, borderBottom: `1px solid ${lp.line}` }}>
+  <section style={{ padding: isMobile ? '48px 20px' : '76px 56px 72px', background: `linear-gradient(160deg, ${lp.lavenderBg}, #ffffff)`, borderBottom: `1px solid ${lp.line}` }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
       <span style={{ width: 9, height: 9, borderRadius: '50%', background: cfg.dot }} />
       <div style={{ ...lps.eyebrow, color: cfg.dot }}>{cfg.eyebrow}</div>
     </div>
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: isMobile ? 24 : 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 44 : 76, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.04, margin: 0, color: lp.ink }}>
+      <h1 style={{ ...lps.h1, fontSize: isMobile ? 40 : 56 }}>
         {cfg.h1Line1}<br />
-        <span style={{ color: cfg.dot }}>{cfg.h1Line2}</span>
+        <em style={{ fontStyle: 'italic', color: cfg.dot }}>{cfg.h1Line2}</em>
       </h1>
-      <p style={{ fontSize: 18, lineHeight: 1.65, color: lp.sub, margin: 0 }}>{cfg.intro}</p>
+      <p style={{ fontSize: 17, lineHeight: 1.7, color: lp.sub, margin: 0 }}>{cfg.intro}</p>
     </div>
   </section>
   );
@@ -121,12 +121,12 @@ const LocMap = ({ cfg }) => {
     <div style={{ padding: isMobile ? '36px 20px' : '56px 56px', background: lp.bg, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 28, borderRight: isMobile ? 'none' : `1px solid ${lp.line}`, borderBottom: isMobile ? `1px solid ${lp.line}` : 'none' }}>
       <div>
         <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Address</div>
-        <div style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 6 }}>{cfg.address}</div>
+        <div style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 500, color: lp.ink, marginBottom: 6 }}>{cfg.address}</div>
         <div style={{ fontSize: 16, color: lp.sub }}>{cfg.cityline}</div>
       </div>
       <div>
         <div style={{ ...lps.eyebrow, marginBottom: 12 }}>Phone</div>
-        <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 20, fontWeight: 700, color: lp.ink, textDecoration: 'none', letterSpacing: '-0.01em' }}>{cfg.phone}</a>
+        <a href={`tel:${cfg.phoneTel}`} style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 500, color: lp.purple, textDecoration: 'none' }}>{cfg.phone}</a>
       </div>
       {cfg.fax && (
         <div>
@@ -139,12 +139,12 @@ const LocMap = ({ cfg }) => {
         <div style={{ fontSize: 16, fontWeight: 600 }}>{cfg.hours}</div>
       </div>
       <a href={cfg.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'inline-block', marginTop: 8 }}>
-        <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '15px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'inherit' }}>
+        <button style={{ ...lps.btn, padding: '14px 26px', fontSize: 14 }}>
           Get directions
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
       </a>
-      <div style={{ fontSize: 13, color: lp.sub, lineHeight: 1.6, borderTop: `1px solid ${lp.line}`, paddingTop: 20 }}>{cfg.servingText}</div>
+      <div style={{ fontSize: 13, color: lp.mutedLabel, lineHeight: 1.65, borderTop: `1px solid ${lp.line}`, paddingTop: 20 }}>{cfg.servingText}</div>
     </div>
     <div style={{ position: 'relative', minHeight: isMobile ? 300 : 440 }}>
       <iframe
@@ -181,13 +181,13 @@ const LocMapsGrid = ({ cfg }) => {
             <div style={{ padding: isMobile ? '36px 20px' : '48px 48px', background: lp.bg, display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div>
                 <div style={{ ...lps.eyebrow, color: cfg.dot, marginBottom: 10 }}>{loc.label}</div>
-                <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{loc.address}</div>
+                <div style={{ fontFamily: SERIF, fontSize: 20, fontWeight: 500, color: lp.ink, marginBottom: 4 }}>{loc.address}</div>
                 <div style={{ fontSize: 15, color: lp.sub }}>{loc.cityline}</div>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                 <div>
                   <div style={{ ...lps.eyebrow, marginBottom: 8 }}>Phone</div>
-                  <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 15, fontWeight: 700, color: lp.ink, textDecoration: 'none' }}>{cfg.phone}</a>
+                  <a href={`tel:${cfg.phoneTel}`} style={{ fontSize: 15, fontWeight: 700, color: lp.purple, textDecoration: 'none' }}>{cfg.phone}</a>
                 </div>
                 <div>
                   <div style={{ ...lps.eyebrow, marginBottom: 8 }}>Hours</div>
@@ -201,7 +201,7 @@ const LocMapsGrid = ({ cfg }) => {
                 </div>
               )}
               <a href={loc.mapsUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'inline-block' }}>
-                <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'inherit' }}>
+                <button style={{ ...lps.btn, padding: '13px 24px', fontSize: 14 }}>
                   Get directions
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </button>
@@ -221,7 +221,7 @@ const LocMapsGrid = ({ cfg }) => {
         ))}
       </div>
       {cfg.servingText && (
-        <div style={{ padding: isMobile ? '20px 20px' : '20px 48px', fontSize: 13, color: lp.sub, lineHeight: 1.6, borderTop: `1px solid ${lp.line}`, background: lp.bg }}>
+        <div style={{ padding: isMobile ? '20px 20px' : '20px 48px', fontSize: 13, color: lp.mutedLabel, lineHeight: 1.65, borderTop: `1px solid ${lp.line}`, background: lp.bg }}>
           {cfg.servingText}
         </div>
       )}
@@ -237,12 +237,12 @@ const LocAbout = ({ cfg }) => {
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr', gap: isMobile ? 32 : 80, alignItems: 'start' }}>
       <div>
         <div style={{ ...lps.eyebrow, marginBottom: 16 }}>Our {cfg.region} practice</div>
-        <h2 style={{ ...lps.h2, fontSize: 44, marginBottom: 0 }}>
+        <h2 style={{ ...lps.h2, fontSize: 40, marginBottom: 0 }}>
           Expert care, built around you.
         </h2>
         <div style={{ marginTop: 32, display: 'flex', flexDirection: 'column', gap: 12 }}>
           {cfg.seoKeywords.map((kw, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14, color: lp.sub }}>
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14, color: lp.subMuted }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: cfg.dot, flexShrink: 0 }} />
               {kw}
             </div>
@@ -251,17 +251,17 @@ const LocAbout = ({ cfg }) => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
         {cfg.seoBody.map((para, i) => (
-          <p key={i} style={{ fontSize: 17, lineHeight: 1.75, color: lp.sub, margin: 0 }}>{para}</p>
+          <p key={i} style={{ fontSize: 16.5, lineHeight: 1.8, color: lp.sub, margin: 0 }}>{para}</p>
         ))}
         <div style={{ display: 'flex', gap: 12, marginTop: 12 }}>
           <a href="contact.html" style={{ textDecoration: 'none' }}>
-            <button style={{ background: lp.ink, color: '#fff', border: 'none', padding: '16px 26px', borderRadius: 10, fontSize: 14.5, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 10, fontFamily: 'inherit' }}>
+            <button style={{ ...lps.btn, padding: '15px 30px' }}>
               Schedule a consultation
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
           </a>
           <a href={`tel:${cfg.phoneTel}`} style={{ textDecoration: 'none' }}>
-            <button style={{ background: 'transparent', color: lp.ink, border: `1px solid ${lp.line}`, padding: '16px 26px', borderRadius: 10, fontSize: 14.5, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
+            <button style={{ ...lps.btnGhost, padding: '15px 30px' }}>
               {cfg.phone}
             </button>
           </a>
@@ -282,10 +282,10 @@ const LocTeam = ({ cfg }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48 }}>
         <div>
           <div style={{ ...lps.eyebrow, marginBottom: 14 }}>{cfg.region} Care Team</div>
-          <h2 style={{ ...lps.h2, fontSize: 44, margin: 0 }}>Meet your {cfg.city} providers.</h2>
+          <h2 style={{ ...lps.h2, fontSize: 40, margin: 0 }}>Meet your {cfg.city} providers.</h2>
         </div>
         <a href="team.html" style={{ textDecoration: 'none' }}>
-          <button style={{ background: 'transparent', color: lp.ink, border: `1px solid ${lp.line}`, padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8, fontFamily: 'inherit' }}>
+          <button style={{ ...lps.btnGhost, padding: '13px 24px', fontSize: 14 }}>
             Full team page
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
@@ -293,7 +293,7 @@ const LocTeam = ({ cfg }) => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {team.map((p, i) => (
-          <div key={i} style={{ border: `1px solid ${lp.line}`, borderRadius: 16, overflow: 'hidden', background: lp.bg, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
+          <div key={i} style={{ border: `1px solid ${lp.lineCard}`, borderRadius: 16, overflow: 'hidden', background: lp.bg, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
             {/* Square image */}
             <div style={{ flexShrink: 0, width: isMobile ? '100%' : 180, height: isMobile ? 'auto' : 180 }}>
               {isMobile
@@ -311,9 +311,9 @@ const LocTeam = ({ cfg }) => {
             </div>
             {/* Text */}
             <div style={{ padding: isMobile ? '20px 22px 24px' : '24px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
-              <div style={{ fontSize: 12.5, color: cfg.dot, fontWeight: 600, marginBottom: 12 }}>{p.role}</div>
-              <div style={{ fontSize: 14, lineHeight: 1.65, color: lp.sub }}>{p.bio}</div>
+              <div style={{ fontFamily: SERIF, fontSize: 21, fontWeight: 600, color: lp.ink, marginBottom: 6 }}>{p.name}</div>
+              <div style={{ fontSize: 11.5, color: cfg.dot, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 12 }}>{p.role}</div>
+              <div style={{ fontSize: 14, lineHeight: 1.7, color: lp.subMuted }}>{p.bio}</div>
             </div>
           </div>
         ))}
@@ -330,22 +330,22 @@ const LocServices = ({ cfg }) => {
   return (
     <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderBottom: `1px solid ${lp.line}` }}>
       <div style={{ ...lps.eyebrow, marginBottom: 14 }}>Services at our {cfg.city} office</div>
-      <h2 style={{ ...lps.h2, fontSize: 44, marginBottom: 48 }}>Comprehensive rheumatology, all in one place.</h2>
+      <h2 style={{ ...lps.h2, fontSize: 40, marginBottom: 48 }}>Comprehensive rheumatology, all in one place.</h2>
 
       {/* Infusion therapy — featured full-width */}
       {infusion && (
-        <div style={{ background: lp.purpleDeep, color: '#fff', borderRadius: 20, padding: isMobile ? '32px 20px' : '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 56, alignItems: 'center' }}>
+        <div style={{ background: `linear-gradient(110deg, ${lp.purple}, ${lp.purpleDeep})`, color: '#fff', borderRadius: 22, padding: isMobile ? '32px 20px' : '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 56, alignItems: 'center' }}>
           <div>
-            <div style={{ ...lps.eyebrow, color: '#c9a8f0', marginBottom: 16 }}>Featured service</div>
-            <h3 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 38, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, margin: '0 0 20px' }}>{infusion.t}</h3>
-            <p style={{ fontSize: 16, lineHeight: 1.7, opacity: 0.82, margin: '0 0 32px' }}>{infusion.d}</p>
-            <p style={{ fontSize: 15, lineHeight: 1.65, opacity: 0.72, margin: '0 0 32px' }}>
+            <div style={{ ...lps.eyebrow, color: '#D9CDF3', marginBottom: 16 }}>Featured service</div>
+            <h3 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.14, margin: '0 0 20px', color: '#fff' }}>{infusion.t}</h3>
+            <p style={{ fontSize: 16, lineHeight: 1.75, opacity: 0.88, margin: '0 0 28px' }}>{infusion.d}</p>
+            <p style={{ fontSize: 15, lineHeight: 1.7, opacity: 0.76, margin: '0 0 32px' }}>
               Our {cfg.city} office administers biologic and IV infusion medications on-site in a comfortable, supervised clinical environment — no separate infusion center required. Medications are administered by trained clinical staff with physician oversight.
             </p>
             <a href="contact.html" style={{ textDecoration: 'none' }}>
-              <button style={{ background: '#fff', color: lp.purpleDeep, border: 'none', padding: '16px 26px', borderRadius: 10, fontSize: 14.5, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+              <button style={{ ...lps.btnWhite, padding: '15px 28px', fontSize: 14.5 }}>
                 Ask about infusion therapy
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke={lp.purpleDeep} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke={lp.purple} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </button>
             </a>
           </div>
@@ -356,13 +356,13 @@ const LocServices = ({ cfg }) => {
       {/* Other services — grid */}
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 16 }}>
         {other.map((s, i) => (
-          <div key={i} style={{ background: lp.card, border: `1px solid ${lp.line}`, borderRadius: 16, padding: '32px 32px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: lp.purpleLight, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div key={i} style={{ background: lp.card, border: `1px solid ${lp.lineCard}`, borderRadius: 16, padding: '32px 32px', display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+            <div style={{ width: 46, height: 46, borderRadius: '50%', background: lp.purpleLight, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12.5 10 18 20 6" stroke={lp.purple} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
             <div>
-              <div style={{ fontSize: 18, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 10 }}>{s.t}</div>
-              <div style={{ fontSize: 14.5, lineHeight: 1.6, color: lp.sub }}>{s.d}</div>
+              <div style={{ fontFamily: SERIF, fontSize: 21, fontWeight: 600, color: lp.ink, marginBottom: 9 }}>{s.t}</div>
+              <div style={{ fontSize: 14.5, lineHeight: 1.65, color: lp.subMuted }}>{s.d}</div>
             </div>
           </div>
         ))}
@@ -380,19 +380,19 @@ const LocFAQ = ({ cfg }) => {
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.6fr', gap: isMobile ? 28 : 72, alignItems: 'start' }}>
         <div>
           <div style={{ ...lps.eyebrow, marginBottom: 16 }}>Common questions</div>
-          <h2 style={{ ...lps.h2, fontSize: 44, margin: 0 }}>{cfg.city} rheumatology FAQ.</h2>
-          <p style={{ fontSize: 16, lineHeight: 1.6, color: lp.sub, marginTop: 22, maxWidth: 400 }}>
+          <h2 style={{ ...lps.h2, fontSize: 40, margin: 0 }}>{cfg.city} rheumatology FAQ.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: lp.sub, marginTop: 22, maxWidth: 400 }}>
             Have a question about care at our {cfg.city} office? Call {cfg.phone} and our team will be glad to help.
           </p>
         </div>
         <div style={{ borderTop: `1px solid ${lp.line}` }}>
           {cfg.faqs.map((f, i) => (
             <details key={i} style={{ borderBottom: `1px solid ${lp.line}`, padding: '24px 0' }}>
-              <summary style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.01em', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
+              <summary style={{ fontFamily: SERIF, fontSize: 21, fontWeight: 500, color: lp.ink, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
                 <span>{f.q}</span>
-                <span style={{ fontSize: 22, color: cfg.dot, fontWeight: 300 }}>+</span>
+                <span className="acc-plus" style={{ fontSize: 22, color: cfg.dot, fontWeight: 300 }}>+</span>
               </summary>
-              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.7, color: lp.sub }}>{f.a}</div>
+              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.75, color: lp.sub }}>{f.a}</div>
             </details>
           ))}
         </div>
@@ -406,26 +406,26 @@ const LocCTA = ({ cfg }) => {
   const isMobile = useIsMobile();
   return (
   <section style={{ padding: isMobile ? '48px 20px' : '80px 56px' }}>
-    <div style={{ background: cfg.dot, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '64px 64px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 48, alignItems: 'center' }}>
+    <div style={{ background: `linear-gradient(110deg, ${cfg.dot}, ${lp.purpleDeep})`, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '64px 64px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 48, alignItems: 'center' }}>
       <div>
-        <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#ffffff99', marginBottom: 18 }}>
+        <div style={{ fontFamily: SANS, fontSize: 12.5, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#D9CDF3', marginBottom: 18 }}>
           {cfg.city} · {cfg.region}
         </div>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 32 : 48, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: '0 0 18px' }}>
+        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 42, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.14, margin: '0 0 18px', color: '#fff' }}>
           Ready to meet our {cfg.city} team?
         </h2>
-        <p style={{ fontSize: 17, lineHeight: 1.6, opacity: 0.85, margin: 0 }}>
+        <p style={{ fontSize: 17, lineHeight: 1.68, opacity: 0.88, margin: 0 }}>
           New and established patients are welcome. Call us or submit a message and we'll follow up within one business day.
         </p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         <a href="contact.html" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: '#fff', color: lp.ink, border: 'none', padding: '18px 26px', borderRadius: 12, fontSize: 15, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
+          <button style={{ ...lps.btnWhite, width: '100%', padding: '16px 26px' }}>
             Contact us online
           </button>
         </a>
         <a href={`tel:${cfg.phoneTel}`} style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff55', padding: '18px 26px', borderRadius: 12, fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}>
+          <button style={{ ...lps.btnOutlineLight, width: '100%', padding: '16px 26px', justifyContent: 'center' }}>
             Call {cfg.phone}
           </button>
         </a>

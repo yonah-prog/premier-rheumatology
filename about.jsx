@@ -8,18 +8,18 @@ const AHero = () => (
   <section style={{ padding: '80px 56px 72px', background: ap.card, borderBottom: `1px solid ${ap.line}` }}>
     <div style={{ ...aps.eyebrow, marginBottom: 20 }}>About Premier Rheumatology</div>
     <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 88, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.02, margin: 0, color: ap.ink }}>
-        Trusted <span style={{ color: ap.purple }}>rheumatology care</span> in Boca Raton, FL and Queens, NY.
+      <h1 style={{ ...aps.h1, fontSize: 60 }}>
+        Trusted <em style={{ fontStyle: 'italic', color: ap.purple }}>rheumatology care</em> in Boca Raton, FL and Queens, NY.
       </h1>
-      <p style={{ fontSize: 18, lineHeight: 1.6, color: ap.sub, margin: 0, maxWidth: 520 }}>
+      <p style={{ fontSize: 17, lineHeight: 1.7, color: ap.sub, margin: 0, maxWidth: 520 }}>
         Premier Rheumatology is a specialty practice focused on the diagnosis, long-term management, and personalized treatment of autoimmune, inflammatory, and musculoskeletal conditions — with board-certified rheumatologists serving patients across South Florida and the New York metro area.
       </p>
     </div>
 
     <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
       <div>
-        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: ap.purple, marginBottom: 10 }}>Florida</div>
-        <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
+        <div style={{ ...aps.eyebrow, color: ap.regionFL, marginBottom: 10 }}>Florida</div>
+        <div style={{ borderRadius: 18, overflow: 'hidden', height: 320, border: `1px solid ${ap.lineCard}` }}>
           <iframe
             src="https://www.google.com/maps?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431&output=embed&z=15"
             width="100%" height="320" style={{ border: 'none', display: 'block' }}
@@ -29,7 +29,7 @@ const AHero = () => (
         </div>
       </div>
       <div>
-        <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#2e6b52', marginBottom: 10 }}>New York</div>
+        <div style={{ ...aps.eyebrow, color: ap.regionNY, marginBottom: 10 }}>New York</div>
         <div style={{ borderRadius: 18, overflow: 'hidden', height: 320 }}>
           <iframe
             src="https://www.google.com/maps?q=261-12+E+Williston+Ave,+Queens,+NY+11001&output=embed&z=15"
@@ -55,11 +55,11 @@ const ATOC = () => {
     { id: 'faq', label: 'Common questions' },
   ];
   return (
-    <nav aria-label="On this page" style={{ padding: '28px 56px', background: ap.bg, borderBottom: `1px solid ${ap.line}`, position: 'sticky', top: 0, zIndex: 10 }}>
+    <nav aria-label="On this page" style={{ padding: '20px 56px', background: ap.lavenderBg, borderBottom: `1px solid ${ap.line}`, position: 'sticky', top: 0, zIndex: 10 }}>
       <div style={{ display: 'flex', gap: 28, overflow: 'auto', fontSize: 13.5, color: ap.sub }}>
-        <span style={{ ...aps.eyebrow, color: ap.sub, flexShrink: 0 }}>On this page</span>
+        <span style={{ ...aps.eyebrow, color: ap.mutedLabel, flexShrink: 0 }}>On this page</span>
         {items.map(i => (
-          <a key={i.id} href={`#${i.id}`} style={{ color: ap.ink, textDecoration: 'none', whiteSpace: 'nowrap' }}>{i.label}</a>
+          <a key={i.id} href={`#${i.id}`} style={{ color: ap.subAlt, textDecoration: 'none', whiteSpace: 'nowrap', fontWeight: 500 }}>{i.label}</a>
         ))}
       </div>
     </nav>
@@ -71,19 +71,19 @@ const ASection = ({ id, eyebrow, h2, children, img, imgLabel, imgTone = 'purple'
   <section id={id} style={{ padding: '96px 56px', borderBottom: `1px solid ${ap.line}`, scrollMarginTop: 80 }}>
     <div style={{ display: 'grid', gridTemplateColumns: img ? '1fr 1fr' : '1fr 1.8fr', gap: 72, alignItems: 'start' }}>
       {flip && img && (imgSrc
-        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 20, display: 'block' }} />
-        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />
+        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 18, display: 'block' }} />
+        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={18} />
       )}
       <div>
         <div style={{ ...aps.eyebrow, marginBottom: 16 }}>{eyebrow}</div>
-        <h2 style={{ ...aps.h2, fontSize: 44, marginBottom: 28 }}>{h2}</h2>
-        <div style={{ fontSize: 16.5, lineHeight: 1.7, color: ap.sub, display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <h2 style={{ ...aps.h2, fontSize: 40, marginBottom: 26 }}>{h2}</h2>
+        <div style={{ fontSize: 16.5, lineHeight: 1.78, color: ap.sub, display: 'flex', flexDirection: 'column', gap: 20 }}>
           {children}
         </div>
       </div>
       {!flip && img && (imgSrc
-        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 20, display: 'block' }} />
-        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={20} />
+        ? <img src={imgSrc} alt={imgLabel} style={{ width: '100%', height: 440, objectFit: 'cover', objectPosition: 'center', borderRadius: 18, display: 'block' }} />
+        : <Placeholder label={imgLabel} tone={imgTone} h={440} radius={18} />
       )}
     </div>
   </section>
@@ -98,12 +98,12 @@ const AHighlights = () => {
     { n: 'Board', l: 'Certified rheumatologists' },
   ];
   return (
-    <section style={{ padding: '56px 56px', background: ap.purpleDeep, color: '#fff' }}>
+    <section style={{ padding: '64px 56px', background: `linear-gradient(110deg, ${ap.purple}, ${ap.purpleDeep})`, color: '#fff' }}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 32 }}>
         {items.map((it, i) => (
           <div key={i} style={{ borderLeft: i === 0 ? 'none' : '1px solid #ffffff22', paddingLeft: i === 0 ? 0 : 32 }}>
-            <div style={{ fontSize: 56, fontWeight: 700, letterSpacing: '-0.035em', color: '#fff', lineHeight: 1 }}>{it.n}</div>
-            <div style={{ marginTop: 10, fontSize: 14, opacity: 0.78, maxWidth: 200, lineHeight: 1.5 }}>{it.l}</div>
+            <div style={{ fontFamily: SERIF, fontSize: 56, fontWeight: 500, letterSpacing: '-0.02em', color: '#fff', lineHeight: 1 }}>{it.n}</div>
+            <div style={{ marginTop: 12, fontSize: 14, opacity: 0.8, maxWidth: 200, lineHeight: 1.55 }}>{it.l}</div>
           </div>
         ))}
       </div>
@@ -115,18 +115,18 @@ const AHighlights = () => {
 const ALocations = () => (
   <section id="locations" style={{ padding: '96px 56px', borderBottom: `1px solid ${ap.line}`, scrollMarginTop: 80 }}>
     <div style={{ ...aps.eyebrow, marginBottom: 14 }}>Our locations</div>
-    <h2 style={{ ...aps.h2, fontSize: 44, marginBottom: 18 }}>Rheumatology care in two convenient locations.</h2>
-    <p style={{ fontSize: 17, lineHeight: 1.6, color: ap.sub, maxWidth: 720, marginBottom: 48 }}>
+    <h2 style={{ ...aps.h2, fontSize: 40, marginBottom: 18 }}>Rheumatology care in two convenient locations.</h2>
+    <p style={{ fontSize: 16.5, lineHeight: 1.7, color: ap.sub, maxWidth: 720, marginBottom: 48 }}>
       Whether you live in Palm Beach County, Broward, or the greater New York metro, our specialists provide the same evidence-based rheumatologic care at both offices — from initial evaluation through ongoing disease management.
     </p>
 
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
       {LOCATIONS.map((loc, i) => (
-        <div key={loc.id} style={{ border: `1px solid ${ap.line}`, borderRadius: 20, background: ap.card, padding: '28px 30px 30px' }}>
-          <div style={{ ...aps.eyebrow, color: i === 0 ? ap.purple : '#2e6b52', marginBottom: 10 }}>
+        <div key={loc.id} style={{ ...aps.card, borderRadius: 20, padding: '30px 32px 32px' }}>
+          <div style={{ ...aps.eyebrow, color: i === 0 ? ap.regionFL : ap.regionNY, marginBottom: 12 }}>
             {i === 0 ? 'South Florida' : 'New York Metro'}
           </div>
-          <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>
+          <div style={{ fontFamily: SERIF, fontSize: 27, fontWeight: 500, letterSpacing: '-0.01em', color: ap.ink, marginBottom: 16 }}>
             Rheumatologist in {loc.city}, {loc.id}
           </div>
           {/* Primary address */}
@@ -140,7 +140,7 @@ const ALocations = () => (
             </div>
           )}
           <a href={loc.id === 'FL' ? 'florida.html' : 'new-york.html'} style={{ textDecoration: 'none', display: 'inline-block', marginTop: 20 }}>
-            <button style={{ background: ap.ink, color: '#fff', border: 'none', padding: '13px 20px', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <button style={{ ...aps.btn, padding: '13px 24px', fontSize: 14 }}>
               Visit {loc.region} office <ArrowRight size={14} />
             </button>
           </a>
@@ -184,19 +184,19 @@ const AFAQ = () => {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 72, alignItems: 'start' }}>
         <div>
           <div style={{ ...aps.eyebrow, marginBottom: 16 }}>Common questions</div>
-          <h2 style={{ ...aps.h2, fontSize: 44 }}>What patients ask before their first visit.</h2>
-          <p style={{ fontSize: 16, lineHeight: 1.6, color: ap.sub, marginTop: 22, maxWidth: 400 }}>
+          <h2 style={{ ...aps.h2, fontSize: 40 }}>What patients ask before their first visit.</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: ap.sub, marginTop: 22, maxWidth: 400 }}>
             If you don't see your question answered here, our team is happy to help. Call either office or send a message through our contact form.
           </p>
         </div>
         <div style={{ borderTop: `1px solid ${ap.line}` }}>
           {faqs.map((f, i) => (
             <details key={i} style={{ borderBottom: `1px solid ${ap.line}`, padding: '24px 0' }}>
-              <summary style={{ fontSize: 19, fontWeight: 600, letterSpacing: '-0.01em', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
+              <summary style={{ fontFamily: SERIF, fontSize: 21, fontWeight: 500, color: ap.ink, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24 }}>
                 <span>{f.q}</span>
-                <span style={{ fontSize: 22, color: ap.purple, fontWeight: 300 }}>+</span>
+                <span className="acc-plus" style={{ fontSize: 22, color: ap.purple, fontWeight: 300 }}>+</span>
               </summary>
-              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.7, color: ap.sub }}>{f.a}</div>
+              <div style={{ marginTop: 16, fontSize: 16, lineHeight: 1.75, color: ap.sub }}>{f.a}</div>
             </details>
           ))}
         </div>
@@ -208,30 +208,30 @@ const AFAQ = () => {
 // ─── Consultation CTA ────────────────────────────────────
 const ACTA = () => (
   <section style={{ padding: '96px 56px', background: ap.bg }}>
-    <div style={{ background: ap.ink, color: '#fff', borderRadius: 24, padding: '72px 64px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 48, alignItems: 'center' }}>
+    <div style={{ background: `linear-gradient(110deg, ${ap.purple}, ${ap.purpleDeep})`, color: '#fff', borderRadius: 24, padding: '72px 64px', display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 48, alignItems: 'center' }}>
       <div>
-        <div style={{ ...aps.eyebrow, color: '#d9c3ea', marginBottom: 18 }}>Schedule a consultation</div>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 52, fontWeight: 700, letterSpacing: '-0.035em', lineHeight: 1.05, margin: '0 0 20px' }}>
+        <div style={{ ...aps.eyebrow, color: '#D9CDF3', marginBottom: 18 }}>Schedule a consultation</div>
+        <h2 style={{ fontFamily: SERIF, fontSize: 46, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.12, margin: '0 0 20px', color: '#fff' }}>
           Experiencing joint pain, stiffness, or inflammation?
         </h2>
-        <p style={{ fontSize: 17, lineHeight: 1.6, opacity: 0.82, maxWidth: 560, margin: 0 }}>
+        <p style={{ fontSize: 17, lineHeight: 1.68, opacity: 0.85, maxWidth: 560, margin: 0 }}>
           A Premier Rheumatology consultation can help clarify the cause of your symptoms and outline appropriate management. We welcome new patients at our Boca Raton, FL and Queens, NY offices.
         </p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         <a href="contact.html" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: '#fff', color: ap.ink, border: 'none', padding: '20px 28px', borderRadius: 12, fontSize: 16, fontWeight: 600, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <button style={{ ...aps.btnWhite, width: '100%', padding: '18px 28px', fontSize: 16, justifyContent: 'space-between' }}>
             <span>Request an appointment</span>
             <ArrowRight size={18} />
           </button>
         </a>
         <a href="tel:+15617303894" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff40', padding: '20px 28px', borderRadius: 12, fontSize: 15, fontWeight: 500, cursor: 'pointer', textAlign: 'left' }}>
+          <button style={{ ...aps.btnOutlineLight, width: '100%', padding: '18px 28px' }}>
             Florida · (561) 730-3894
           </button>
         </a>
         <a href="tel:+17183478888" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff40', padding: '20px 28px', borderRadius: 12, fontSize: 15, fontWeight: 500, cursor: 'pointer', textAlign: 'left' }}>
+          <button style={{ ...aps.btnOutlineLight, width: '100%', padding: '18px 28px' }}>
             New York · (718) 347-8888
           </button>
         </a>

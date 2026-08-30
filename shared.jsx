@@ -1,8 +1,10 @@
 // Shared helpers used across the Premier Rheumatology site.
 
+// Paths are absolute: condition pages live one level down at /conditions/*,
+// so a relative src would 404 on every article page.
 const PRLogo = ({ size = 44, wordmark = true, wordColor = '#12101a' }) => {
   const isLight = wordColor === '#fff';
-  const src = isLight ? 'Images/site-images-1/Asset-3.png' : 'logo.png';
+  const src = isLight ? '/Images/site-images-1/Asset-3.png' : '/logo.png';
   return (
     <img
       src={src}
@@ -13,11 +15,12 @@ const PRLogo = ({ size = 44, wordmark = true, wordColor = '#12101a' }) => {
 };
 
 const Placeholder = ({ label, w = '100%', h = 320, tone = 'warm', radius = 18, style = {} }) => {
+  // Tones stay inside the purple family so placeholders read as brand surfaces.
   const palettes = {
-    warm:   { bg: '#efe8dc', stripe: '#e3d9c6', ink: '#7a6f5c' },
-    cool:   { bg: '#e3e7ed', stripe: '#d5dae3', ink: '#5e6776' },
-    purple: { bg: '#efe6f5', stripe: '#e2d2ee', ink: '#6a4f85' },
-    mint:   { bg: '#dce9e0', stripe: '#cadbce', ink: '#4a6b57' },
+    warm:   { bg: '#F4F0FB', stripe: '#EBE3FA', ink: '#7C6BA6' },
+    cool:   { bg: '#EFEAF8', stripe: '#E4DBF4', ink: '#6E63A0' },
+    purple: { bg: '#EBE3FA', stripe: '#DED2F3', ink: '#5B3FA0' },
+    mint:   { bg: '#F2EEFA', stripe: '#E7E0F6', ink: '#6A6094' },
   };
   const p = palettes[tone] || palettes.warm;
   return (
@@ -25,8 +28,8 @@ const Placeholder = ({ label, w = '100%', h = 320, tone = 'warm', radius = 18, s
       width: w, height: h, borderRadius: radius, overflow: 'hidden',
       background: `repeating-linear-gradient(135deg, ${p.bg} 0 14px, ${p.stripe} 14px 28px)`,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      color: p.ink, fontFamily: 'JetBrains Mono, monospace', fontSize: 12, letterSpacing: '0.08em',
-      textTransform: 'uppercase', textAlign: 'center', padding: 12, ...style,
+      color: p.ink, fontFamily: "'Hanken Grotesk', system-ui, sans-serif", fontSize: 12, letterSpacing: '0.1em',
+      textTransform: 'uppercase', textAlign: 'center', padding: 12, fontWeight: 600, ...style,
     }}>
       <span style={{ background: p.bg, padding: '6px 10px', borderRadius: 4, border: `1px dashed ${p.ink}55` }}>
         {label}
@@ -35,7 +38,7 @@ const Placeholder = ({ label, w = '100%', h = 320, tone = 'warm', radius = 18, s
   );
 };
 
-const MapMini = ({ state = 'FL', tone = '#efe6f5', ink = '#6a2fa8' }) => (
+const MapMini = ({ state = 'FL', tone = '#EBE3FA', ink = '#5B3FA0' }) => (
   <svg viewBox="0 0 240 160" style={{ width: '100%', height: '100%', display: 'block' }} preserveAspectRatio="xMidYMid slice">
     <rect width="240" height="160" fill={tone} />
     {Array.from({ length: 12 }).map((_, i) => (
@@ -88,24 +91,34 @@ const LOCATIONS = [
   { id: 'NY', region: 'New York', city: 'Queens', address: '261-12 E Williston Ave', cityline: 'Queens, NY 11001', phone: '(718) 347-8888', fax: '—', hours: 'Mon–Fri · 9:00am–5:00pm', team: ['Our New York physician'] },
 ];
 
-const useIsMobile = () => {
-  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+// Viewport width for responsive layout decisions.
+//
+// Uses documentElement.clientWidth, not window.innerWidth. The prerendered HTML
+// is server-rendered at a desktop width, so on a phone the first paint overflows
+// the viewport — which inflates window.innerWidth to the overflowing content
+// width and makes the client agree it is "desktop", so the mobile layout never
+// engages. clientWidth reports the true layout viewport and breaks that loop.
+const useViewportWidth = () => {
+  const read = () =>
+    (typeof document !== 'undefined' && document.documentElement && document.documentElement.clientWidth)
+      ? document.documentElement.clientWidth
+      : (typeof window !== 'undefined' && window.innerWidth ? window.innerWidth : 1200);
+
+  const [w, setW] = React.useState(read);
   React.useEffect(() => {
-    const h = () => setW(window.innerWidth);
+    const h = () => setW(read());
+    h(); // correct the hydrated value on mount
     window.addEventListener('resize', h);
-    return () => window.removeEventListener('resize', h);
+    window.addEventListener('orientationchange', h);
+    return () => {
+      window.removeEventListener('resize', h);
+      window.removeEventListener('orientationchange', h);
+    };
   }, []);
-  return w < 768;
+  return w;
 };
 
-const useIsTablet = () => {
-  const [w, setW] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
-  React.useEffect(() => {
-    const h = () => setW(window.innerWidth);
-    window.addEventListener('resize', h);
-    return () => window.removeEventListener('resize', h);
-  }, []);
-  return w < 1024;
-};
+const useIsMobile = () => useViewportWidth() < 768;
+const useIsTablet = () => useViewportWidth() < 1024;
 
-Object.assign(window, { PRLogo, Placeholder, MapMini, CheckIcon, ArrowRight, CARE_TEAM, LOCATIONS, SERVICES, useIsMobile, useIsTablet });
+Object.assign(window, { PRLogo, Placeholder, MapMini, CheckIcon, ArrowRight, CARE_TEAM, LOCATIONS, SERVICES, useIsMobile, useIsTablet, useViewportWidth });

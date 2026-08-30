@@ -37,10 +37,10 @@ const THero = () => {
   <section style={{ padding: isMobile ? '48px 20px' : '80px 56px 72px', background: tp.card, borderBottom: `1px solid ${tp.line}` }}>
     <div style={{ ...tps.eyebrow, marginBottom: 20 }}>Our Team</div>
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 24 : 72, alignItems: 'end' }}>
-      <h1 style={{ fontFamily: 'Manrope, sans-serif', fontSize: isMobile ? 44 : 84, fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.03, margin: 0, color: tp.ink }}>
-        Rheumatology care that <span style={{ color: tp.purple }}>South Florida and New York</span> trust.
+      <h1 style={{ ...tps.h1, fontSize: isMobile ? 40 : 58 }}>
+        Rheumatology care that <em style={{ fontStyle: 'italic', color: tp.purple }}>South Florida and New York</em> trust.
       </h1>
-      <p style={{ fontSize: 18, lineHeight: 1.6, color: tp.sub, margin: 0, maxWidth: 520 }}>
+      <p style={{ fontSize: 17, lineHeight: 1.7, color: tp.sub, margin: 0, maxWidth: 520 }}>
         Our team brings together experienced physicians, nurse practitioners, and clinical staff dedicated to the diagnosis and long-term management of autoimmune, inflammatory, and musculoskeletal conditions. We focus on evidence-based care, thoughtful evaluation, and personalized treatment plans designed to support patients over time.
       </p>
     </div>
@@ -52,7 +52,7 @@ const THero = () => {
 const ProviderCard = ({ p }) => {
   const isMobile = useIsMobile();
   return (
-    <article style={{ border: `1px solid ${tp.line}`, borderRadius: 16, overflow: 'hidden', background: tp.card, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
+    <article style={{ ...tps.card, display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
       {/* Square image */}
       <div style={{ flexShrink: 0, width: isMobile ? '100%' : 180, height: isMobile ? 'auto' : 180 }}>
         {isMobile
@@ -70,9 +70,9 @@ const ProviderCard = ({ p }) => {
       </div>
       {/* Text */}
       <div style={{ padding: isMobile ? '20px 22px 24px' : '24px 28px', display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: 19, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 4 }}>{p.name}</div>
-        <div style={{ fontSize: 12.5, color: tp.purple, fontWeight: 600, marginBottom: 12, letterSpacing: '0.01em' }}>{p.role}</div>
-        <div style={{ fontSize: 14, lineHeight: 1.65, color: tp.sub }}>{p.bio}</div>
+        <div style={{ fontFamily: SERIF, fontSize: 21, fontWeight: 600, color: tp.ink, marginBottom: 6 }}>{p.name}</div>
+        <div style={{ fontSize: 11.5, color: tp.purple, fontWeight: 700, marginBottom: 12, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{p.role}</div>
+        <div style={{ fontSize: 14, lineHeight: 1.7, color: tp.subMuted }}>{p.bio}</div>
       </div>
     </article>
   );
@@ -81,9 +81,9 @@ const ProviderCard = ({ p }) => {
 // ─── Column header ───────────────────────────────────────
 const ColumnHeader = ({ dot, title, sub }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 24, paddingBottom: 18, borderBottom: `1px solid ${tp.line}` }}>
-    <span style={{ width: 12, height: 12, borderRadius: '50%', background: dot }} />
-    <h2 style={{ fontSize: 30, fontWeight: 700, letterSpacing: '-0.02em', margin: 0 }}>{title}</h2>
-    <span style={{ fontSize: 14, color: tp.sub }}>· {sub}</span>
+    <span style={{ width: 10, height: 10, borderRadius: '50%', background: dot }} />
+    <h2 style={{ fontFamily: SERIF, fontSize: 29, fontWeight: 500, letterSpacing: '-0.015em', color: tp.ink, margin: 0 }}>{title}</h2>
+    <span style={{ fontSize: 14, color: tp.mutedLabel }}>· {sub}</span>
   </div>
 );
 
@@ -94,13 +94,13 @@ const TTeams = () => {
   <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', borderBottom: `1px solid ${tp.line}` }}>
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 40 : 56, alignItems: 'start' }}>
       <div>
-        <ColumnHeader dot={tp.purple} title="Florida Care Team" sub="Boca Raton, FL" />
+        <ColumnHeader dot={tp.regionFL} title="Florida Care Team" sub="Boca Raton, FL" />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {TEAM_FL.map((p, i) => <ProviderCard key={i} p={p} />)}
         </div>
       </div>
       <div>
-        <ColumnHeader dot="#2e6b52" title="New York Care Team" sub="Queens, NY" />
+        <ColumnHeader dot={tp.regionNY} title="New York Care Team" sub="Queens, NY" />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {TEAM_NY.map((p, i) => <ProviderCard key={i} p={p} />)}
         </div>
@@ -118,9 +118,9 @@ const TPhilosophy = () => {
     <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.5fr', gap: isMobile ? 28 : 72, alignItems: 'start' }}>
       <div>
         <div style={{ ...tps.eyebrow, marginBottom: 14 }}>Clinical philosophy</div>
-        <h2 style={{ ...tps.h2, fontSize: 44, margin: 0 }}>Our clinical care philosophy.</h2>
+        <h2 style={{ ...tps.h2, fontSize: 40, margin: 0 }}>Our clinical care philosophy.</h2>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 22, fontSize: 17, lineHeight: 1.7, color: tp.sub }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 22, fontSize: 16.5, lineHeight: 1.78, color: tp.sub }}>
         <p style={{ margin: 0 }}>
           Rheumatologic conditions are often complex and evolving. Our team takes a comprehensive approach that emphasizes accurate diagnosis, ongoing monitoring, and individualized treatment strategies.
         </p>
@@ -149,7 +149,7 @@ const TConditions = () => {
   return (
     <section style={{ padding: isMobile ? '56px 20px' : '96px 56px', background: tp.card }}>
       <div style={{ ...tps.eyebrow, marginBottom: 14 }}>Conditions we commonly manage</div>
-      <h2 style={{ ...tps.h2, fontSize: 44, marginBottom: 40 }}>Expertise across the rheumatologic spectrum.</h2>
+      <h2 style={{ ...tps.h2, fontSize: 40, marginBottom: 40 }}>Expertise across the rheumatologic spectrum.</h2>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', gap: 0, border: `1px solid ${tp.line}`, borderRadius: 16, overflow: 'hidden' }}>
         {items.map((it, i) => (
           <div key={i} style={{
@@ -157,16 +157,18 @@ const TConditions = () => {
             borderRight: !isMobile && i % 2 === 0 ? `1px solid ${tp.line}` : 'none',
             borderBottom: isMobile ? (i < items.length - 1 ? `1px solid ${tp.line}` : 'none') : (i < items.length - 2 ? `1px solid ${tp.line}` : 'none'),
             display: 'flex', alignItems: 'center', gap: 16,
-            fontSize: 16.5, color: tp.ink,
+            fontSize: 16, color: tp.subAlt,
           }}>
-            <CheckIcon size={18} color={tp.purple} />
+            <span style={{ width: 24, height: 24, borderRadius: '50%', background: tp.purpleLight, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <CheckIcon size={14} color={tp.purple} />
+            </span>
             <span>{it}</span>
           </div>
         ))}
       </div>
       <div style={{ marginTop: 40, display: 'flex', gap: 12 }}>
         <a href="conditions.html" style={{ textDecoration: 'none' }}>
-          <button style={{ background: tp.ink, color: '#fff', border: 'none', padding: '16px 26px', borderRadius: 10, fontSize: 14.5, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+          <button style={{ ...tps.btn, padding: '15px 30px' }}>
             View all conditions we treat <ArrowRight size={14} />
           </button>
         </a>
@@ -180,19 +182,19 @@ const TCTA = () => {
   const isMobile = useIsMobile();
   return (
   <section style={{ padding: isMobile ? '48px 20px' : '80px 56px' }}>
-    <div style={{ background: tp.purpleDeep, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '60px 56px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 40, alignItems: 'center' }}>
+    <div style={{ background: `linear-gradient(110deg, ${tp.purple}, ${tp.purpleDeep})`, color: '#fff', borderRadius: 24, padding: isMobile ? '36px 24px' : '60px 56px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', gap: isMobile ? 28 : 40, alignItems: 'center' }}>
       <div>
-        <div style={{ ...tps.eyebrow, color: '#d9c3ea', marginBottom: 16 }}>Ready to meet with our team?</div>
-        <h2 style={{ fontFamily: 'Manrope, sans-serif', fontSize: 44, fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.08, margin: 0 }}>
+        <div style={{ ...tps.eyebrow, color: '#D9CDF3', marginBottom: 16 }}>Ready to meet with our team?</div>
+        <h2 style={{ fontFamily: SERIF, fontSize: isMobile ? 30 : 40, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.14, margin: 0, color: '#fff' }}>
           Schedule a consultation at the office closest to you.
         </h2>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         <a href="contact.html" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: '#fff', color: tp.ink, border: 'none', padding: '18px 26px', borderRadius: 12, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>Contact our Florida Office</button>
+          <button style={{ ...tps.btnWhite, width: '100%', padding: '16px 26px' }}>Contact our Florida Office</button>
         </a>
         <a href="contact.html" style={{ textDecoration: 'none' }}>
-          <button style={{ width: '100%', background: 'transparent', color: '#fff', border: '1px solid #ffffff40', padding: '18px 26px', borderRadius: 12, fontSize: 15, fontWeight: 600, cursor: 'pointer' }}>Contact our New York Office</button>
+          <button style={{ ...tps.btnOutlineLight, width: '100%', padding: '16px 26px', justifyContent: 'center' }}>Contact our New York Office</button>
         </a>
       </div>
     </div>

@@ -1,0 +1,182 @@
+/* ============================================================
+   Premier Rheumatology — shared stylesheet
+   Brand-aligned with the Premier Hematology & Oncology design system.
+   Tokens, typography, and article prose live here; page layout stays
+   in the React components (see chrome.jsx / *.jsx).
+   ============================================================ */
+
+/* ---- Tokens ------------------------------------------------ */
+:root {
+  --purple:        #5B3FA0;
+  --purple-deep:   #3E2A6E;
+  --purple-hover:  #4C3388;
+  --lavender-chip: #EBE3FA;
+  --lavender-bg:   #F4F0FB;
+  --off-white:     #FAF8FD;
+  --border:        #EFEAF8;
+  --border-card:   #EEE7F7;
+  --border-row:    #F1EDF8;
+  --ink:           #1C1633;
+  --body:          #56526A;
+  --body-alt:      #43405A;
+  --body-muted:    #6A6480;
+  --muted-label:   #8A84A0;
+  --footer-bg:     #141029;
+  --footer-text:   #B3ACC9;
+  --footer-subtle: #968FB0;
+  --footer-label:  #6F6790;
+  --footer-accent: #8D7FB8;
+  --step-numeral:  #C3AEF0;
+}
+
+/* ---- Base -------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--off-white); }
+body {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+html { -webkit-text-size-adjust: 100%; }
+img { display: block; max-width: 100%; }
+/* Nothing embedded may force the page to scroll sideways. */
+img, iframe, video, svg, table { max-width: 100%; }
+::selection { background: #ddd0f5; }
+
+/* Serif display face */
+.serif { font-family: 'Newsreader', Georgia, serif; }
+
+/* ---- Global interaction ------------------------------------ */
+a { transition: opacity 0.15s, color 0.15s; }
+button { transition: filter 0.15s, transform 0.1s, background 0.15s; font-family: inherit; }
+button:hover { filter: brightness(0.94); }
+button:active { transform: scale(0.985); }
+
+summary::-webkit-details-marker { display: none; }
+summary::marker { content: ''; }
+details summary { transition: color 0.15s; }
+details summary:hover { color: var(--purple); }
+details[open] > summary .acc-plus { transform: rotate(45deg); }
+.acc-plus { display: inline-block; transition: transform 0.2s ease; }
+
+/* ============================================================
+   ARTICLE PROSE — WordPress-imported condition articles
+   The 44 condition articles render their body HTML into
+   [data-wp-body]; these rules are the whole reading experience.
+   ============================================================ */
+[data-wp-body] {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--body-alt);
+  overflow-wrap: break-word;
+}
+[data-wp-body] h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 44px 0 18px;
+  color: var(--ink);
+}
+[data-wp-body] h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.28;
+  margin: 32px 0 12px;
+  color: var(--ink);
+}
+[data-wp-body] h4 {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  margin: 26px 0 10px;
+  color: var(--ink);
+}
+[data-wp-body] p { margin: 0 0 26px; }
+[data-wp-body] ul,
+[data-wp-body] ol {
+  padding-left: 0; list-style: none;
+  margin: 4px 0 26px;
+  display: flex; flex-direction: column; gap: 11px;
+}
+[data-wp-body] li {
+  font-size: 17px; line-height: 1.7; color: var(--body-alt);
+  padding-left: 24px; position: relative;
+}
+[data-wp-body] li::before {
+  content: ''; position: absolute; left: 2px; top: 0.72em;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--purple); opacity: 0.55;
+}
+[data-wp-body] a {
+  color: var(--purple); text-decoration: none;
+  border-bottom: 1px solid rgba(91, 63, 160, 0.28);
+  transition: border-color 0.15s;
+}
+[data-wp-body] a:hover { border-bottom-color: var(--purple); }
+[data-wp-body] strong { font-weight: 700; color: var(--ink); }
+[data-wp-body] em { font-style: italic; }
+[data-wp-body] blockquote {
+  margin: 38px 0; padding: 4px 0 4px 28px;
+  border-left: 3px solid var(--purple);
+}
+[data-wp-body] blockquote p {
+  font-family: 'Newsreader', Georgia, serif; font-style: italic;
+  font-size: 23px; line-height: 1.45; color: var(--ink); margin-bottom: 0;
+}
+[data-wp-body] img { border-radius: 14px; margin: 30px 0; }
+[data-wp-body] table {
+  width: 100%; border-collapse: collapse; margin: 0 0 26px; font-size: 15.5px;
+}
+[data-wp-body] th, [data-wp-body] td {
+  text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border-row);
+}
+[data-wp-body] th { color: var(--ink); font-weight: 700; }
+[data-wp-body] hr {
+  border: none; border-top: 1px solid var(--border); margin: 40px 0;
+}
+[data-wp-body] > *:first-child { margin-top: 0; }
+
+/* Wide article content scrolls inside itself rather than the page */
+[data-wp-body] table,
+[data-wp-body] pre { display: block; max-width: 100%; overflow-x: auto; }
+
+/* ---- Form fields ------------------------------------------- */
+input, textarea, select { font-family: 'Hanken Grotesk', system-ui, sans-serif; }
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--purple) !important;
+  box-shadow: 0 0 0 3px rgba(91, 63, 160, 0.10);
+}
+
+/* ---- Utility bar (above the header) ------------------------ */
+.util-bar { background: var(--off-white); border-bottom: 1px solid var(--border); }
+.util-bar__inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: flex-end; align-items: center;
+  gap: 26px; padding: 8px 56px;
+  font-size: 13px; color: var(--body-muted);
+}
+.util-bar__item { display: flex; align-items: center; gap: 7px; }
+.util-bar__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--purple); display: inline-block; flex: none;
+}
+.util-bar__phone { font-weight: 600; color: var(--ink); }
+.util-bar__phone:hover { color: var(--purple); }
+.util-bar__sep { color: var(--border); }
+
+@media (max-width: 900px) {
+  .util-bar__inner { padding: 8px 20px; gap: 16px; font-size: 12.5px; justify-content: center; }
+  .util-bar__hide-sm { display: none; }
+}
+
+/* ---- Article body responsive ------------------------------- */
+@media (max-width: 640px) {
+  [data-wp-body] { font-size: 17px; }
+  [data-wp-body] h2 { font-size: 26px; margin-top: 36px; }
+  [data-wp-body] h3 { font-size: 20px; }
+  [data-wp-body] blockquote p { font-size: 20px; }
+}
