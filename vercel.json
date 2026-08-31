@@ -128,12 +128,5 @@
     { "source": "/womens-infusion-png",        "destination": "/", "permanent": true },
     { "source": "/wp-global-styles-hello-biz", "destination": "/", "permanent": true },
     { "source": "/x-ray-png",                  "destination": "/", "permanent": true }
-  ],
-
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
   ]
-
 }
