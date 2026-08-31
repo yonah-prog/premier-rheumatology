@@ -84,6 +84,9 @@ function ssr(bundleCode, globalName, props) {
     setTimeout,
     clearTimeout,
     window: {
+      // Desktop width for the server pass. shared.jsx pins its own initial
+      // render width to the same number (SSR_VIEWPORT_WIDTH) so the first
+      // client render reproduces this tree exactly and hydration matches.
       innerWidth: 1200,
       addEventListener() {},
       removeEventListener() {},

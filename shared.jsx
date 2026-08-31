@@ -91,23 +91,37 @@ const LOCATIONS = [
   { id: 'NY', region: 'New York', city: 'Queens', address: '261-12 E Williston Ave', cityline: 'Queens, NY 11001', phone: '(718) 347-8888', fax: '—', hours: 'Mon–Fri · 9:00am–5:00pm', team: ['Our New York physician'] },
 ];
 
+// Width the pages are prerendered at. build.mjs's SSR sandbox reports this same
+// value, so keep the two in sync: the first client render must produce the exact
+// tree the server produced or hydration fails (React #418 -> #423, which throws
+// away the whole prerendered DOM and re-renders on the client — the opposite of
+// what the prerender is for).
+const SSR_VIEWPORT_WIDTH = 1200;
+
 // Viewport width for responsive layout decisions.
 //
-// Uses documentElement.clientWidth, not window.innerWidth. The prerendered HTML
+// Reads documentElement.clientWidth, not window.innerWidth. The prerendered HTML
 // is server-rendered at a desktop width, so on a phone the first paint overflows
 // the viewport — which inflates window.innerWidth to the overflowing content
 // width and makes the client agree it is "desktop", so the mobile layout never
 // engages. clientWidth reports the true layout viewport and breaks that loop.
+//
+// The measurement is deliberately NOT used for the initial render: state starts
+// at the prerender width so render #1 matches the server markup, and the effect
+// below swaps in the real width immediately after mount (the standard two-pass
+// pattern). Narrow clients therefore hydrate the desktop tree and re-render once
+// into the mobile tree — same paint sequence they already got from the hydration
+// fallback, minus the errors and minus discarding the server DOM.
 const useViewportWidth = () => {
   const read = () =>
     (typeof document !== 'undefined' && document.documentElement && document.documentElement.clientWidth)
       ? document.documentElement.clientWidth
-      : (typeof window !== 'undefined' && window.innerWidth ? window.innerWidth : 1200);
+      : (typeof window !== 'undefined' && window.innerWidth ? window.innerWidth : SSR_VIEWPORT_WIDTH);
 
-  const [w, setW] = React.useState(read);
+  const [w, setW] = React.useState(SSR_VIEWPORT_WIDTH);
   React.useEffect(() => {
     const h = () => setW(read());
-    h(); // correct the hydrated value on mount
+    h(); // adopt the real viewport width now that hydration is done
     window.addEventListener('resize', h);
     window.addEventListener('orientationchange', h);
     return () => {
