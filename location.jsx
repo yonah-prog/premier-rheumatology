@@ -19,7 +19,7 @@ const LOC_CONFIG = {
     dot: palette.regionFL,
     mapSrc: 'https://www.google.com/maps?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431&output=embed',
     mapsUrl: 'https://maps.google.com/?q=2900+N+Military+Trl+Suite+230,+Boca+Raton,+FL+33431',
-    address2: '4400 W Sample Rd, Suite 236', cityline2: 'Coconut Creek, FL 33066',
+    city2: 'Coconut Creek', address2: '4400 W Sample Rd, Suite 236', cityline2: 'Coconut Creek, FL 33066',
     mapSrc2: 'https://www.google.com/maps?q=4400+W+Sample+Rd+Suite+236,+Coconut+Creek,+FL+33066&output=embed',
     mapsUrl2: 'https://maps.google.com/?q=4400+W+Sample+Rd+Suite+236,+Coconut+Creek,+FL+33066',
     h1Line1: 'Rheumatology care',
