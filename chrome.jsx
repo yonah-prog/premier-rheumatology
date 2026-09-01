@@ -118,13 +118,16 @@ const NavLink = ({ href, children, active }) => (
   }}>{children}</a>
 );
 
+// Hrefs are root-relative on purpose: with relative paths, every one of these
+// links 404'd from /conditions/<slug>.html (resolved under /conditions/).
 const NAV_ITEMS = [
-  { href: 'about.html', label: 'About Premier Rheumatology', key: 'about' },
-  { href: 'team.html', label: 'Our Team', key: 'team' },
-  { href: 'conditions.html', label: 'Conditions We Treat', key: 'conditions' },
-  { href: 'florida.html', label: 'Florida', key: 'florida' },
-  { href: 'new-york.html', label: 'New York', key: 'new-york' },
-  { href: 'contact.html', label: 'Contact', key: 'contact' },
+  { href: '/about.html', label: 'About Premier Rheumatology', key: 'about' },
+  { href: '/team.html', label: 'Our Team', key: 'team' },
+  { href: '/conditions.html', label: 'Conditions We Treat', key: 'conditions' },
+  { href: '/blog.html', label: 'Blog', key: 'blog' },
+  { href: '/florida.html', label: 'Florida', key: 'florida' },
+  { href: '/new-york.html', label: 'New York', key: 'new-york' },
+  { href: '/contact.html', label: 'Contact', key: 'contact' },
 ];
 
 // Thin bar above the header carrying the same office phone numbers that
@@ -163,7 +166,7 @@ const SiteHeader = ({ active }) => {
           gridTemplateColumns: isMobile ? '1fr auto' : '200px 1fr auto',
           alignItems: 'center', gap: isMobile ? 0 : 32,
         }}>
-          <a href="index.html" style={{ textDecoration: 'none' }}>
+          <a href="/" style={{ textDecoration: 'none' }}>
             <PRLogo size={isMobile ? 34 : 40} wordColor={palette.ink} />
           </a>
           {!isMobile && (
@@ -174,7 +177,7 @@ const SiteHeader = ({ active }) => {
             </nav>
           )}
           {!isMobile && (
-            <a href="contact.html" style={{ textDecoration: 'none' }}>
+            <a href="/contact.html" style={{ textDecoration: 'none' }}>
               <button style={{ ...chromeStyles.btn, padding: '12px 24px', fontSize: 14 }}>
                 Schedule an Appointment
               </button>
@@ -199,7 +202,7 @@ const SiteHeader = ({ active }) => {
                 padding: '14px 0', borderBottom: `1px solid ${palette.line}`,
               }}>{item.label}</a>
             ))}
-            <a href="contact.html" style={{ textDecoration: 'none', marginTop: 16 }}>
+            <a href="/contact.html" style={{ textDecoration: 'none', marginTop: 16 }}>
               <button style={{ ...chromeStyles.btn, width: '100%', padding: '15px 22px' }}>
                 Schedule an Appointment
               </button>
@@ -251,12 +254,12 @@ const SiteFooter = () => {
       <div>
         <div style={colLabel}>Navigate</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
-          <a href="about.html" style={linkStyle}>About</a>
-          <a href="team.html" style={linkStyle}>Our Team</a>
-          <a href="conditions.html" style={linkStyle}>Conditions</a>
-          <a href="florida.html" style={linkStyle}>Florida</a>
-          <a href="new-york.html" style={linkStyle}>New York</a>
-          <a href="contact.html" style={linkStyle}>Contact</a>
+          <a href="/about.html" style={linkStyle}>About</a>
+          <a href="/team.html" style={linkStyle}>Our Team</a>
+          <a href="/conditions.html" style={linkStyle}>Conditions</a>
+          <a href="/florida.html" style={linkStyle}>Florida</a>
+          <a href="/new-york.html" style={linkStyle}>New York</a>
+          <a href="/contact.html" style={linkStyle}>Contact</a>
         </div>
       </div>
     </div>

@@ -42,6 +42,27 @@ const conditionPages = fs
     };
   });
 
+// Blog pages mirror the conditions pattern: thin shells in blog/ rendering
+// <BlogArticle slug="..."/> from blog-data.jsx, auto-discovered here.
+const blogDeps = ['shared.jsx', 'chrome.jsx', 'blog-data.jsx', 'blog-article.jsx'];
+const blogPages = fs.existsSync(path.join(ROOT, 'blog'))
+  ? fs
+      .readdirSync(path.join(ROOT, 'blog'))
+      .filter((f) => f.endsWith('.html'))
+      .map((f) => {
+        const fileSlug = f.replace(/\.html$/, '');
+        const src = fs.readFileSync(path.join(ROOT, 'blog', f), 'utf8');
+        const m = src.match(/BlogArticle\s+slug="([^"]+)"/);
+        return {
+          html: `blog/${f}`,
+          deps: blogDeps,
+          global: 'BlogArticle',
+          props: { slug: m ? m[1] : fileSlug },
+          bundle: `blog-${fileSlug}`,
+        };
+      })
+  : [];
+
 // Main content pages (WO-002 — about/team/contact/conditions + the two location pages).
 const mainPages = [
   { html: 'about.html',      deps: ['shared.jsx', 'chrome.jsx', 'about.jsx'],                              global: 'AboutPage',      props: null,                 bundle: 'about' },
@@ -54,7 +75,9 @@ const mainPages = [
 
 const PAGES = [
   { html: 'index.html', deps: ['shared.jsx', 'chrome.jsx', 'homepage.jsx'], global: 'PremierHome', props: null, bundle: 'home' },
+  { html: 'blog.html',  deps: ['shared.jsx', 'chrome.jsx', 'blog-data.jsx', 'blog.jsx'], global: 'BlogIndex', props: null, bundle: 'blog' },
   ...mainPages,
+  ...blogPages,
   ...conditionPages,
 ];
 
