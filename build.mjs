@@ -71,6 +71,7 @@ const mainPages = [
   { html: 'conditions.html', deps: ['shared.jsx', 'chrome.jsx', 'conditions-data.jsx', 'conditions.jsx'],  global: 'ConditionsPage', props: null,                 bundle: 'conditions' },
   { html: 'florida.html',    deps: ['shared.jsx', 'chrome.jsx', 'location.jsx'],                           global: 'LocationPage',   props: { locationId: 'FL' }, bundle: 'florida' },
   { html: 'new-york.html',   deps: ['shared.jsx', 'chrome.jsx', 'location.jsx'],                           global: 'LocationPage',   props: { locationId: 'NY' }, bundle: 'new-york' },
+  { html: 'infusion-therapy.html', deps: ['shared.jsx', 'chrome.jsx', 'infusion-therapy.jsx'],                 global: 'InfusionPage',   props: null,                 bundle: 'infusion-therapy' },
 ];
 
 const PAGES = [
@@ -171,3 +172,35 @@ for (const page of PAGES) {
 }
 
 console.log(`\nDone. Prerendered ${ok}/${PAGES.length} pages into dist/.`);
+
+// ── 3. Generate sitemap.xml from the pages actually built (WO-007) ──
+//
+// Previously sitemap.xml was hand-maintained and copied through, so it drifted
+// every time a page was added. It is now derived from PAGES, which is itself
+// auto-discovered from conditions/ and blog/, so coverage cannot fall behind.
+// The canonical host must match the <link rel="canonical"> tags in the page
+// heads (www — the apex 307s to it), or the sitemap advertises redirects.
+const SITE = 'https://www.premierjointcare.com';
+
+// Priority by page role. Anything unmatched falls through to 0.8, which is the
+// condition-page tier and the safe default for a new content page.
+function priorityFor(htmlPath) {
+  if (htmlPath === 'index.html') return '1.0';
+  if (htmlPath === 'blog.html') return '0.7';
+  if (htmlPath.startsWith('blog/')) return '0.7';
+  if (htmlPath.startsWith('conditions/')) return '0.8';
+  return '0.9'; // top-level pages: about, team, contact, conditions, locations, services
+}
+
+const lastmod = new Date().toISOString().slice(0, 10);
+const entries = PAGES.map((page) => {
+  const loc = page.html === 'index.html' ? `${SITE}/` : `${SITE}/${page.html}`;
+  return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n` +
+         `    <changefreq>monthly</changefreq>\n    <priority>${priorityFor(page.html)}</priority>\n  </url>`;
+});
+const sitemap =
+  '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  entries.join('\n') + '\n</urlset>\n';
+fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
+console.log(`Generated sitemap.xml with ${PAGES.length} URLs (host ${SITE}).`);

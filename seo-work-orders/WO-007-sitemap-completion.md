@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-30
-**Status:** ⚠️ **APPROVED 2026-09-02 by Yonah — PARTIALLY DELIVERED.** The coverage half is done: `sitemap.xml` carries all 54 URLs including all 45 condition pages, verified live 2026-09-02, every one returning 200 as written. The **auto-regenerate-at-build half is NOT implemented** — `build.mjs` copies `sitemap.xml` through as a static file, so the sitemap is still maintained by hand and will drift as pages are added. Remaining scope: generate `sitemap.xml` during the build.
+**Status:** ✅ **DELIVERED 2026-09-02.** Both halves are now done. Coverage was already complete; the missing half — build-time regeneration — is implemented: `build.mjs` now derives `sitemap.xml` from its `PAGES` list (itself auto-discovered from `conditions/` and `blog/`), so the sitemap cannot fall behind as pages are added. Host and priorities match the page heads' canonicals. Verified: the generated URL set is identical to the previously hand-maintained sitemap.
 **Implementer:** Claude Code (engineering)
 **Depends on:** WO-001/WO-002/WO-004 are already deployed. This is the next on-site lever.
 **Estimated effort:** 20–40 minutes of agent time.

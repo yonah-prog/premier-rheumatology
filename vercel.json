@@ -15,7 +15,7 @@
     { "source": "/home-2",                      "destination": "/",                "permanent": true },
     { "source": "/services",                    "destination": "/",                "permanent": true },
     { "source": "/rheumatology-services",       "destination": "/conditions.html", "permanent": true },
-    { "source": "/infusion-therapy",            "destination": "/",                "permanent": true },
+    { "source": "/infusion-therapy",            "destination": "/infusion-therapy.html", "permanent": true },
     { "source": "/faq",                         "destination": "/contact.html",    "permanent": true },
     { "source": "/blog",                        "destination": "/blog.html",       "permanent": false },
     { "source": "/privacy-policy",              "destination": "/",                "permanent": true },

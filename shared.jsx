@@ -77,7 +77,7 @@ const CARE_TEAM = [
 const SERVICES = [
   { t: 'Arthritis & Joint Pain Management', d: 'Targeted therapy for osteoarthritis, rheumatoid arthritis, and inflammatory joint diseases to reduce pain and preserve mobility.' },
   { t: 'Autoimmune & Connective Tissue Disorders', d: 'Expert care for lupus, scleroderma, vasculitis, and other systemic conditions requiring specialized rheumatologic treatment.' },
-  { t: 'Infusion Therapy Services', d: 'On-site infusions for advanced biologic and IV medications in a comfortable, patient-centered environment.' },
+  { t: 'Infusion Therapy Services', d: 'On-site infusions for advanced biologic and IV medications in a comfortable, patient-centered environment.', href: '/infusion-therapy.html' },
   { t: 'Bone Health & Osteoporosis Care', d: 'Comprehensive evaluation and treatment to strengthen bones, prevent fractures, and promote long-term skeletal health.' },
   { t: 'Sports & Musculoskeletal Medicine', d: 'Specialized care for overuse injuries, joint strain, and chronic pain to help you stay active and strong.' },
 ];

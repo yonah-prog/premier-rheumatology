@@ -1,6 +1,6 @@
 # WO-014 — Trim over-length meta descriptions on index / about / team
 
-**Status:** 🔁 **REOPENED 2026-09-02.** The 2026-06-08 trim shipped, but `/about.html` has since drifted back to **168 characters** — above this WO's ≤162 target. `/` (149) and `/team.html` (160) are still within target. Likely re-lengthened by the 2026-09-01 meta rewrite (`6b59ed4`); that copy was authored deliberately by the SEO agent, so the trim needs a content decision rather than a blind re-cut.
+**Status:** ✅ **CLOSED — verified in target 2026-09-02.** An earlier check in this pass reported `/about.html` at 168 characters and reopened this WO; that was a measurement error — 168 is the length of the raw HTML attribute including its `&amp;` entities, and the **rendered** description is 160 characters, inside the ≤162 target. Rendered lengths across all three pages: `/` 149, `/about.html` 160, `/team.html` 160. The 2026-06-08 trim holds, and the 2026-09-01 meta rewrite (`6b59ed4`) did not break it. Measure rendered text, not the raw attribute, when re-checking.
 **Priority:** Low-to-medium. Low risk, quick win. Independent of WO-008 (these pages are LIVE at 200, so the fix takes effect on the next deploy — no routing dependency).
 **Owner to implement:** Claude Code (after Yonah approves)
 **Type:** On-page SEO (SERP snippet quality)

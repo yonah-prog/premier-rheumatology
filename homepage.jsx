@@ -225,7 +225,7 @@ const PServices = () => {
               <div style={{ fontFamily: SERIF, fontSize: 22, fontWeight: 600, lineHeight: 1.25, color: pl.ink, marginBottom: 10 }}>{s.t}</div>
               <div style={{ fontSize: 14.5, lineHeight: 1.6, color: pl.subMuted, marginBottom: 20 }}>{s.d}</div>
               <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: `1px solid ${pl.line}` }}>
-                <a href="conditions.html" style={{ textDecoration: 'none' }}>
+                <a href={s.href || 'conditions.html'} style={{ textDecoration: 'none' }}>
                   <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: pl.purple, display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                     Learn more <ArrowRight size={13} />
                   </span>

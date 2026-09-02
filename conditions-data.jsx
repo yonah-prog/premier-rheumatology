@@ -535,7 +535,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes individualized care and close monitoring of both joint and systemic symptoms. Treatment plans are adjusted over time to address changes in disease activity and patient needs.</p>
 
-<p>For patients requiring <a href="/florida.html#infusion">advanced or infusion-based therapies</a>, these options are provided as part of a comprehensive rheumatologic care model.</p>
+<p>For patients requiring <a href="/infusion-therapy.html">advanced or infusion-based therapies</a>, these options are provided as part of a comprehensive rheumatologic care model.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -960,7 +960,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes personalized care, careful monitoring, and coordination with other specialists when needed. Treatment plans are designed to address individual symptoms while supporting long-term health.</p>
 
-<p>For patients requiring advanced or <a href="/florida.html#infusion">infusion-based therapies</a>, these options are provided as part of comprehensive rheumatologic care.</p>
+<p>For patients requiring advanced or <a href="/infusion-therapy.html">infusion-based therapies</a>, these options are provided as part of comprehensive rheumatologic care.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -1238,7 +1238,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for moderate to severe disease</li>
 
-<li><a href="/florida.html#infusion">Infusion-based treatments</a> when clinically indicated</li>
+<li><a href="/infusion-therapy.html">Infusion-based treatments</a> when clinically indicated</li>
 
 <li>Ongoing monitoring for disease activity and complications</li>
 </ul>
@@ -1689,7 +1689,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes comprehensive evaluation of bone health and individualized treatment planning. We focus on fracture prevention, long-term bone strength, and coordinated care to support recovery and mobility.</p>
 
-<p>For patients who may benefit from advanced or <a href="/florida.html#infusion">infusion-based therapies</a>, these options are offered as part of a structured and monitored care plan.</p>
+<p>For patients who may benefit from advanced or <a href="/infusion-therapy.html">infusion-based therapies</a>, these options are offered as part of a structured and monitored care plan.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -2120,7 +2120,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes identifying the underlying contributors to chronic joint pain and developing a personalized care plan. We focus on long-term symptom management, functional improvement, and coordinated care when multiple factors are involved.</p>
 
-<p><a href="/florida.html#infusion">Advanced and infusion-based therapies</a> are considered when appropriate as part of a comprehensive treatment strategy.</p>
+<p><a href="/infusion-therapy.html">Advanced and infusion-based therapies</a> are considered when appropriate as part of a comprehensive treatment strategy.</p>
 
 <h2>Schedule a Consultation</h2>
 
@@ -2622,7 +2622,7 @@ const CONDITIONS = [
 
 <p>Our approach focuses on identifying the cause of shoulder pain and developing a personalized treatment plan. We emphasize restoring mobility, reducing pain, and preventing recurrence through ongoing management and monitoring.</p>
 
-<p>When shoulder pain is related to inflammatory conditions, advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are considered as part of comprehensive care.</p>
+<p>When shoulder pain is related to inflammatory conditions, advanced and <a href="/infusion-therapy.html">infusion-based therapies</a> are considered as part of comprehensive care.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -2941,7 +2941,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes rapid diagnosis, immediate treatment initiation, and close monitoring. We coordinate care to manage inflammation and reduce the risk of complications.</p>
 
-<p>Advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are incorporated when appropriate.</p>
+<p>Advanced and <a href="/infusion-therapy.html">infusion-based therapies</a> are incorporated when appropriate.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -3016,7 +3016,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for persistent or systemic involvement</li>
 
-<li><a href="/florida.html#infusion">Infusion-based treatments</a> when clinically appropriate</li>
+<li><a href="/infusion-therapy.html">Infusion-based treatments</a> when clinically appropriate</li>
 
 <li>Ongoing monitoring of organ function</li>
 </ul>
@@ -3332,7 +3332,7 @@ const CONDITIONS = [
 
 <li>Stress management approaches</li>
 
-<li><a href="/florida.html#infusion">Infusion-based treatments</a> are not typically required</li>
+<li><a href="/infusion-therapy.html">Infusion-based treatments</a> are not typically required</li>
 </ul>
 
 <p>Management is individualized based on symptom severity and functional goals.</p>
@@ -3650,7 +3650,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes early identification, individualized treatment planning, and ongoing monitoring. We focus on reducing inflammation, maintaining spinal mobility, and preventing long-term complications.</p>
 
-<p>Advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are incorporated when appropriate.</p>
+<p>Advanced and <a href="/infusion-therapy.html">infusion-based therapies</a> are incorporated when appropriate.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -3929,7 +3929,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for persistent symptoms</li>
 
-<li><a href="/florida.html#infusion">Infusion-based treatments</a> when related to inflammatory disease</li>
+<li><a href="/infusion-therapy.html">Infusion-based treatments</a> when related to inflammatory disease</li>
 </ul>
 
 <p>Management focuses on preserving mobility and function.</p>
@@ -4322,7 +4322,7 @@ const CONDITIONS = [
 
 <li>Targeted interventions for persistent symptoms</li>
 
-<li><a href="/florida.html#infusion">Infusion-based treatments</a> when part of systemic inflammatory disease</li>
+<li><a href="/infusion-therapy.html">Infusion-based treatments</a> when part of systemic inflammatory disease</li>
 </ul>
 
 <p>Early management supports recovery.</p>
