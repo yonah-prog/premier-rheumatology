@@ -334,7 +334,7 @@ const LocServices = ({ cfg }) => {
 
       {/* Infusion therapy — featured full-width */}
       {infusion && (
-        <div style={{ background: `linear-gradient(110deg, ${lp.purple}, ${lp.purpleDeep})`, color: '#fff', borderRadius: 22, padding: isMobile ? '32px 20px' : '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 56, alignItems: 'center' }}>
+        <div id="infusion" style={{ background: `linear-gradient(110deg, ${lp.purple}, ${lp.purpleDeep})`, color: '#fff', borderRadius: 22, padding: isMobile ? '32px 20px' : '52px 56px', marginBottom: 24, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 56, alignItems: 'center' }}>
           <div>
             <div style={{ ...lps.eyebrow, color: '#D9CDF3', marginBottom: 16 }}>Featured service</div>
             <h3 style={{ fontFamily: SERIF, fontSize: isMobile ? 28 : 36, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.14, margin: '0 0 20px', color: '#fff' }}>{infusion.t}</h3>

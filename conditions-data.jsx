@@ -114,7 +114,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you are experiencing symptoms consistent with rheumatoid arthritis, <a href="contact-us.html">scheduling a consultation</a> can help clarify your diagnosis and explore appropriate treatment options in a supportive clinical setting.</p>
+<p>If you are experiencing symptoms consistent with rheumatoid arthritis, <a href="/contact.html">scheduling a consultation</a> can help clarify your diagnosis and explore appropriate treatment options in a supportive clinical setting.</p>
 
 <p></p>`,
     localAnswer: "Rheumatoid arthritis (RA) is an autoimmune disease in which the immune system attacks the joint lining, causing pain, swelling, stiffness, and over time, joint damage. At Premier Rheumatology in Boca Raton, FL and Queens, NY, our board-certified rheumatologists diagnose and treat RA using current guidelines \u2014 including DMARDs, JAK inhibitors, and on-site biologic and IV infusion therapy, so patients don't need a separate infusion-center referral to start advanced treatment.",
@@ -208,7 +208,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>Consider evaluation by a <a href="our-team.html">rheumatologist</a> if you experience:</p>
+<p>Consider evaluation by a <a href="/team.html">rheumatologist</a> if you experience:</p>
 
 <ul><li>Persistent joint pain or swelling with a history of psoriasis</li>
 
@@ -339,7 +339,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If persistent back pain or stiffness is affecting your quality of life, <a href="contact-us.html">scheduling a consultation</a> may help determine whether ankylosing spondylitis or another inflammatory condition is contributing to your symptoms.</p>
+<p>If persistent back pain or stiffness is affecting your quality of life, <a href="/contact.html">scheduling a consultation</a> may help determine whether ankylosing spondylitis or another inflammatory condition is contributing to your symptoms.</p>
 
 <p></p>` },
   { slug: 'reactive-arthritis', title: 'Reactive Arthritis', category: 'inflammatory-autoimmune-arthritis', excerpt: 'Reactive arthritis is an inflammatory joint condition that can develop after certain infections, most commonly involving the gastrointestinal or genitourinary tract. It may cause joint pain, swelling, and stiff…', readTime: 4, featured: false,
@@ -419,7 +419,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Joint pain or swelling following a recent infection</li>
 
@@ -535,7 +535,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes individualized care and close monitoring of both joint and systemic symptoms. Treatment plans are adjusted over time to address changes in disease activity and patient needs.</p>
 
-<p>For patients requiring <a href="infusion-therapy.html">advanced or infusion-based therapies</a>, these options are provided as part of a comprehensive rheumatologic care model.</p>
+<p>For patients requiring <a href="/florida.html#infusion">advanced or infusion-based therapies</a>, these options are provided as part of a comprehensive rheumatologic care model.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -638,7 +638,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If your child is experiencing persistent joint symptoms or changes in mobility, <a href="contact-us.html">scheduling a consultation</a> can help clarify the diagnosis and discuss appropriate management options in a supportive clinical setting.</p>
+<p>If your child is experiencing persistent joint symptoms or changes in mobility, <a href="/contact.html">scheduling a consultation</a> can help clarify the diagnosis and discuss appropriate management options in a supportive clinical setting.</p>
 
 <p></p>` },
   // Systemic Autoimmune & Connective Tissue Diseases
@@ -723,7 +723,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Persistent joint pain and fatigue</li>
 
@@ -744,7 +744,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you are experiencing symptoms that may be related to lupus, <a href="contact-us.html">scheduling a consultation</a> allows for a thorough evaluation and discussion of individualized care options.</p>
+<p>If you are experiencing symptoms that may be related to lupus, <a href="/contact.html">scheduling a consultation</a> allows for a thorough evaluation and discussion of individualized care options.</p>
 
 <p></p>`,
     localAnswer: "Lupus (systemic lupus erythematosus, or SLE) is a chronic autoimmune disease in which the immune system attacks multiple body systems \u2014 joints, skin, kidneys, blood, and more. At Premier Rheumatology in Boca Raton, FL and Queens, NY, lupus care is led by board-certified rheumatologists experienced in protecting organs from long-term damage, with on-site biologic infusion therapy \u2014 including options such as belimumab \u2014 available in our Boca Raton office.",
@@ -859,7 +859,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If dryness or joint symptoms are affecting your quality of life, <a href="contact-us.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate management options.</p>
+<p>If dryness or joint symptoms are affecting your quality of life, <a href="/contact.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate management options.</p>
 
 <hr/>
 
@@ -867,7 +867,7 @@ const CONDITIONS = [
   { slug: 'scleroderma', title: 'Scleroderma', category: 'systemic-autoimmune', excerpt: 'Scleroderma is a chronic autoimmune condition characterized by inflammation and abnormal connective tissue changes that can affect the skin, joints, blood vessels, and internal organs. The course of scleroderma…', readTime: 4, featured: false,
     htmlBody: `<p>Scleroderma is a chronic autoimmune condition characterized by inflammation and abnormal connective tissue changes that can affect the skin, joints, blood vessels, and internal organs. The course of scleroderma varies widely, ranging from localized skin involvement to more systemic disease affecting multiple organ systems. Symptoms often develop gradually and may change over time.</p>
 
-<p>Because scleroderma can affect different parts of the body in different ways, early recognition and comprehensive <a href="rheumatology-services.html">rheumatologic care</a> are important for long-term management and monitoring.</p>
+<p>Because scleroderma can affect different parts of the body in different ways, early recognition and comprehensive <a href="/conditions.html">rheumatologic care</a> are important for long-term management and monitoring.</p>
 
 <h2>What Is Scleroderma?</h2>
 
@@ -960,7 +960,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes personalized care, careful monitoring, and coordination with other specialists when needed. Treatment plans are designed to address individual symptoms while supporting long-term health.</p>
 
-<p>For patients requiring advanced or <a href="infusion-therapy.html">infusion-based therapies</a>, these options are provided as part of comprehensive rheumatologic care.</p>
+<p>For patients requiring advanced or <a href="/florida.html#infusion">infusion-based therapies</a>, these options are provided as part of comprehensive rheumatologic care.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -1167,7 +1167,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you have ongoing autoimmune-related symptoms without a clear diagnosis, <a href="contact-us.html">scheduling a consultation</a> can help guide evaluation and long-term management.</p>
+<p>If you have ongoing autoimmune-related symptoms without a clear diagnosis, <a href="/contact.html">scheduling a consultation</a> can help guide evaluation and long-term management.</p>
 
 <p></p>` },
   { slug: 'vasculitis', title: 'Vasculitis', category: 'systemic-autoimmune', excerpt: 'Vasculitis refers to a group of autoimmune conditions characterized by inflammation of blood vessels. This inflammation can affect vessels of different sizes and may interfere with blood flow to organs and tiss…', readTime: 4, featured: false,
@@ -1238,7 +1238,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for moderate to severe disease</li>
 
-<li><a href="infusion-therapy.html">Infusion-based treatments</a> when clinically indicated</li>
+<li><a href="/florida.html#infusion">Infusion-based treatments</a> when clinically indicated</li>
 
 <li>Ongoing monitoring for disease activity and complications</li>
 </ul>
@@ -1266,7 +1266,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you are experiencing symptoms suggestive of vasculitis, <a href="contact-us.html">scheduling a consultation</a> allows for thorough evaluation and discussion of appropriate treatment options.</p>
+<p>If you are experiencing symptoms suggestive of vasculitis, <a href="/contact.html">scheduling a consultation</a> allows for thorough evaluation and discussion of appropriate treatment options.</p>
 
 <p></p>`,
     localAnswer: "Vasculitis is a group of autoimmune diseases that cause inflammation of blood vessels, which can damage organs such as the kidneys, lungs, skin, and nerves. At Premier Rheumatology in Boca Raton, FL and Queens, NY, board-certified rheumatologists diagnose and manage all major vasculitis subtypes \u2014 including ANCA-associated vasculitis (GPA, MPA, EGPA) \u2014 with corticosteroids, immunosuppressive drugs, and on-site biologic infusion therapy such as rituximab available in our Boca Raton office.",
@@ -1569,7 +1569,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Unexplained bone pain or fractures</li>
 
@@ -1590,7 +1590,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you have concerns about bone strength or abnormal bone test results, <a href="contact-us.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate management options.</p>
+<p>If you have concerns about bone strength or abnormal bone test results, <a href="/contact.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate management options.</p>
 
 <p></p>` },
   { slug: 'fragility-fractures', title: 'Fragility Fractures', category: 'bone-metabolic', excerpt: 'Fragility fractures are fractures that occur from low-impact events, such as a fall from standing height or less. They are often a sign of underlying bone weakness and commonly associated with conditions such a…', readTime: 4, featured: false,
@@ -1689,7 +1689,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes comprehensive evaluation of bone health and individualized treatment planning. We focus on fracture prevention, long-term bone strength, and coordinated care to support recovery and mobility.</p>
 
-<p>For patients who may benefit from advanced or <a href="infusion-therapy.html">infusion-based therapies</a>, these options are offered as part of a structured and monitored care plan.</p>
+<p>For patients who may benefit from advanced or <a href="/florida.html#infusion">infusion-based therapies</a>, these options are offered as part of a structured and monitored care plan.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -1962,7 +1962,7 @@ const CONDITIONS = [
 
 <h2>How Is Osteoarthritis Diagnosed?</h2>
 
-<p>Diagnosis typically involves a combination of clinical evaluation and imaging. A <a href="our-team.html">rheumatologist</a> may use:</p>
+<p>Diagnosis typically involves a combination of clinical evaluation and imaging. A <a href="/team.html">rheumatologist</a> may use:</p>
 
 <ul><li>Detailed review of symptoms and activity-related pain patterns</li>
 
@@ -2017,7 +2017,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If joint pain or stiffness is limiting your mobility or daily activities, <a href="contact-us.html">scheduling a consultation</a> can help identify the cause and explore appropriate treatment options tailored to your needs.</p>
+<p>If joint pain or stiffness is limiting your mobility or daily activities, <a href="/contact.html">scheduling a consultation</a> can help identify the cause and explore appropriate treatment options tailored to your needs.</p>
 
 <p></p>` },
   { slug: 'chronic-joint-pain', title: 'Chronic Joint Pain', category: 'degenerative-mechanical', excerpt: 'Chronic joint pain is a common reason individuals seek rheumatologic care. It refers to persistent discomfort, stiffness, or soreness affecting one or more joints for an extended period of time. Chronic joint p…', readTime: 4, featured: false,
@@ -2120,7 +2120,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes identifying the underlying contributors to chronic joint pain and developing a personalized care plan. We focus on long-term symptom management, functional improvement, and coordinated care when multiple factors are involved.</p>
 
-<p><a href="infusion-therapy.html">Advanced and infusion-based therapies</a> are considered when appropriate as part of a comprehensive treatment strategy.</p>
+<p><a href="/florida.html#infusion">Advanced and infusion-based therapies</a> are considered when appropriate as part of a comprehensive treatment strategy.</p>
 
 <h2>Schedule a Consultation</h2>
 
@@ -2130,7 +2130,7 @@ const CONDITIONS = [
   { slug: 'mechanical-back-pain', title: 'Mechanical Back Pain', category: 'degenerative-mechanical', excerpt: 'Mechanical back pain is one of the most common causes of discomfort affecting the spine. It typically results from strain, overuse, or structural stress on the muscles, joints, and supporting tissues of the bac…', readTime: 4, featured: false,
     htmlBody: `<p>Mechanical back pain is one of the most common causes of discomfort affecting the spine. It typically results from strain, overuse, or structural stress on the muscles, joints, and supporting tissues of the back. Symptoms can range from mild, intermittent discomfort to more persistent pain that interferes with daily activities, work, or sleep.</p>
 
-<p>While mechanical back pain is not usually caused by inflammation or <a href="rheumatology-services.html">autoimmune disease</a>, it can still significantly impact quality of life. Proper evaluation helps distinguish mechanical causes from inflammatory or systemic conditions that may require different management.</p>
+<p>While mechanical back pain is not usually caused by inflammation or <a href="/conditions.html">autoimmune disease</a>, it can still significantly impact quality of life. Proper evaluation helps distinguish mechanical causes from inflammatory or systemic conditions that may require different management.</p>
 
 <h2>What Is Mechanical Back Pain?</h2>
 
@@ -2169,7 +2169,7 @@ const CONDITIONS = [
 
 <li>Sudden lifting or twisting injuries</li>
 
-<li><a href="https://premierjointcare.com/conditions-we-treat/degenerative-mechanical-joint-conditions/">Degenerative</a> changes in spinal joints or discs</li>
+<li><a href="/conditions.html">Degenerative</a> changes in spinal joints or discs</li>
 
 <li>Core muscle weakness affecting <a href="../conditions.html">spinal</a> support</li>
 </ul>
@@ -2518,7 +2518,7 @@ const CONDITIONS = [
 <p></p>
 <h3>Schedule a Consultation</h3>
 <p></p>
-<p>If neck pain is limiting your movement or daily activities, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>
+<p>If neck pain is limiting your movement or daily activities, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>
 <p></p>` },
   { slug: 'shoulder-pain', title: 'Shoulder Pain', category: 'degenerative-mechanical', excerpt: 'Shoulder pain is a common complaint that can interfere with daily activities such as lifting, reaching, dressing, and sleeping. The shoulder is a complex joint with a wide range of motion, making it particularl…', readTime: 4, featured: false,
     htmlBody: `<p>Shoulder pain is a common complaint that can interfere with daily activities such as lifting, reaching, dressing, and sleeping. The shoulder is a complex joint with a wide range of motion, making it particularly vulnerable to strain, <a href="overuse-joint-injuries.html">overuse</a>, and degenerative changes. Pain may develop gradually or appear suddenly following activity or injury.</p>
@@ -2622,11 +2622,11 @@ const CONDITIONS = [
 
 <p>Our approach focuses on identifying the cause of shoulder pain and developing a personalized treatment plan. We emphasize restoring mobility, reducing pain, and preventing recurrence through ongoing management and monitoring.</p>
 
-<p>When shoulder pain is related to inflammatory conditions, advanced and <a href="infusion-therapy.html">infusion-based therapies</a> are considered as part of comprehensive care.</p>
+<p>When shoulder pain is related to inflammatory conditions, advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are considered as part of comprehensive care.</p>
 
 <h3>Schedule a Consultation</h3>
 
-<p>If shoulder pain is affecting your daily activities or quality of life, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>` },
+<p>If shoulder pain is affecting your daily activities or quality of life, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>` },
   { slug: 'knee-pain', title: 'Knee Pain', category: 'degenerative-mechanical', excerpt: 'Knee pain is a common reason patients seek medical evaluation and can affect individuals of all ages. Because the knee plays a central role in walking, standing, and weight-bearing, pain in this joint may signi…', readTime: 4, featured: false,
     htmlBody: `<p>Knee pain is a common reason patients seek medical evaluation and can affect individuals of all ages. Because the knee plays a central role in walking, standing, and weight-bearing, pain in this joint may significantly interfere with daily activities, work, and exercise. Knee pain can develop gradually over time or occur following activity or injury.</p>
 
@@ -2733,7 +2733,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If knee pain is limiting your mobility or daily activities, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>
+<p>If knee pain is limiting your mobility or daily activities, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and explore appropriate treatment options.</p>
 
 <p></p>` },
   // Inflammatory & Immune-Mediated Conditions
@@ -2941,7 +2941,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes rapid diagnosis, immediate treatment initiation, and close monitoring. We coordinate care to manage inflammation and reduce the risk of complications.</p>
 
-<p>Advanced and <a href="infusion-therapy.html">infusion-based therapies</a> are incorporated when appropriate.</p>
+<p>Advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are incorporated when appropriate.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -3016,7 +3016,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for persistent or systemic involvement</li>
 
-<li><a href="infusion-therapy.html">Infusion-based treatments</a> when clinically appropriate</li>
+<li><a href="/florida.html#infusion">Infusion-based treatments</a> when clinically appropriate</li>
 
 <li>Ongoing monitoring of organ function</li>
 </ul>
@@ -3025,7 +3025,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Joint pain with systemic symptoms</li>
 
@@ -3152,7 +3152,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If chronic pain and fatigue are affecting your daily activities, <a href="contact-us.html">scheduling a consultation</a> can help clarify whether fibromyalgia or another condition may be contributing to your symptoms.</p>
+<p>If chronic pain and fatigue are affecting your daily activities, <a href="/contact.html">scheduling a consultation</a> can help clarify whether fibromyalgia or another condition may be contributing to your symptoms.</p>
 
 <p></p>` },
   { slug: 'chronic-fatigue-syndrome', title: 'Chronic Fatigue Syndrome', category: 'soft-tissue-pain', excerpt: 'Chronic Fatigue Syndrome, also known as Myalgic Encephalomyelitis, is a complex condition characterized by profound fatigue that is not relieved by rest and is often worsened by physical or mental activity. The…', readTime: 4, featured: false,
@@ -3236,7 +3236,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Persistent fatigue with musculoskeletal symptoms</li>
 
@@ -3332,7 +3332,7 @@ const CONDITIONS = [
 
 <li>Stress management approaches</li>
 
-<li><a href="infusion-therapy.html">Infusion-based treatments</a> are not typically required</li>
+<li><a href="/florida.html#infusion">Infusion-based treatments</a> are not typically required</li>
 </ul>
 
 <p>Management is individualized based on symptom severity and functional goals.</p>
@@ -3356,7 +3356,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If muscle pain and stiffness are affecting your daily activities, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and guide appropriate management options.</p>` },
+<p>If muscle pain and stiffness are affecting your daily activities, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and guide appropriate management options.</p>` },
   { slug: 'tendinitis', title: 'Tendinitis', category: 'soft-tissue-pain', excerpt: 'Tendinitis is a common condition characterized by inflammation or irritation of a tendon, the tissue that connects muscle to bone. It often develops due to repetitive movements, overuse, or strain and can affec…', readTime: 4, featured: false,
     htmlBody: `<p>Tendinitis is a common condition characterized by inflammation or irritation of a tendon, the tissue that connects muscle to bone. It often develops due to repetitive movements, overuse, or strain and can affect tendons throughout the body, including the <a href="shoulder-pain.html">shoulders</a>, elbows, wrists, hips, knees, and ankles.</p>
 
@@ -3438,7 +3438,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Persistent tendon pain not improving with conservative care</li>
 
@@ -3511,7 +3511,7 @@ const CONDITIONS = [
 
 <li>Imaging studies when needed to assess bursae and surrounding tissues</li>
 
-<li><a href="rheumatology-services.html">Laboratory testing</a> if infection or inflammatory disease is suspected</li>
+<li><a href="/conditions.html">Laboratory testing</a> if infection or inflammatory disease is suspected</li>
 </ul>
 
 <p>Accurate diagnosis guides appropriate treatment.</p>
@@ -3650,7 +3650,7 @@ const CONDITIONS = [
 
 <p>Our approach emphasizes early identification, individualized treatment planning, and ongoing monitoring. We focus on reducing inflammation, maintaining spinal mobility, and preventing long-term complications.</p>
 
-<p>Advanced and <a href="infusion-therapy.html">infusion-based therapies</a> are incorporated when appropriate.</p>
+<p>Advanced and <a href="/florida.html#infusion">infusion-based therapies</a> are incorporated when appropriate.</p>
 
 <h3>Schedule a Consultation</h3>
 
@@ -3730,7 +3730,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="https://premierjointcare.com/">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Persistent lower back or buttock pain</li>
 
@@ -3929,7 +3929,7 @@ const CONDITIONS = [
 
 <li>Advanced therapies for persistent symptoms</li>
 
-<li><a href="infusion-therapy.html">Infusion-based treatments</a> when related to inflammatory disease</li>
+<li><a href="/florida.html#infusion">Infusion-based treatments</a> when related to inflammatory disease</li>
 </ul>
 
 <p>Management focuses on preserving mobility and function.</p>
@@ -3955,7 +3955,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If spinal pain or stiffness is affecting your daily life, <a href="contact-us.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate treatment options.</p>
+<p>If spinal pain or stiffness is affecting your daily life, <a href="/contact.html">scheduling a consultation</a> can help clarify the diagnosis and explore appropriate treatment options.</p>
 
 <p></p>` },
   // Sports & Overuse Injuries
@@ -4057,7 +4057,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If joint pain related to overuse is affecting your daily activities or performance, <a href="contact-us.html">scheduling a consultation</a> can help guide appropriate management strategies.</p>
+<p>If joint pain related to overuse is affecting your daily activities or performance, <a href="/contact.html">scheduling a consultation</a> can help guide appropriate management strategies.</p>
 
 <p></p>` },
   { slug: 'repetitive-strain-injuries', title: 'Repetitive Strain Injuries', category: 'sports-overuse', excerpt: 'Repetitive strain injuries develop when repeated motions place stress on muscles, tendons, and joints over time. These injuries are commonly associated with occupational tasks, computer use, and certain sports.…', readTime: 4, featured: false,
@@ -4139,7 +4139,7 @@ const CONDITIONS = [
 
 <h2>When to See a Rheumatologist</h2>
 
-<p>A <a href="rheumatology-services.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
+<p>A <a href="/conditions.html">rheumatology</a> evaluation may be appropriate if you experience:</p>
 
 <ul><li>Persistent pain despite ergonomic changes</li>
 
@@ -4251,7 +4251,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If sports-related inflammation is affecting your activity or recovery, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and guide appropriate care.</p>
+<p>If sports-related inflammation is affecting your activity or recovery, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and guide appropriate care.</p>
 
 <p></p>` },
   { slug: 'ligament-tendon-inflammation', title: 'Ligament & Tendon Inflammation', category: 'sports-overuse', excerpt: 'Ligament and tendon inflammation involves irritation of the connective tissues that support and stabilize joints. These conditions can cause pain, stiffness, and reduced function and are often related to overus…', readTime: 4, featured: false,
@@ -4322,7 +4322,7 @@ const CONDITIONS = [
 
 <li>Targeted interventions for persistent symptoms</li>
 
-<li><a href="infusion-therapy.html">Infusion-based treatments</a> when part of systemic inflammatory disease</li>
+<li><a href="/florida.html#infusion">Infusion-based treatments</a> when part of systemic inflammatory disease</li>
 </ul>
 
 <p>Early management supports recovery.</p>
@@ -4346,7 +4346,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If ligament or tendon inflammation is limiting your movement or activities, <a href="contact-us.html">scheduling a consultation</a> can help guide appropriate management options.</p>
+<p>If ligament or tendon inflammation is limiting your movement or activities, <a href="/contact.html">scheduling a consultation</a> can help guide appropriate management options.</p>
 
 <p></p>` },
   // General Rheumatologic Concerns
@@ -4549,7 +4549,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If inflammation persists without explanation, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and guide appropriate care.</p>
+<p>If inflammation persists without explanation, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and guide appropriate care.</p>
 
 <p></p>` },
   { slug: 'positive-autoimmune-blood-tests', title: 'Positive Autoimmune Blood Tests', category: 'general-rheumatologic', excerpt: 'Positive autoimmune blood tests can be concerning, especially when symptoms are mild or unclear. These test results may indicate immune system activity but do not always correspond to a specific autoimmune dise…', readTime: 4, featured: false,
@@ -4646,7 +4646,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If you have positive autoimmune blood tests and concerns about what they mean, <a href="contact-us.html">scheduling a consultation</a> can help clarify results and guide appropriate follow-up.</p>
+<p>If you have positive autoimmune blood tests and concerns about what they mean, <a href="/contact.html">scheduling a consultation</a> can help clarify results and guide appropriate follow-up.</p>
 
 <p></p>` },
   { slug: 'chronic-musculoskeletal-pain', title: 'Chronic Musculoskeletal Pain', category: 'general-rheumatologic', excerpt: 'Chronic musculoskeletal pain refers to persistent pain affecting muscles, joints, bones, or connective tissues lasting several months or longer. It can significantly affect mobility, energy levels, sleep, and o…', readTime: 4, featured: false,
@@ -4747,7 +4747,7 @@ const CONDITIONS = [
 
 <h3>Schedule a Consultation</h3>
 
-<p>If chronic musculoskeletal pain is affecting your daily life, <a href="contact-us.html">scheduling a consultation</a> can help clarify the cause and explore appropriate management options.</p>
+<p>If chronic musculoskeletal pain is affecting your daily life, <a href="/contact.html">scheduling a consultation</a> can help clarify the cause and explore appropriate management options.</p>
 
 <p></p>` },
 ];
