@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-06-01
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah.** Yonah / front-desk action — no code changes.
 **Implementer:** Yonah / front-desk staff (no code changes).
 **Depends on:** Independent of all engineering WOs. Companion to WO-003 Part A (Queens consolidation) and WO-009 (additional directories) — same claim-and-populate workflow, new target.
 
@@ -30,7 +30,7 @@ Claim or create the listing for **Dr. Bruce Stein, MD** and **Premier Rheumatolo
   - Provider: **Dr. Bruce Stein, MD**
   - Address: 261-12 E Williston Ave, Queens, NY 11001
   - Phone: (718) 347-8888
-  - Website: https://premierjointcare.com/new-york
+  - Website: https://www.premierjointcare.com/new-york.html
   - Specialty: Rheumatology / Rheumatologist
   - Online booking: enable pass-through to the contact form if Certainly Health allows it
   - If the directory retains a "previously known as Floral Park Arthritis" history field, populate it — preserves the legacy reputation while consolidating under Premier.

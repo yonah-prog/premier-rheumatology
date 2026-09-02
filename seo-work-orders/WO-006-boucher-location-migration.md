@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-28
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah.** Yonah / front-desk action — no code changes.
 **Implementer:** Yonah / front-desk staff (no code changes).
 **Depends on:** Independent — can run in parallel with WO-001/002/003/005.
 
@@ -52,7 +52,7 @@ Aggregators (Doximity, Medifind, npidb.org) typically refresh from NPPES within 
 
 NPPES alone is not enough — Healthgrades, US News, WebMD, and Doximity each maintain their own editorial profiles. Each needs a direct claim + edit.
 
-For each of the profiles below: claim the listing, update practice name to **Premier Rheumatology**, address to the Boca Raton suite above, phone to (561) 730-3894, website to **https://premierjointcare.com/florida**. Verify her bio mentions Boca Raton, FL prominently.
+For each of the profiles below: claim the listing, update practice name to **Premier Rheumatology**, address to the Boca Raton suite above, phone to (561) 730-3894, website to **https://www.premierjointcare.com/florida.html**. Verify her bio mentions Boca Raton, FL prominently.
 
 - [ ] Healthgrades — also fix specialty classification (currently "Internist"; should be Internal Medicine + Rheumatology)
 - [ ] US News

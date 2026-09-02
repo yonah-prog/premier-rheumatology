@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-31
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah.** Yonah / front-desk action — no code changes.
 **Implementer:** Yonah / front-desk staff (no code changes).
 **Depends on:** Independent of WO-001/WO-002/WO-007/WO-008. Companion to WO-005 (directory listings) — same workflow, additional targets.
 
@@ -31,7 +31,7 @@ For each directory, claim or create the listing for **Dr. Mouriel Boucher, DO** 
   - Provider: **Dr. Mouriel Boucher, DO**
   - Address: 2900 N Military Trl, Suite 230, Boca Raton, FL 33431
   - Phone: (561) 730-3894
-  - Website: https://premierjointcare.com/florida
+  - Website: https://www.premierjointcare.com/florida.html
   - Specialty: Rheumatology
   - Insurance: match current accepted list
 
@@ -43,7 +43,7 @@ For each directory, claim or create the listing for **Dr. Mouriel Boucher, DO** 
   - Provider: **Dr. Mouriel Boucher, DO**
   - Address: 2900 N Military Trl, Suite 230, Boca Raton, FL 33431
   - Phone: (561) 730-3894
-  - Website: https://premierjointcare.com/florida
+  - Website: https://www.premierjointcare.com/florida.html
   - Specialty: Rheumatology / Rheumatologist
   - Online booking: enable if Practo allows pass-through to our contact form
 

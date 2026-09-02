@@ -1,7 +1,7 @@
 # WO-012 — Infra: unblock git on the agent's repo mount (un-removable index.lock + missing push auth)
 
 **Type:** Infrastructure / DevOps (not SEO content)
-**Status:** ⏳ Partially mitigated 2026-06-04 — **local commits now possible; PUSH still blocked (no credential), so deploys still gated**
+**Status:** ✅ **RESOLVED 2026-09-02.** Pushes to `origin/main` work — four commits pushed on 2026-09-02 (`a42f2ca`, `3c17cea`, `534754e` plus a concurrent session's `00f1963`), each auto-deploying via Vercel. The index.lock / mount symptoms are not recurring. Reopen with fresh evidence if push or commit starts failing again.
 **Opened:** 2026-06-02 (midday pass)
 **Owner:** Human / repo admin (push auth + permanent mount fix cannot be resolved from the agent session)
 

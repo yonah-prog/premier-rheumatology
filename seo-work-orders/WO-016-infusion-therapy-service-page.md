@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-06-11
-**Status:** ⏳ DRAFTED — awaiting Yonah's approval, then Claude Code to implement. NOT yet built.
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah — ready for Claude Code to build.** Not yet built. Note for the implementer: as of `534754e`, 12 condition-page links that used to point at the dead legacy slug `infusion-therapy.html` now point at `/florida.html#infusion` as an interim target. Repoint all 12 at `/infusion-therapy.html` once this page ships.
 **Implementer:** Claude Code (engineering)
 **Depends on:** Nothing to build the page. Goes live on next deploy (gated by WO-012 push auth, like everything else). Add to `sitemap.xml` (WO-015) when created.
 **Estimated effort:** 45–75 minutes of agent time.

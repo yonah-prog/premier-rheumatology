@@ -1,6 +1,6 @@
 # WO-014 — Trim over-length meta descriptions on index / about / team
 
-**Status:** IMPLEMENTED in repo 2026-06-08 (midday pass) — all 3 edits applied; rendered lengths 159 / 160 / 162 chars (≤162). build.mjs verified not to regenerate `<head>` (preserves static meta). Pending push + deploy (gated by WO-012). Verify live snippet post-deploy, then close.
+**Status:** 🔁 **REOPENED 2026-09-02.** The 2026-06-08 trim shipped, but `/about.html` has since drifted back to **168 characters** — above this WO's ≤162 target. `/` (149) and `/team.html` (160) are still within target. Likely re-lengthened by the 2026-09-01 meta rewrite (`6b59ed4`); that copy was authored deliberately by the SEO agent, so the trim needs a content decision rather than a blind re-cut.
 **Priority:** Low-to-medium. Low risk, quick win. Independent of WO-008 (these pages are LIVE at 200, so the fix takes effect on the next deploy — no routing dependency).
 **Owner to implement:** Claude Code (after Yonah approves)
 **Type:** On-page SEO (SERP snippet quality)

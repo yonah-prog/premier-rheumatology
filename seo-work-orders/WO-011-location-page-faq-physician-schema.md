@@ -1,6 +1,6 @@
 # WO-011 — Location-page FAQ blocks + Physician schema (Florida & New York)
 
-**Status:** ✅ IMPLEMENTED 2026-06-04 (morning deep pass) — committed locally, **pending push (blocked by WO-012 push auth)**. Drafted 2026-06-02.
+**Status:** ✅ **DELIVERED — pushed and verified live 2026-09-02.** FAQPage and Physician JSON-LD both present on `/florida.html` and `/new-york.html`, alongside the visible FAQ section. The WO-012 push blocker that gated this is resolved.
 
 > **2026-06-04 implementation note.** Done under the standing autonomy grant (structured data + FAQ blocks + location copy are pre-authorized). Changes: added a location-aware FAQ section (`LocFAQ`) + `faqs` arrays to `location.jsx`; added `FAQPage` + `Physician` JSON-LD to the `<head>` of `florida.html` and `new-york.html` (paste-ready blocks from Appendix A). Verified via an isolated `esbuild`+`react-dom/server` SSR build (the repo's bundled esbuild is a macOS binary and won't run in the Linux agent sandbox, so the in-repo `node build.mjs` can't be exercised here — verification used a clean temp install of `esbuild@0.25.0`): both pages SSR with a 6-question `<details>` FAQ block whose text matches the JSON-LD **verbatim**; `grep -c FAQPage` = 1 each; Physician = 2 (FL) / 1 (NY); all `ld+json` blocks parse as valid JSON; canonicals unchanged. **Remaining human steps:** push to deploy (WO-012), then validate both live pages in Google's Rich Results Test and re-run the AI probes ~2 weeks post-deploy.
 **Priority:** High (net-new, NOT blocked by WO-008 — these pages already serve & index at `.html`)

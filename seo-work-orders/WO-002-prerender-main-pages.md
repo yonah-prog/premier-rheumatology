@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-25
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **DELIVERED** — approved 2026-09-02 retroactively; work already shipped. Verified live 2026-09-02: all main pages serve prerendered SSR markup.
 **Implementer:** Claude Code (apply, commit, push, deploy)
 **Depends on:** WO-001 (the prerender build step must already be in `main`)
 

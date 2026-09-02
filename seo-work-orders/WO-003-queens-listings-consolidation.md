@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-27
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah.** Off-site directory work is Yonah / front-desk; the small redirect + cross-link portion is ready for Claude Code.
 **Implementer:** Mostly Yonah / front-desk (off-site directory work). Claude Code only handles a small redirect + cross-link step (Part B).
 **Depends on:** Independent of WO-001/WO-002 — can start in parallel.
 
@@ -20,7 +20,7 @@ This is mostly clerical work, but the SEO and AI-citation lift for the Queens ma
 
 ## Part A — Directory profile updates (Yonah / front-desk staff)
 
-For each profile below, update the practice name, address (keep `261-12 E Williston Ave, Queens/Floral Park, NY 11001`), phone (`(718) 347-8888`), and **website** to `https://premierjointcare.com/new-york` (or `/conditions/` deep links where the directory supports a "services" field):
+For each profile below, update the practice name, address (keep `261-12 E Williston Ave, Queens/Floral Park, NY 11001`), phone (`(718) 347-8888`), and **website** to `https://www.premierjointcare.com/new-york.html` (or `/conditions/` deep links where the directory supports a "services" field):
 
 - Healthgrades — https://www.healthgrades.com/physician/dr-bruce-stein-x3qwb (claim listing)
 - US News Doctors — https://health.usnews.com/doctors/bruce-stein-416298
@@ -43,7 +43,7 @@ Small. Two things:
 
 ### B1. If Yonah still controls `floralparkarthritis.com` DNS/hosting
 
-Set up a sitewide 301 redirect from that domain to `https://premierjointcare.com/new-york`. Keep the domain registered indefinitely so the link equity transfers. This is a DNS/Vercel setting outside this repo, but worth a one-line note in the repo's README so it isn't forgotten.
+Set up a sitewide 301 redirect from that domain to `https://www.premierjointcare.com/new-york.html`. Keep the domain registered indefinitely so the link equity transfers. This is a DNS/Vercel setting outside this repo, but worth a one-line note in the repo's README so it isn't forgotten.
 
 If we don't control it anymore: skip B1 and just do B2.
 

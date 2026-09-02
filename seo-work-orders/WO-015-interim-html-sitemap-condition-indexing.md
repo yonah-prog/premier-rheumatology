@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-06-09
-**Status:** ✅ IMPLEMENTED in repo 2026-06-10 (morning deep pass) — pending deploy via WO-012. `sitemap.xml` rewritten to 52 working URLs (apex `/` + 6 main `.html` + all 45 `/conditions/*.html`); zero extensionless entries; `robots.txt` reference unchanged. `build.mjs` copies the repo through to `dist`, so the new sitemap propagates on next deploy. GSC sitemap resubmit + index requests (RA/lupus/gout/osteoporosis/psoriatic) remain a human step post-deploy.
+**Status:** ✅ **DELIVERED — deployed and verified live 2026-09-02.** The WO-012 deploy gate is gone. `sitemap.xml` now carries 54 URLs (grown from 52 by the 2026-09-01 blog additions), all on the `www` host after `534754e`, all returning 200. `robots.txt` points at the www sitemap.
 **Implementer:** Claude Code (engineering)
 **Depends on:** Nothing. Deliberately decoupled from WO-008 (clean URLs) and WO-013 (apex serving). Ship on next deploy.
 **Relationship to WO-007:** This is the *interim, ship-now* version of WO-007. WO-007 auto-generates the sitemap at build time but was parked behind WO-008/WO-013. This WO ships a correct sitemap **today** using URLs that already return 200, then WO-007 can later automate it. If WO-007 ships first with `.html` URLs, this WO is satisfied — close it.

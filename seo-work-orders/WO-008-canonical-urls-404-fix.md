@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-31
-**Status:** 🚨 HIGH PRIORITY — awaiting Yonah's approval
+**Status:** ✅ **RESOLVED 2026-09-02.** Root cause was the legacy `routes` block in `vercel.json`: Vercel ignores `redirects`/`cleanUrls`/`trailingSlash` whenever `routes` is present, so all 122 redirects were dead. Fixed in `3c17cea`. A second defect of the same class — canonicals declaring the apex, which 307s to www — was fixed in `534754e`. Verified live: all 54 canonical URLs return **200 as literally written**, and each page's canonical self-references.
 **Implementer:** Claude Code (engineering)
 **Supersedes priority of:** WO-007 (sitemap completion). WO-008 must ship first; WO-007 is moot until canonical URLs serve content.
 **Estimated effort:** 30–60 minutes including verification.

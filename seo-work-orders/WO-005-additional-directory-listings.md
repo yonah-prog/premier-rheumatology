@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-28
-**Status:** ⏳ Awaiting Yonah's approval
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah.** Yonah / front-desk action — no code changes.
 **Implementer:** Yonah / front-desk staff (no code changes).
 **Depends on:** Independent of WO-001/WO-002 — can start in parallel. Companion to WO-003 (Queens directory consolidation + Boca directory creation).
 
@@ -34,7 +34,7 @@ For each, claim or create the listing and set practice name, address, phone, and
   - Provider: **Dr. Mouriel Boucher, DO**
   - Address: 2900 N Military Trl, Suite 230, Boca Raton, FL 33431
   - Phone: (561) 730-3894
-  - Website: https://premierjointcare.com/florida
+  - Website: https://www.premierjointcare.com/florida.html
 
 ### A2. Tebra
 - URL: https://www.tebra.com/care/rheumatologists/boca-raton-fl/

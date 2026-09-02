@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-27
-**Status:** ⏳ Awaiting Yonah's approval. **Do NOT start until WO-001 has shipped to production** — most of this work is invisible to crawlers without the prerender step in place.
+**Status:** ✅ **APPROVED 2026-09-02 by Yonah — and now UNBLOCKED.** The WO-001 prerender dependency shipped and is verified live, so this content work is no longer invisible to crawlers. Ready for Claude Code to implement.
 **Implementer:** Claude Code (content edits to the `conditions-data.jsx` dataset, plus a small set of additions to `condition-article.jsx` if needed for new components).
 **Depends on:** WO-001 (prerender) must be in `main` and live on premierjointcare.com.
 

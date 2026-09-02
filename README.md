@@ -22,7 +22,7 @@ client-rendered) so the rollout can be incremental.
 
 ## External properties to remember
 
-- **floralparkarthritis.com** — the legacy domain for Premier Rheumatology's Queens office (formerly Floral Park Arthritis, PC, Dr. Bruce Stein, MD). If we still control DNS, set a sitewide 301 to `https://premierjointcare.com/new-york` and keep the domain registered indefinitely so the link equity transfers. If we've lost control, prioritize WO-003 directory consolidation instead. (See `seo-work-orders/WO-003-queens-listings-consolidation.md`.)
+- **floralparkarthritis.com** — the legacy domain for Premier Rheumatology's Queens office (formerly Floral Park Arthritis, PC, Dr. Bruce Stein, MD). If we still control DNS, set a sitewide 301 to `https://www.premierjointcare.com/new-york.html` and keep the domain registered indefinitely so the link equity transfers. If we've lost control, prioritize WO-003 directory consolidation instead. (See `seo-work-orders/WO-003-queens-listings-consolidation.md`.)
 
 ## Pages with structured data
 
