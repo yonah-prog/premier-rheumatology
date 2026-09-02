@@ -2,7 +2,7 @@
 
 **Author:** Cowork SEO agent
 **Date:** 2026-05-30
-**Status:** ✅ **DELIVERED 2026-09-02.** Both halves are now done. Coverage was already complete; the missing half — build-time regeneration — is implemented: `build.mjs` now derives `sitemap.xml` from its `PAGES` list (itself auto-discovered from `conditions/` and `blog/`), so the sitemap cannot fall behind as pages are added. Host and priorities match the page heads' canonicals. Verified: the generated URL set is identical to the previously hand-maintained sitemap.
+**Status:** ✅ **DELIVERED 2026-09-02.** Both halves are now done. Coverage was already complete; the missing half — build-time regeneration — is implemented: `build.mjs` now derives `sitemap.xml` from its `PAGES` list (itself auto-discovered from `conditions/` and `blog/`), so the sitemap cannot fall behind as pages are added. Host and priorities match the page heads' canonicals. Verified: the generated URL set is identical to the previously hand-maintained sitemap. The hand-maintained `sitemap.xml` has been deleted from the repo so the generator is the single source of truth — it is written straight into `dist/` at build time.
 **Implementer:** Claude Code (engineering)
 **Depends on:** WO-001/WO-002/WO-004 are already deployed. This is the next on-site lever.
 **Estimated effort:** 20–40 minutes of agent time.
